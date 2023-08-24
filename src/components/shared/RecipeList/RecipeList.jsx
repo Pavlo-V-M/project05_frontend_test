@@ -7,8 +7,13 @@ const RecipeList = ({ items, onDeleteRecipe }) => {
       <h2 className={styles.coctailName}>{drink} </h2>
       <p className={styles.text}>ingredients</p>
       <p className={styles.description}>{instructions}</p>
-      <button className={styles.seeRecipe}>See recipe</button>
-      <button onClick={() => onDeleteRecipe}>Delete </button>
+      <div className={styles.btns}>
+        <button className={styles.seeRecipe}>See recipe</button>
+        <button
+          className={styles.delete}
+          onClick={() => onDeleteRecipe}
+        ></button>
+      </div>
     </li>
   ));
   return <ul className={styles.list}>{elements}</ul>;
