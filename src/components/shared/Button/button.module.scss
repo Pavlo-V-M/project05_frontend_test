@@ -1,0 +1,25 @@
+.btn {
+  width: 151px;
+  height: 46px;
+  border-radius: 42px;
+  padding: 14px 40px;
+  background-color: rgba(22, 31, 55, 1);
+  color: rgba(243, 243, 243, 1);
+  border-color: rgba(22, 31, 55, 1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(243, 243, 243, 1);
+    color: rgba(22, 31, 55, 1);
+    border-color: rgba(243, 243, 243, 1);
+  }
+}
+
+.delete {
+  margin-left: 8px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: rgba(22, 31, 55, 1);
+  //   padding: 11px 32px;
+}

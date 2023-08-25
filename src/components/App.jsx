@@ -1,6 +1,8 @@
 import MainPageTitle from './shared/MyPageTitle/MyPageTitle';
+import items from '../../src/coctails.json';
 
 import '../styles/styles.scss';
+import RecipeList from './shared/RecipeList/RecipeList';
 export const App = () => {
   return (
     <div
@@ -14,6 +16,7 @@ export const App = () => {
     // }}
     >
       <MainPageTitle text="My recipes" />
+      <RecipeList items={items} />
     </div>
   );
 };
