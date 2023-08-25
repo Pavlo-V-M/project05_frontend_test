@@ -1,3 +1,5 @@
+import Button from '../Button/Button';
+import ButtonDelete from '../Button/ButtonDelete';
 import styles from './recipeList.module.scss';
 
 const RecipeList = ({ items, onDeleteRecipe }) => {
@@ -8,11 +10,8 @@ const RecipeList = ({ items, onDeleteRecipe }) => {
       <p className={styles.text}>ingredients</p>
       <p className={styles.description}>{instructions}</p>
       <div className={styles.btns}>
-        <button className={styles.seeRecipe}>See recipe</button>
-        <button
-          className={styles.delete}
-          onClick={() => onDeleteRecipe}
-        ></button>
+        <Button>See recipe</Button>
+        <ButtonDelete onClick={() => onDeleteRecipe} />
       </div>
     </li>
   ));
