@@ -1,7 +1,7 @@
 import MainPageTitle from './shared/MyPageTitle/MyPageTitle';
 import items from '../../src/coctails.json';
 
-import '../index.scss';
+import '../styles/styles.scss';
 import RecipeList from './shared/RecipeList/RecipeList';
 export const App = () => {
   return (
