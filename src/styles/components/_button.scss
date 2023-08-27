@@ -1,25 +1,35 @@
 button {
   display: inline-flex;
-  padding: 16px 41px;
+  padding: 14px 40px;
   font-family: inherit;
-  font-size: 16px;
-  line-height: 1.12;
+  font-size: 14px;
+  line-height: 1.28;
   color: var(--secondary-text-color);
   background-color: var(--primary-btn-bg-color);
   cursor: pointer;
-
-  // letter-spacing: ;
-  // border: 2px;
+  border-color: transparent;
   border-radius: 42px;
   &:hover,
   &:focus {
     color: var(--primary-white-color);
     background-color: var(--hover-btn-bg-color);
   }
+
+  // &:active {
+  //   border-color: var(--active-btn-border-color);
+  // }
 }
 
-// .button-disabled {
-//   @extend .button;
-//   color: var(--primary-white-color);
-//   background-color: var(--disabled-btn-bg-color);
-// }
+.button-disabled {
+  @extend button;
+  color: var(--primary-white-color);
+  background-color: var(--disabled-btn-bg-color);
+}
+
+@media screen and (min-width: 768px) {
+  button {
+  padding: 18px 44px;
+  font-size: 16px;
+  line-height: 1.12;
+  }
+}
