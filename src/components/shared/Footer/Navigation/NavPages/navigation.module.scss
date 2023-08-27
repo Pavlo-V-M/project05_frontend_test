@@ -1,0 +1,49 @@
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .navigation {
+    display: block;
+      width: 768px;
+      padding-left: 32px;
+      padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .navigation {
+      width: 1440px;
+      padding-left: 100px;
+      padding-right: 100px;
+  }
+}
+
+
+
+
+
+.nav {
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+.pages {
+  list-style: none;
+  
+  margin: 0;
+  padding: 0;
+  margin-bottom: 14px;
+}
+
+.link_pages {
+  text-decoration: none;
+  color: var(--primary-text-color) 
+}  
+
+  
+
+  
+

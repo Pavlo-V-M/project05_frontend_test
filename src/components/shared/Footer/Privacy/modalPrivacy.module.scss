@@ -1,0 +1,36 @@
+
+.privacy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+
+    margin-top: 80px;
+    margin-bottom: 18px;
+
+    opacity: 0.5;
+  
+    & > p:first-child {
+      margin-bottom: 14px;
+    }
+  }
+
+  .privacy_rules, .privacy_rights {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+
+    font-family: "Manrope", sans-serif;
+  }
+
+ .modal_privacy {
+    display: grid;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 10px;
+ }
+
+  .btn {
+    width: 120px;
+  }

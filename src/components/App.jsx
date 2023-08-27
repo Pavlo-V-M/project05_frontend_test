@@ -1,6 +1,9 @@
 import MainPageTitle from './shared/MyPageTitle/MyPageTitle';
 import items from '../../src/coctails.json';
 
+//My Footer
+import Footer from './shared/Footer/Footer.jsx'
+
 import '../index.scss';
 import RecipeList from './shared/RecipeList/RecipeList';
 export const App = () => {
@@ -17,6 +20,7 @@ export const App = () => {
     >
       <MainPageTitle text="My recipes" />
       <RecipeList items={items} />
+      <Footer />
     </div>
   );
 };

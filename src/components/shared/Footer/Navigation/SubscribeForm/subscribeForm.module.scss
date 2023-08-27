@@ -1,0 +1,40 @@
+.subscribe {
+    max-width: 335px;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+  
+  
+    &__email {
+      margin-bottom: 20px;
+    }
+  
+    // &__button {
+    //   margin-top: 20px;
+    // }
+  }
+
+  .subscribe_text {
+    margin-bottom: 24px;
+    max-width: 335px;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+.input input,
+.input button {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 25px;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+}
+
+.input button {
+  cursor: pointer;
+}
