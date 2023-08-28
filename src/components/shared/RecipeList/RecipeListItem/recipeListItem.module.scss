@@ -1,21 +1,23 @@
 .item {
-  // height: 360px;
   margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 }
 
 .picture {
-  display: block;
-  max-width: 100%;
-  height: auto;
-
   margin-bottom: 18px;
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 .coctailName {
   font-family: inherit;
   font-weight: 500;
   font-size: 18px;
-  line-height: 1, 33;
-  color: rgba(243, 243, 243, 1);
+  line-height: 1.33;
+  color: var(--primary-text-color);
   margin-bottom: 4px;
 
   @media (min-width: 768px) {
@@ -24,19 +26,45 @@
 }
 .text {
   font-family: inherit;
+  font-weight: 500;
   color: rgba(243, 243, 243, 0.5);
   margin-bottom: 18px;
-  font-size: 14px;
-  line-height: 1, 3;
+  font-size: inherit;
+  line-height: 1.33;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.13;
+    margin-bottom: 24px;
+  }
 }
 .description {
-  color: rgba(243, 243, 243, 1);
+  font-family: inherit;
+  color: var(--primary-text-color);
   height: 110px;
-  font-size: 14px;
-  line-height: 1, 13;
+  font-size: inherit;
+  line-height: 1.29;
   margin-bottom: 18px;
   max-width: 100%;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+    margin-bottom: 24px;
+  }
 }
 .btns {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.iconDelete {
+  width: 24px;
+  height: 24px;
+  color: var(--primary-text-color);
+
+  &:hover,
+  &:focus {
+    color: var(--hover-btn-bg-color);
+  }
 }
