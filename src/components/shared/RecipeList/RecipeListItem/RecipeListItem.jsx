@@ -1,6 +1,7 @@
 import Button from '../../Button/Button';
 import ButtonDelete from '../../Button/ButtonDelete';
 import styles from './recipeListItem.module.scss';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const RecipeListItem = ({
   drinkThumb,
@@ -16,7 +17,9 @@ const RecipeListItem = ({
       <p className={styles.description}>{instructions}</p>
       <div className={styles.btns}>
         <Button>See recipe</Button>
-        <ButtonDelete onClick={() => onDeleteRecipe} />
+        <ButtonDelete onClick={() => onDeleteRecipe}>
+          <RiDeleteBin6Line className={styles.iconDelete} />
+        </ButtonDelete>
       </div>
     </li>
   );

@@ -1,4 +1,4 @@
-button {
+.button {
   display: inline-flex;
   padding: 14px 40px;
   font-family: inherit;
@@ -20,16 +20,16 @@ button {
   // }
 }
 
-.button-disabled {
-  @extend button;
-  color: var(--primary-white-color);
-  background-color: var(--disabled-btn-bg-color);
-}
+// .button-disabled {
+//   @extend button;
+//   color: var(--primary-white-color);
+//   background-color: var(--disabled-btn-bg-color);
+// }
 
 @media screen and (min-width: 768px) {
-  button {
-  padding: 18px 44px;
-  font-size: 16px;
-  line-height: 1.12;
+  .button {
+    padding: 18px 44px;
+    font-size: 16px;
+    line-height: 1.12;
   }
 }
