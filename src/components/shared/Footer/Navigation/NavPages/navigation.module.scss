@@ -1,33 +1,62 @@
 
 .navigation {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+          display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+}
+
+    @media screen and (min-width: 1440px) {
+      
+    }
+}
+
+
+.navigation_follow {
   display: flex;
-  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+        display: flex;
+        gap: 110px;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 389px;
+}
 }
 
-@media screen and (min-width: 768px) {
-  .navigation {
-    display: block;
-      width: 768px;
-      padding-left: 32px;
-      padding-right: 32px;
-  }
-}
 
-@media screen and (min-width: 1440px) {
-  .navigation {
-      width: 1440px;
-      padding-left: 100px;
-      padding-right: 100px;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 .nav {
+  
     margin-top: 40px;
-    margin-right: 20px;
 }
 
 .pages {

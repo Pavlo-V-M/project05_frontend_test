@@ -7,13 +7,13 @@ import css from "./NavPages/navigation.module.scss"
 
 const Navigation = () => {
   return (
-    <div>
       <div className={css.navigation}>
-      <FollowUs />
-      <Nav />
+        <div className={css.navigation_follow}>
+          <FollowUs/>
+          <Nav />
+         </div>
+          <SubscribeForm />
       </div>
-      <SubscribeForm />
-    </div>
   );
 };
 
