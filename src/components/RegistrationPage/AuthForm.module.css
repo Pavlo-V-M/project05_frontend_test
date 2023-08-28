@@ -1,0 +1,129 @@
+.auth_form {
+    position: absolute;
+    top: 50%;
+    left: 100px; 
+    transform: translateY(-50%);
+    padding: 20px;
+}
+
+.form_group {
+    margin-bottom: 15px; 
+  }
+
+.title{
+    color: rgba(243, 243, 243, 1);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+.form_group {
+    margin-bottom: 15px;
+    position: relative;
+}
+ 
+.input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input {
+    background: none;
+    width: 376px;
+    height: 56px;
+    border-radius: 200px;
+    opacity: 80%;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    padding-left: 24px; 
+    padding-right: 48px;
+    transition: border 0.3s, color 0.3s; 
+    color: white; 
+}
+.input.active {
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    background-color: transparent; 
+}
+.input:focus {
+    outline: none;
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    background-color: transparent; 
+    color: white; 
+}
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s; 
+}
+
+.input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+.eye_btn {
+    width: 48px; 
+    height: 100%; 
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    color: rgba(243, 243, 243, 0.5);
+}
+.eyeIcon {
+    position: relative;
+    cursor: pointer;
+}
+.error_message {
+    color: rgba(243, 243, 243, 0.5);
+    font-size: 12px;
+    margin-top: 5px; 
+    display: block; 
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.sign_button {
+    width: 400px;
+    border-radius: 42px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+}
+.sign_link {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-decoration: underline;
+    margin-top: 14px;
+    color: rgba(243, 243, 243, 1);
+}
+
+.image_half {
+    flex: 1; 
+    background: url('/src/images/BackgroundImage.png') no-repeat center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .auth_form {
+        left: 5%; 
+    }
+}
