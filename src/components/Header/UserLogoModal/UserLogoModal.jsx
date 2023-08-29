@@ -37,8 +37,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     
   return (
       <div>
-        <button onClick={openModal}>
-    <SvgButtonModal/>
+        <button onClick={openModal} className={styles.modal__burger} >
+        <SvgButtonModal className={styles.modal__burger} />
        </button>
 
     {isModalOpen && (
@@ -48,7 +48,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
            <button className={styles["close-button"]} onClick={closeModal}>
             <SvgButtonClose  />
             </button>     
-            <Navigation className={styles["modal-navigation"]} />
+            <Navigation/>
         </div>
     </div>
 )}

@@ -1,5 +1,6 @@
 import MainPageTitle from './shared/MyPageTitle/MyPageTitle';
 import items from '../../src/coctails.json';
+import Header from './Header/Header/Header';
 
 import '../index.scss';
 import RecipeList from './shared/RecipeList/RecipeList';
@@ -15,6 +16,7 @@ export const App = () => {
     //   color: '#010101',
     // }}
     >
+      <Header/>
       <MainPageTitle text="My recipes" />
       <RecipeList items={items} />
     </div>

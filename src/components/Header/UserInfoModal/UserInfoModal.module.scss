@@ -23,8 +23,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    gap: 5px;
+    
 }
+
 
 
 
@@ -76,8 +78,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 335px;
-    height: 345px;
+    width: 177px;
+    height: 134px;
 }
 
 
@@ -99,4 +101,9 @@
     width: 285px;
     height: 54px;
     padding-left: 49px;
+}
+
+.button__edit_profile{
+    width: 141;
+    height: 18px;
 }

@@ -1,12 +1,14 @@
 import React from "react";
+import styles from "./Avatar.module.scss"
+
 
 
 const Avatar = ({ avatarUrl }) => {
   return (
     <img
-      src={avatarUrl || "https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"}
+      src={avatarUrl || "../../../images/header/user.png"}
       alt=""
-      width="75"
+      className={styles.header__img}
     />
   );
 };

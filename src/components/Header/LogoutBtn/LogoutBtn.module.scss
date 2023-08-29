@@ -1,11 +1,13 @@
 
 .logoutButton {
+    justify-content: center;
     color: black;
     border: none;
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 42px;
     cursor: pointer;
     margin: 5px;
+    width: 141px;
 }
 
 .modalOverlay {
@@ -31,7 +33,7 @@
     align-items: center;
     text-align: center;
     width: 335px;
-    height: 345px;
+    height: 193px;
 }
 
 .closeButton {
