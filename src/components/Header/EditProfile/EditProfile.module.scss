@@ -10,6 +10,10 @@
         width: 335px;
         height: 345px;
         position: relative;
+        @media screen and (min-width: 768px) {
+        width: 450px;
+            }
+         
 }
 
 .modal-overlay {
@@ -34,6 +38,9 @@
     margin-top: 20px;
     background-color: transparent;
     color: var(--primary-text-color);
+    @media screen and (min-width: 768px) {
+            width: 400px;
+        }
     
 }
 
@@ -66,4 +73,7 @@
     color:var(#161f37);
     border: 1px solid gray;
     background-color: var(#F3F3F3);
+    @media screen and (min-width: 768px) {
+            width: 400px;
+        }
 }
