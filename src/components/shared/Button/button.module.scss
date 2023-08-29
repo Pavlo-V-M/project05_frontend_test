@@ -1,25 +1,42 @@
-// .btn {
-//   width: 151px;
-//   height: 46px;
-//   border-radius: 42px;
-//   padding: 14px 40px;
-//   background-color: rgba(22, 31, 55, 1);
-//   color: rgba(243, 243, 243, 1);
-//   border-color: rgba(22, 31, 55, 1);
-//   cursor: pointer;
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  border-radius: 42px;
+  padding: 14px 40px;
+  background-color: var(--hover-btn-bg-color);
+  color: var(--primary-text-color);
+  border-color: transparent;
+  cursor: pointer;
 
-//   &:hover {
-//     background-color: rgba(243, 243, 243, 1);
-//     color: rgba(22, 31, 55, 1);
-//     border-color: rgba(243, 243, 243, 1);
-//   }
-// }
+  &:hover,
+  &:focus {
+    background-color: var(--primary-text-color);
+    color: var(--hover-btn-bg-color);
+    border-color: transparent;
+  }
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 18px 44px;
+  }
+}
 
-// .delete {
-//   margin-left: 8px;
-//   width: 46px;
-//   height: 46px;
-//   border-radius: 50%;
-//   background-color: rgba(22, 31, 55, 1);
-//   //   padding: 11px 32px;
-// }
+.delete {
+  margin-left: 8px;
+  border-radius: 50%;
+  background-color: var(--hover-btn-bg-color);
+  border-color: transparent;
+  padding: 11px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-text-color);
+    color: var(--hover-btn-bg-color);
+    border-color: transparent;
+  }
+
+  @media (min-width: 768px) {
+    padding: 15px 16px;
+  }
+}

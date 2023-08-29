@@ -4,21 +4,28 @@
   width: 100%;
   height: 100%;
   // background-color: ;
+  background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 300ms linear, visibility 300 ms linear;
 }
 
 .modal {
   width: 335px;
   min-height: 193px;
+  max-height: 80vh;
   background-color: var(--secondary-bg-blue-color);
   position: absolute;
   top: 50%;
   left: 50%;
   padding-left: 25px;
   padding-right: 25px;
-  // transform: translate(-50%, -50%) scale(1);
-  // transition: transform 300ms linear;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 300ms linear;
+
+  overflow: auto;
 }
+
+
+
 
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0);
