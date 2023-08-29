@@ -1,4 +1,8 @@
-.sign_button { 
+
+/* THIS FILE REBASED */
+
+/* 
+ .sign_button { 
     width: 140px; 
     border-radius: 42px; 
     border: 1px solid rgba(243, 243, 243, 0.2); 
@@ -14,16 +18,19 @@
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
-} 
+ }  
+*/
  
-.sign_button:hover { 
+/* .sign_button:hover { 
     background-color: rgba(243, 243, 243, 1); 
     color: rgba(22, 31, 55, 1); 
 } 
- 
-.welcome_form { 
+  */
+
+  /* 
+  
+  .welcome_form { 
     width: 485px; 
-    /* padding: 20px; */ 
      
     color: rgba(243, 243, 243, 1); 
     position: absolute; 
@@ -35,12 +42,17 @@
     line-height: 24px; 
     letter-spacing: -0.02em; 
 } 
- 
+*/
+
+/* 
 .button_form { 
     padding-top: 40px; 
     display: flex; 
     gap: 10px; 
-} 
+}  
+*/
+
+/* 
 .title { 
     color: rgba(243, 243, 243, 1); 
     font-size: 40px; 
@@ -49,8 +61,10 @@
     letter-spacing: -0.02em; 
     text-align: left; 
     margin-bottom: 14px; 
-} 
-.image_half { 
+}
+  */
+
+  /* .image_half { 
     flex: 1;  
     background: url('/src/images/BackgroundImage.png') no-repeat center; 
     background-size: cover; 
@@ -59,4 +73,4 @@
     right: 0; 
     width: 50%; 
     height: 100%; 
-  }
+  } */
