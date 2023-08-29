@@ -3,6 +3,8 @@ import styles from "./UserInfoModal.module.scss";
 import Avatar from "../Avatar/Avatar";
 import EditProfileModal from "../EditProfile/EditProfile";
 import LogoutBtn from "../LogoutBtn/LogoutBtn";
+import {HiOutlinePencil} from "react-icons/hi"
+
 
 const UserInfoModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +60,7 @@ const handleModalClick = (event) => {
       {isModalInfoOpen && (
         <div className={styles.modal_overlay_info} onClick={ModalInfoClose}>
           <div className={styles.modal_info} onClick={handleModalClick}>
-            <button onClick={ModalOpen} className={styles.button__edit_profile}>Edit profile</button>
+            <button onClick={ModalOpen} className={styles.button__edit_profile}>Edit profile <HiOutlinePencil/></button>
                       <LogoutBtn isOpen={isModalLogoutOpen}
                           closeModal={ModalLogoutClose}
               openModal={ModalLogoutOpen}

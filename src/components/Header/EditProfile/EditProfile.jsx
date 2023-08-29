@@ -14,7 +14,7 @@ const EditProfileModal = ({ isOpen, closeModal, avatarUrl, handleFile }) => {
       <div className={styles["modal-overlay"]} onClick={closeModal}>
         <div className={styles.modal} onClick={handleModalContentClick}>
           <img
-            src={avatarUrl || "https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"}
+            src={avatarUrl || "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}
             alt=""
             className={styles.modal__info_img_modal}
           />
@@ -29,7 +29,7 @@ const EditProfileModal = ({ isOpen, closeModal, avatarUrl, handleFile }) => {
 
             </label>
             <input type="text" className={styles.modal__info_input} placeholder="Victoria" />
-            <button>Save changes</button>
+            <button className={styles.modal__info__save}>Save changes</button>
             
           </form>
         </div>

@@ -1,13 +1,11 @@
 .modal {
-    background-color: white;
+    background-color: var(--secondary-bg-blue-color);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         display: flex;
         flex-direction: column;
         align-items: center;
-        
-        /* Center both horizontally and vertically */
         text-align: center;
         width: 335px;
         height: 345px;
@@ -28,12 +26,14 @@
 }
 .modal__info_input {
     border-radius: 200px;
-    border: 1px solid grey;
+    border: 1px solid var(--primary-text-color);
     opacity: 80%;
     width: 285px;
     height: 54px;
     padding-left: 49px;
     margin-top: 20px;
+    background-color: transparent;
+    color: var(--primary-text-color);
     
 }
 
@@ -56,4 +56,14 @@
 .modal__info_form{
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+.modal__info__save{
+    width: 285px;
+    height: 54px;
+    border-radius: 42px;
+    padding: 18px 90px;
+    color:var(#161f37);
+    border: 1px solid gray;
+    background-color: var(#F3F3F3);
 }

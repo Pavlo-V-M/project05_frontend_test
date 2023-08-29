@@ -11,13 +11,17 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick }) => {
       </button>
       {isOpen && (
         <div className={styles.modalOverlay} onClick={closeModal}>
+          
           <div className={styles.modal} onClick={handleModalClick}>
-            <button className={styles.logoutButton} onClick={closeModal}>
+            <p>Are you sure you want to log out?</p>
+            <div className={styles.modal__info_div}>
+            <button className={styles.logoutButton_modal} onClick={closeModal}>
               Logout
             </button>
-            <button className={styles.closeButton} onClick={closeModal}>
+            <button className={styles.cancelButton} onClick={closeModal}>
               Cancel
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -24,24 +24,47 @@
 }
 
 .modal {
-    background-color: white;
+    background-color:var(--secondary-bg-blue-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
     text-align: center;
     width: 335px;
     height: 193px;
+    gap: 10px;
 }
 
-.closeButton {
-    background-color: #cccccc;
+.cancelButton {
+    background-color:var(--disabled-blue-color);
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 16px 41px;
+    border-radius: 42px;
     cursor: pointer;
     margin-top: 10px;
+    height: 50px;
+    width: 136px;
+}
+.logoutButton_modal{
+    background-color: var(--primary-white-color);
+        color: var(--hover-btn-bg-color);
+        border: none;
+        padding: 16px 41px;
+        border-radius: 42px;
+        cursor: pointer;
+        margin-top: 10px;
+        height: 50px;
+        width: 136px;
+}
+
+.modal__info_div{
+    display: flex;
+    gap: 20px;
+}
+.modal p {
+color: var(#F3F3F3)
 }
