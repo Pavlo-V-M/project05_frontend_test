@@ -1,13 +1,13 @@
 import MainPageTitle from './shared/MyPageTitle/MyPageTitle';
 import items from '../../src/coctails.json';
-import Header from './Header/Header/Header';
+import Header from './shared/Header/Header/Header';
 
 //My Footer
 import Footer from './shared/Footer/Footer.jsx'
 
 import '../index.scss';
 import RecipeList from './shared/RecipeList/RecipeList';
-export const App = () => {
+const App = () => {
   return (
     <div
     // style={{
@@ -26,3 +26,5 @@ export const App = () => {
     </div>
   );
 };
+
+export default App;
