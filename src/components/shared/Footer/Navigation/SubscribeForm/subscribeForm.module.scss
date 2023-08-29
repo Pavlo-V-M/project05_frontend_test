@@ -1,44 +1,81 @@
-.subscribe {
-    max-width: 335px;
+  .subscribe {
+    width: 100%;
+    //max-width: 335px;
+
     @media screen and (min-width: 768px) {
-      max-width: 309px;
-  }
-
-    margin-top: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
-    
-    &__email {
-      margin-bottom: 20px;
+      width: 309px;
     }
-
+    @media screen and (max-width: 768px) {
+      margin-top: 40px;
+    }
   }
 
-  .subscribe_text {
+  .subscribeText {
+    color: #f3f3f3; //Var
+    font-family: Manrope; /////
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+    /////////////////
     margin-bottom: 24px;
     max-width: 335px;
+    /////////////////
+
     @media screen and (min-width: 768px) {
-      max-width: 309px;
+      max-width: 309px; ///
       font-size: 18px;
+      line-height: 24px;
+      gap: 24px;
   }
   }
 
-  .input {
+  .form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    margin-top: 24px;
   }
 
-.input input,
-.input button {
-  width: 100%;
-  border: 1px solid white;
-  border-radius: 25px;
-  background-color: transparent;
-  color: white;
-  padding: 10px 20px;
+  
+.input {
+   //повтор
+  height: 56px;
+  border-radius: 200px;
+  border: 1px solid rgb(243, 243, 243, 0.2);
+  background-color: inherit;
+  font-style: normal;
+  line-height: 18px;
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: 156%; //26.52px
+  }
+  //винести окремо
+  color: rgb(243, 243, 243);
+  padding-left: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 18px;
 }
 
-.input button {
-  cursor: pointer;
+.form button {
+  //повтор
+  height: 56px;
+  border-radius: 200px;
+  border: 1px solid rgb(243, 243, 243, 0.2);
+  background-color: inherit;
+  font-style: normal;
+  line-height: 18px;
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: 156%; //26.52px
+  }
+  //винести окремо
+  color: #f3f3f3; //var
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  
+
+
 }

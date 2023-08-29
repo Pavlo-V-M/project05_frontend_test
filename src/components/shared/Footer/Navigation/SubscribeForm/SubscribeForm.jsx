@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from "./subscribeForm.module.scss"
+import css from "./SubscribeForm.module.scss"
 
  const SubscribeForm = () => {
   const [email, setEmail] = useState('');
@@ -26,14 +26,15 @@ import css from "./subscribeForm.module.scss"
 
   return (
     <div className={css.subscribe}>
-      <p className={css.subscribe_text}> Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
-      <form onSubmit={handleSubmit} className={css.input}>
+      <p className={css.subscribeText}> Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="email"
           placeholder="Enter the email"
           value={email}
           onChange={handleEmailChange}
-          className={isValidEmail ? '' : 'invalid'}
+          className={css.input}
+          // className={isValidEmail ? '' : 'invalid'}
         />
         {!isValidEmail && <p className="error-message">Enter the email</p>}
         <button type="submit" disabled={!email || !isValidEmail}>

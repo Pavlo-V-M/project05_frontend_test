@@ -1,17 +1,49 @@
-import SocialIcon from '../../js/SocialIcon.js';
 import LogoAndName from '../../../LogoAndName/LogoAndName';
 
-import css from "./foolowUs.module.scss"
+import css from "./FoolowUs.module.scss"
+
+import {
+  BiLogoFacebook,
+  BiLogoInstagramAlt,
+  BiLogoYoutube,
+} from 'react-icons/bi';
 
 const FollowUs = () => {
   return (
-      <div className={css.follow_us}>
-          <LogoAndName className={css.follow_us__logo}/>
+      <div className={css.followUs}>
+          <LogoAndName />
         
-          <ul className={css.follow_us__icons}>
-            <li><a href="https://facebook.com" className={css.social_icon}><SocialIcon network="facebook" className={css.social_icon}/></a></li>
-            <li><a href="https://instagram.com" className={css.social_icon}><SocialIcon network="instagram" className={css.social_icon}/></a></li>
-            <li><a href="https://youtube.com" className={css.social_icon}><SocialIcon network="youtube" className={css.social_icon}/></a></li>
+          <ul className={css.followUsList}>
+            <li>
+              <a 
+                className={css.socialsLink}
+                href="https://facebook.com" 
+                target="_blank"   
+                rel="noopener noreferrer"
+                >
+                <BiLogoFacebook className={css.socialsIcon}/>
+              </a>
+            </li>
+            <li>
+              <a 
+                className={css.socialsLink}
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BiLogoInstagramAlt className={css.socialsIcon} />
+              </a>
+            </li>
+            <li>
+              <a 
+                className={css.socialsLink}
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <BiLogoYoutube className={css.socialsIcon} />
+              </a>
+            </li>
           </ul>
     </div>
   );

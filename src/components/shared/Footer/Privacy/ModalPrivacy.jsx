@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import css from './modalPrivacy.module.scss';
+import css from './ModalPrivacy.module.scss';
 
 import "../../../../index.scss"
 
