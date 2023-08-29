@@ -1,0 +1,116 @@
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+
+.div__auth_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 335px;
+    height: 345px;
+}
+
+.modal_overlay_info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal_info {
+    background-color: var(--secondary-bg-blue-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 177px;
+    height: 134px;
+    justify-content: space-between;
+}
+
+
+.modal img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.modal__info_input{
+    border-radius:200px ;
+    border: 1px solid grey;
+    opacity:80%;
+    width: 285px;
+    height: 54px;
+    padding-left: 49px;
+    
+}
+
+.button__edit_profile{
+     display:flex;
+    justify-content: space-between;
+     width: 141px;
+    height: 18px;
+    background-color: transparent;
+    border: none;
+    color:white;
+   
+    
+    
+}
