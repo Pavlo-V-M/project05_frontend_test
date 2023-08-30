@@ -22,15 +22,16 @@ const CategoryListPrewiew = () => {
   }, []);
 
 
-    // console.log(categories)
+    console.log(categories)
   const categoriesKeys = Object.keys(categories);
-  console.log(categoriesKeys);
+  // console.log(categoriesKeys);
   
   const odinaryDrinks = categories["Odinary Drink"];  
-  console.log(odinaryDrinks)
+  // console.log(odinaryDrinks)
   const coctails = categories['Cocktail'];
-  console.log(coctails)
+  // console.log(coctails)
   const shakes = categories["Shake"]
+// console.log(shakes)
   const other = categories["Other/Unknown"]
   
 
