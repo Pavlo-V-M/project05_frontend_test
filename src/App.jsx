@@ -11,6 +11,7 @@ import AddRecipePage from './pages/AddRecipePage/AddRecipePage';
 import MyRecipesPage from './pages/MyRecipesPage/MyRecipesPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import RecipePage from './pages/RecipePage/RecipePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
       <Route path="/add" element={<AddRecipePage />} />
       <Route path="/my" element={<MyRecipesPage />} />
       <Route path="/favorite" element={<FavoritesPage />} />
-      <Route path="/recipe/:recipeId" element={<RecipePage />} />   
+      <Route path="/recipe/:recipeId" element={<RecipePage />} />
+      <Route path="*" element={<NotFoundPage />} />   
     </Routes>
     </BrowserRouter>
   );
