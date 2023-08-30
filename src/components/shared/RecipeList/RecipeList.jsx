@@ -4,7 +4,7 @@ import { getMyRecipes } from '../api/MyRecipes/MyRecipes';
 import styles from './recipeList.module.scss';
 
 const RecipeList = () => {
-  const [items, setItems] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,8 +12,8 @@ const RecipeList = () => {
     const fetchRecipes = async () => {
       try {
         setLoading(true);
-        const { data } = await getMyRecipes();
-        setItems(data);
+        const data = await getMyRecipes();
+        setRecipes(data);
       } catch ({ response }) {
         const errorMessage = response.data.message || 'Cannot fetch my recipes';
         setError(errorMessage);
@@ -24,7 +24,7 @@ const RecipeList = () => {
     fetchRecipes();
   }, []);
 
-  const elements = items.map(({ _id, ...props }) => (
+  const elements = recipes.map(({ _id, ...props }) => (
     <RecipeListItem key={_id} {...props} />
   ));
 
