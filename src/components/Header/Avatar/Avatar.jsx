@@ -3,10 +3,12 @@ import styles from "./Avatar.module.scss"
 
 
 
-const Avatar = ({ avatarUrl }) => {
+
+const Avatar = ({ avatarUrl,dataFetch }) => {
+ const userAvatarURL = dataFetch.user?.avatarURL || avatarUrl;
   return (
     <img
-      src={avatarUrl || "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}
+      src={userAvatarURL}
       alt=""
       className={styles.header__img}
     />

@@ -9,6 +9,9 @@ import UserInfoModal from "../UserInfoModal/UserInfoModal";
 
 
 const Header = () => {
+    
+    
+    
     return (
        <header className={styles.header}>
         <div className={styles.div__header}>

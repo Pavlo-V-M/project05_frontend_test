@@ -1,20 +1,24 @@
 import React, { useRef } from "react";
 import styles from "./EditProfile.module.scss"
+import { FetchAllData } from "../api/api";
+import { useEffect } from "react";
 
 
-const EditProfileModal = ({ isOpen, closeModal, avatarUrl, handleFile }) => {
+const EditProfileModal = ({ isOpen, closeModal, avatarUrl, handleFile,dataFetch }) => {
   const inputRef = useRef(null);
 
   const handleModalContentClick = (e) => {
     e.stopPropagation();
   };
 
+    
+
   return (
     isOpen && (
       <div className={styles["modal-overlay"]} onClick={closeModal}>
         <div className={styles.modal} onClick={handleModalContentClick}>
           <img
-            src={avatarUrl || "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}
+            src={avatarUrl || dataFetch.user.avatarURL}
             alt=""
             className={styles.modal__info_img_modal}
           />
