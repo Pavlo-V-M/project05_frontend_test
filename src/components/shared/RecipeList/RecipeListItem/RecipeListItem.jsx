@@ -1,8 +1,8 @@
-import Button from '../../Button/Button';
+import { Link } from 'react-router-dom';
+
 import ButtonDelete from '../../Button/ButtonDelete';
 import styles from './recipeListItem.module.scss';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-
 const RecipeListItem = ({
   drinkThumb,
   drink,
@@ -16,7 +16,9 @@ const RecipeListItem = ({
       <p className={styles.text}>ingredients</p>
       <p className={styles.description}>{instructions}</p>
       <div className={styles.btns}>
-        <Button>See recipe</Button>
+        <Link className={styles.btn} to={'/recipesId'}>
+          See recipe
+        </Link>
         <ButtonDelete onClick={() => onDeleteRecipe}>
           <RiDeleteBin6Line className={styles.iconDelete} />
         </ButtonDelete>

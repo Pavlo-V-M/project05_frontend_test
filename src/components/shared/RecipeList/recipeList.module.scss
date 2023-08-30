@@ -11,3 +11,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.error {
+  color: red;
+  margin-bottom: 25px;
+  font-family: inherit;
+  font-size: 20px;
+  padding-left: 32px;
+}
