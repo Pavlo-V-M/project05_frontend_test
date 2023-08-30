@@ -4,13 +4,14 @@ import OtherDrinksBtn from 'components/shared/MainPage/Buttons/OtherDrinksBtn'
 
 const MainPage = () => {
 
-  return (<>
+  return (
+    <>
   <Hero/>
     <CategoryListPrewiew/>
-
     <div>Categories</div>
     <OtherDrinksBtn/>
-  </>)
+    </>
+  )
   
 }
 export default MainPage;

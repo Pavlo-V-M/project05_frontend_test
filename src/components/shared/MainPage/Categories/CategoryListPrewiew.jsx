@@ -11,7 +11,7 @@ const CategoryListPrewiew = () => {
 
    const fetchCategoriesList = () => {
 
-            fetchCategories().then(category => {
+            fetchCategories().then(category => { console.log(category)
                 setCategories(category);
             })
                 .catch(error => {
@@ -33,8 +33,6 @@ const CategoryListPrewiew = () => {
   const shakes = categories["Shake"]
   const other = categories["Other/Unknown"]
   
-
-
 return (
       <div>
         <ul>
@@ -107,7 +105,6 @@ return (
 //       </div>
 // )
 };
-
 
 export default CategoryListPrewiew;
 
