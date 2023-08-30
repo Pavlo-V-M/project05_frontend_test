@@ -22,14 +22,14 @@ const CategoryListPrewiew = () => {
   }, []);
 
 
-    // console.log(categories)
+    console.log(categories)
   const categoriesKeys = Object.keys(categories);
-  console.log(categoriesKeys);
+  // console.log(categoriesKeys);
   
   const odinaryDrinks = categories["Odinary Drink"];  
-  console.log(odinaryDrinks)
+  // console.log(odinaryDrinks)
   const coctails = categories['Cocktail'];
-  console.log(coctails)
+  // console.log(coctails)
   const shakes = categories["Shake"]
   const other = categories["Other/Unknown"]
   
@@ -83,37 +83,6 @@ return (
         </ul>
       </div>
 )
-
-//   return (
-//       <div>
-//         <ul>
-//           {categoriesKeys.map((category) => {
-//             return (
-//               <li key={category}>
-//                 <h2>{category}</h2>
-//                 <ul className={styles.coctail_list}>{coctails.map(({ _id, drinkThumb, drink}) => {
-//                     return (
-//                       <li key={_id}>
-//                         <img src={drinkThumb} alt="coctail" />
-//                         <h2>{drink}</h2>
-//                         <p>ingredients</p>
-//                       </li>)
-//               })}</ul>
-//               </li>)
-//         })}
-//         </ul>
-//       </div>
-// )
 };
 
 export default CategoryListPrewiew;
-
-      // <Link to={`${coctail._id}`}>
-      //     <img src={coctail.drinkThumb} alt="coctail" />
-      //     <h2>{coctail.drink}</h2>
-      //     <p>ingredients</p>
-      // </Link>
-
-      // <img src={drinkThumb} alt="coctails" />
-      //                   <h2>{drink}</h2>
-      //                   <p>ingredients</p>

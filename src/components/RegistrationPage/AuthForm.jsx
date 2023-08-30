@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { fetchAuth, fetchRegister } from 'redux/slices/auth';
+import { fetchAuth, fetchRegister, selectIsAuth } from 'redux/slices/auth';
 import { GoEyeClosed } from 'react-icons/go';
 import { GoEye } from 'react-icons/go';
+
+import { Navigate } from 'react-router-dom';
+
 import css from './AuthForm.module.css';
 
 const AuthForm = ({ isRegistration }) => {
+  const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const [nameActive, setNameActive] = useState(false);
   const [emailActive, setEmailActive] = useState(false);
@@ -36,7 +40,12 @@ const AuthForm = ({ isRegistration }) => {
     } else {
       alert('Failed to ' + (isRegistration ? 'register' : 'login') + '!');
     }
+    
   };
+
+  if (isAuth) {
+    return <Navigate to="/main"/>
+  }
 
   const handleFormToggle = () => {
     setShowNameField(!isRegistration);

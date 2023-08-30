@@ -24,20 +24,20 @@
 
 // ======= >>>>>>> from main-page-test
 
-import { Routes, Route } from "react-router-dom";
-// import MainPage from "pages/MainPage";
-import { lazy } from "react";
+// import { Routes, Route } from "react-router-dom";
+// // import MainPage from "pages/MainPage";
+// import { lazy } from "react";
 
-const MainPage = lazy(() => import("../pages/MainPage"));
+// const MainPage = lazy(() => import("../pages/MainPage"));
 
-const App = () => {
-  return (
-      <Routes>
-          <Route path="/main" element={<MainPage />} />
-      </Routes>
-  );
-};
+// const App = () => {
+//   return (
+//       <Routes>
+//           <Route path="/main" element={<MainPage />} />
+//       </Routes>
+//   );
+// };
 
-export default App;
+// export default App;
 
 // >>>>>>> from main-page-test
