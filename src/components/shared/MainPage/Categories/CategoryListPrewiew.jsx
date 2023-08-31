@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { fetchCategories } from "components/services/Api";
-import styles from './CoctailList.module.scss'
+import styles from './CategoryListPrewiew.module.scss'
 // import CategoryCard from "./CategoryCard";
 
 const CategoryListPrewiew = () => {
@@ -24,7 +24,7 @@ const CategoryListPrewiew = () => {
 
     console.log(categories)
   const categoriesKeys = Object.keys(categories);
-  // console.log(categoriesKeys);
+  console.log(categoriesKeys); 
   
   const odinaryDrinks = categories["Odinary Drink"];  
   // console.log(odinaryDrinks)
