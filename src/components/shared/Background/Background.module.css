@@ -1,0 +1,62 @@
+.background_container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+  
+  .gradient {
+    flex: 1; 
+    background: linear-gradient(to right, rgb(9, 1, 43), black);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ellipse1,
+  .ellipse2,
+  .ellipse3,
+  .ellipse4 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px); 
+  }
+  
+  .ellipse1 {
+    width: 387px;
+    height: 381px;
+    top: -132px;
+    left: 171px;
+    background-color: rgba(188, 230, 210, 0.4);
+    z-index: 1; 
+  }
+  
+  .ellipse2 {
+    width: 784px;
+    height: 849px;
+    top: -231px;
+    left: -494px;
+    background-color: rgba(64, 112, 205, 0.5);
+  }
+  .ellipse3 {
+    width: 430px;
+    height: 465px;
+    top: 745px;
+    left: 1268px;
+    background-color: rgba(188, 230, 210, 0.4);
+    z-index: 1; 
+  }
+  
+  .ellipse4 {
+    width: 549px;
+    height: 543px;
+    top: 458px;
+    left: 1400px;
+
+    background-color: rgba(64, 112, 205, 0.5);
+  }
+  
+  
+  
