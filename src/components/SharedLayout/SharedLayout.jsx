@@ -1,19 +1,21 @@
 import Header from '../shared/Header/Header/Header';
+import BackgroundComponent from '../shared/Background/Background';
 import Footer from '../shared/Footer/Footer';
 
 import { Outlet } from 'react-router-dom';
 
-const SharedLayout = () => { 
+export const SharedLayout = () => { 
   return (
-    <div>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
+    <>
+      <BackgroundComponent>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+      </BackgroundComponent>
       <Footer />
-    </div>
-    
+    </>
   )
 }
 
-export default SharedLayout;
+// export default SharedLayout;
