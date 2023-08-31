@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import css from "./subscribeForm.module.scss"
+import css from "./SubscribeForm.module.scss"
 
- const SubscribeForm = () => {
+const SubscribeForm = () => {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -12,10 +12,15 @@ import css from "./subscribeForm.module.scss"
     setIsValidEmail(validateEmail(newEmail));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (isValidEmail) {
-      setIsSubmitted(true);
+      try {
+        // Логіка відправки даних на сервер для підписки
+        setIsSubmitted(true);
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
     }
   };
 
@@ -26,20 +31,20 @@ import css from "./subscribeForm.module.scss"
 
   return (
     <div className={css.subscribe}>
-      <p className={css.subscribe_text}> Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
-      <form onSubmit={handleSubmit} className={css.input}>
+      <p className={css.subscribeText}>Subscribe to our newsletter. Stay in touch with the latest news and special offers, etc.</p>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="email"
-          placeholder="Enter the email"
+          placeholder="Enter your email"
           value={email}
           onChange={handleEmailChange}
-          className={isValidEmail ? '' : 'invalid'}
+          className={`${css.input} ${isValidEmail ? '' : css.invalid}`}
         />
-        {!isValidEmail && <p className="error-message">Enter the email</p>}
+        {!isValidEmail && <p className={css.errorMessage}>Enter a valid email</p>}
         <button type="submit" disabled={!email || !isValidEmail}>
           Subscribe
         </button>
-        {isSubmitted && <p className="success-message">Thank you for subscribing!</p>}
+        {isSubmitted && <p className={css.successMessage}>Thank you for subscribing!</p>}
       </form>
     </div>
   );

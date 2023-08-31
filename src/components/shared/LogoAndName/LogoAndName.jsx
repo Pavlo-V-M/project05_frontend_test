@@ -1,14 +1,15 @@
-import React from 'react';
-import SocialIcon from '../Footer/js/SocialIcon.js';
-import css from './logoAndName.module.scss';
+import React from 'react';  
+import css from './LogoAndName.module.scss';
+
+import {ReactComponent as SiteLogo} from "./logo.svg";
 
 const LogoAndName = () => {
-  return (
-    <div className={css.logo_and_name}>
-        <SocialIcon network="logo" className={css.icons}/>
-        <p className={css.name}>Drink Master</p>
-    </div>
-  );
-};
+    return (
+        <a className={css.link} href="/">
+          <SiteLogo className={css.logoImg} />
+          <p className={css.logoText}>Drink Master</p>
+        </a>
+    )
+}
 
 export default LogoAndName;
