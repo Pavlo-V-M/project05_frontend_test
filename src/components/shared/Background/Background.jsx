@@ -1,14 +1,14 @@
 import React from 'react';
 import css from './Background.module.scss';
 
-const BackgroundComponent = () => {
+const BackgroundComponent = ({ children }) => {
   return (
-    <div className={css.background_container}>
+    <div className={css.bgContainer}>
       <div className={css.gradient}></div>
       <div className={css.ellipse1}></div>
       <div className={css.ellipse2}></div>
       <div className={css.ellipse3}></div>
-      <div className={css.ellipse4}></div>
+      {children}
     </div>
   );
 };

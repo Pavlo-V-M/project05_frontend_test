@@ -1,0 +1,61 @@
+
+.navigation {
+    // display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+          display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+}
+
+    @media screen and (min-width: 1440px) {
+      
+    }
+}
+
+
+.navigation_follow {
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+        display: flex;
+        gap: 110px;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 389px;
+}
+}
+
+.nav {
+    display: grid;
+    gap: 16px;
+    @media screen and (max-width: 768px) {
+      gap: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 20px;
+}
+@media screen and (min-width: 1440px) {
+  margin-top: 0;
+}
+}
+
+
+.link_pages {
+  text-decoration: none;
+  color: var(--primary-text-color) 
+}  
+
+  
+
+  
+

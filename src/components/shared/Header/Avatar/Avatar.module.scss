@@ -1,0 +1,10 @@
+.header__img {
+    height: 32px;
+    width: 32px;
+    border-radius: 200px;
+    @media (min-width: 768px) {
+            height: 44px;
+            width: 44px;
+        }
+        
+}
