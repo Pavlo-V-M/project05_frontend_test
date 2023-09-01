@@ -20,9 +20,6 @@ const Nav = () => {
   return (
     <ul className={css.nav}>
       <li>
-        <Link to="/main" className={css.link_pages} >Main</Link>
-      </li>
-      <li>
         <Link to="/drinks" className={css.link_pages} >Drinks</Link>
       </li>
       <li>
