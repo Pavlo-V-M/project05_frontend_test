@@ -2,7 +2,6 @@ import React from 'react';
 import Nav from "./Nav/Nav";
 import FollowUs from "./FollowUs/FollowUs";
 import SubscribeForm from "./SubscribeForm/SubscribeForm";
-
 import css from "./Nav/Navigation.module.scss"
 
 const Navigation = () => {
