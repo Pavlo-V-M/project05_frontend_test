@@ -2,9 +2,9 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import css from './modalPrivacy.module.scss';
 
-import "../../../../index.scss"
+import "index.scss"
 
-ReactModal.setAppElement('#root'); // Set the app element for accessibility
+ReactModal.setAppElement('#root');
 
 const Modal = ({ isOpen, onRequestClose, title, children }) => {
   return (
