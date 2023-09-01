@@ -1,0 +1,199 @@
+.signin_button {
+  border-radius: 42px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  background-color: transparent;
+  color: rgb(243, 243, 243);
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .signin_button {
+    width: 125px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1439px) {
+  .signin_button {
+    width: 140px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .signin_button {
+    width: 140px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+}
+
+.signin_button:hover {
+  border: 2px solid rgba(64, 112, 205, 0.5);
+}
+
+button:active {
+  background-color: rgb(243, 243, 243);
+  color: rgb(22, 31, 55);
+}
+
+.registration_button {
+  border-radius: 42px;
+  line-height: 18px;
+  letter-spacing: 0em;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .registration_button {
+    width: 164px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1439px) {
+  .registration_button {
+    width: 183px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .registration_button {
+    width: 183px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+.registration_button:hover {
+  border: 2px solid rgba(64, 112, 205, 0.5);
+}
+
+.welcome_form {
+  color: rgb(243, 243, 243);
+  position: absolute;
+  top: 50%;
+  letter-spacing: -0.02em;
+}
+@media screen and (max-width: 767px) {
+  .welcome_form {
+    width: 335px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    /*    */
+    /* margin-right: auto; 
+     margin-left: auto;  */
+    /*   */
+  }
+}
+@media screen and (max-width: 1439px) {
+  .welcome_form {
+    width: 470px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    left: 64px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .welcome_form {
+    max-width: 485px;
+    /* padding: 20px; */
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    left: 100px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+.button_form {
+  padding-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 14px;
+}
+@media screen and (max-width: 767px) {
+  .button_form {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.welcome_title {
+  color: rgb(243, 243, 243);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+@media screen and (max-width: 767px) {
+  .welcome_title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .welcome_title {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .welcome_text {
+    text-align: center;
+  }
+}
+
+.image_half {
+  background-size: cover;
+  position: absolute;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: -1;
+}
+@media screen and (max-width: 767px) {
+  .image_half {
+    background: url("../../images/backgroundMobile.png") no-repeat center;
+  }
+}
+@media screen and (max-width: 1439px) {
+  .image_half {
+    width: 50%;
+    background: url("../../images/backgroundTablet.png") no-repeat center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .image_half {
+    background: url("../../images/BackgroundImage.png") no-repeat center;
+    width: 50%;
+  }
+}/*# sourceMappingURL=welcome-page.module.css.map */

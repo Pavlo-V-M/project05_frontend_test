@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap");
+@import-normalize; /* bring in normalize.css styles */
+:root {
+  --primary-bg-color: #0a0a11;
+  --secondary-bg-blue-color: #161f37;
+  --disabled-blue-color: #434d67;
+  --main-blue-color: #4070cd;
+  --primary-white-color: #f3f3f3;
+  --primary-text-color: #f3f3f3;
+  --secondary-text-color: #161f37;
+  --primary-btn-bg-color: #f3f3f3;
+  --hover-btn-bg-color: #161f37;
+  --disabled-btn-bg-color: #434d67;
+  --active-btn-border-color: #4070cd;
+  --light-green-color: #BCE6D2;
+  --error-red-color: #da1414;
+  --success-green-color: #3CBC81;
+  --transition-duration: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary-white-color);
+  background-color: var(--primary-bg-color);
+}
+.list {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.container {
+  width: 375px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+.button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 14px 40px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.28;
+  color: var(--secondary-text-color);
+  background-color: var(--primary-btn-bg-color);
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 42px;
+}
+.button:hover, .button:focus {
+  color: var(--primary-white-color);
+  background-color: var(--hover-btn-bg-color);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    padding: 18px 44px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: opacity 300ms linear, visibility 300 ms linear;
+  transition: opacity 300ms linear, visibility 300 ms linear;
+}
+
+.modal {
+  width: 335px;
+  min-height: 193px;
+  max-height: 80vh;
+  background-color: var(--secondary-bg-blue-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-left: 25px;
+  padding-right: 25px;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: -webkit-transform 300ms linear;
+  transition: -webkit-transform 300ms linear;
+  transition: transform 300ms linear;
+  transition: transform 300ms linear, -webkit-transform 300ms linear;
+  overflow: auto;
+}
+
+.backdrop.is-hidden .modal {
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.06;
+  color: var(--primary-text-color);
+  margin-top: 224px;
+  margin-bottom: 80px;
+}
+
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.select {
+  position: relative;
+  margin-left: 8px;
+}
+
+.label {
+  position: relative;
+}
+
+.input {
+  width: 264px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  background-color: inherit;
+  color: var(--primary-text-color);
+  border: 1px solid var(--primary-text-color);
+  border-radius: 42px;
+  padding: 14px 24px;
+}
+
+.input::-webkit-input-placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.input::-moz-placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.input:-ms-input-placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.input::-ms-input-placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.input::placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.btn_submit {
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  width: 25px;
+  height: 20px;
+  padding: 0;
+  background-color: inherit;
+}
+
+.btn_submit:hover,
+.btn_submit:focus {
+  background-color: inherit;
+}
+
+.input_svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn_submit:hover .input_svg {
+  stroke: var(--success-green-color);
+}
+
+.select_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 199px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  border: 0;
+  border-radius: 200px;
+  padding: 14px 24px;
+  margin-bottom: 4px;
+}
+
+.select_btn:hover {
+  background-color: var(--primary-white-color);
+  color: var(--secondary-text-color);
+}
+
+.select_btn:hover .btn_svg {
+  stroke: var(--secondary-text-color);
+}
+
+.category_list {
+  position: absolute;
+  width: 199px;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  border: 0;
+  border-radius: 20px;
+  padding: 14px 23px;
+  z-index: 999;
+}
+
+.category_item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.category_item {
+  cursor: pointer;
+}
+
+.ingredients_box {
+  position: absolute;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  width: 199px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  border: 0;
+  border-radius: 20px;
+  padding: 14px 8px;
+  z-index: 999;
+}
+
+.ingredients_list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  height: 370px;
+  padding-left: 15px;
+}
+
+.ingredients_list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ingredients_list::-webkit-scrollbar-thumb {
+  background-color: var(--disabled-blue-color);
+  height: 110px;
+  border-radius: 20px;
+}
+
+.drinks {
+  margin-top: 40px;
+  z-index: 1;
+}
+
+.drinks_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.drinks_item {
+  margin-right: 20px;
+  margin-bottom: 80px;
+}
+
+.drinks_item:nth-child(3n+3) {
+  margin-right: 0px;
+}
+
+.drinks_card {
+  width: 400px;
+  height: 400px;
+  margin-bottom: 14px;
+}
+
+.drinks_img {
+  border-radius: 8px;
+}
+
+.drinks_title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 55px;
+}
+
+.page {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 6px;
+  margin-right: 17px;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  height: 27px;
+  width: 27.8px;
+  border-radius: 27px;
+}
+
+.page:hover {
+  background-color: var(--active-btn-border-color);
+}
+
+.active {
+  background-color: var(--active-btn-border-color);
+}
+
+.previous {
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.next {
+  margin-left: 23px;
+  cursor: pointer;
+}/*# sourceMappingURL=DrinksPage.module.css.map */

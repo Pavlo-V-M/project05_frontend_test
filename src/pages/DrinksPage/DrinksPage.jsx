@@ -1,12 +1,6 @@
-
+import Drinks from '../../components/shared/DrinksPage/Drinks';
 
 const DrinksPage = () => {
-
-  return (
-    <>
-
-    </>
-  )
-  
-}
+  return <Drinks />;
+};
 export default DrinksPage;
