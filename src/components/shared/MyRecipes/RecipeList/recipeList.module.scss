@@ -1,3 +1,23 @@
+.list {
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.error {
+  color: red;
+  margin-bottom: 25px;
+  font-family: inherit;
+  font-size: 20px;
+  padding-left: 32px;
+}
 .item {
   margin-bottom: 40px;
 
@@ -95,10 +115,10 @@
 
 .delete {
   margin-left: 8px;
+  padding: 11px;
   border-radius: 50%;
   background-color: var(--hover-btn-bg-color);
   border-color: transparent;
-  padding: 11px;
   cursor: pointer;
 
   &:hover,
