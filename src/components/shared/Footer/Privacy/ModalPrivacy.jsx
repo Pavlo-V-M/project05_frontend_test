@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import css from './modalPrivacy.module.scss';
-
 import "index.scss"
 
 ReactModal.setAppElement('#root');
@@ -12,13 +11,13 @@ const Modal = ({ isOpen, onRequestClose, title, children }) => {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel={title}
-      className="modal"
+      className={css.modalPrivecy}
       overlayClassName="backdrop"
     >
       <div className={css.modal_privacy}>
-        <h2>{title}</h2>
+        <h2 className={css.titlePrivacy}>{title}</h2>
         <p>{children}</p>
-        <button onClick={onRequestClose} className={css.btn}>Close</button>
+        <button onClick={onRequestClose} className={`button ${css.btn}`}>Close</button>
       </div>
     </ReactModal>
   );

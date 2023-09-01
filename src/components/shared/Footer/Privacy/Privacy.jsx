@@ -48,6 +48,7 @@ const Privacy = () => {
         isOpen={privacyModalOpen}
         onRequestClose={closePrivacyModal}
         title="Privacy Policy"
+        // className={css.qweqweqwe}
       >
         "Your privacy is important to us. This section outlines how we collect, use, process, and protect your personal data. This Privacy Policy applies to the use of our website, applications, and services, so please take a moment to read it.
 
@@ -74,6 +75,7 @@ const Privacy = () => {
         isOpen={termsModalOpen}
         onRequestClose={closeTermsModal}
         title="Terms of Service"
+        // className={css.modalPrivecy}
       >
 "This ""User Agreement"" (the ""Agreement"") sets forth the terms and conditions governing the use of the Drink Master application (""App"") and its services.
 
