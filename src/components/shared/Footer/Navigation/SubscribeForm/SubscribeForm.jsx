@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from "./SubscribeForm.module.scss"
+import css from "./subscribeForm.module.scss"
 
 const SubscribeForm = () => {
   const [email, setEmail] = useState('');

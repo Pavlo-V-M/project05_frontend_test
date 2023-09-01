@@ -1,5 +1,5 @@
 import React from 'react';  
-import css from './LogoAndName.module.scss';
+import css from './logoAndName.module.scss';
 
 import {ReactComponent as SiteLogo} from "./logo.svg";
 

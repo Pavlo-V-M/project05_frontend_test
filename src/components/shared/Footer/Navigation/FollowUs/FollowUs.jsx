@@ -1,6 +1,6 @@
 import LogoAndName from '../../../LogoAndName/LogoAndName';
 
-import css from "./FoolowUs.module.scss"
+import css from "./foolowUs.module.scss"
 
 import {
   BiLogoFacebook,

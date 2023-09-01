@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './ModalPrivacy.jsx';
-import css from "./ModalPrivacy.module.scss"
+import css from "./modalPrivacy.module.scss"
 
 const Privacy = () => {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
