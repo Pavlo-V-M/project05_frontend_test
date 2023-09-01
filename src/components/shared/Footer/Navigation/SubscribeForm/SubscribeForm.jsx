@@ -40,7 +40,9 @@ const SubscribeForm = () => {
           onChange={handleEmailChange}
           className={`${css.input} ${isValidEmail ? '' : css.invalid}`}
         />
-        {!isValidEmail && <p className={css.errorMessage}>Enter a valid email</p>}
+        {!isValidEmail && <p className={css.errorMessage}></p>}
+        {/* //Enter a valid email */}
+
         <button type="submit" disabled={!email || !isValidEmail}>
           Subscribe
         </button>
