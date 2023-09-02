@@ -3,6 +3,7 @@ import BackgroundComponent from '../shared/Background/Background';
 import Footer from '../shared/Footer/Footer';
 
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 export const SharedLayout = () => { 
   return (
@@ -10,7 +11,9 @@ export const SharedLayout = () => {
       <BackgroundComponent>
         <Header />
         <main>
-          <Outlet />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </main>
       </BackgroundComponent>
       <Footer />
@@ -18,4 +21,4 @@ export const SharedLayout = () => {
   )
 }
 
-// export default SharedLayout;
+export default SharedLayout;

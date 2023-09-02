@@ -16,7 +16,7 @@
      padding-bottom: 14px;
      font-size: 14px;
   }
-  @media screen and (max-width: 1439px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
       width: 140px;  
       padding-top: 18px;
       padding-bottom: 18px;
@@ -56,7 +56,8 @@ button:active {
       font-size: 14px;
    }
     
-   @media screen and (max-width: 1439px) {
+   @media screen and (min-width: 768px) and (max-width: 1439px) {
+    
       width: 183px;  
       padding-top: 18px;
       padding-bottom: 18px;
@@ -84,25 +85,19 @@ button:active {
   top:50%;
   letter-spacing: -0.02em;
   
- 
-   
   @media screen and (max-width: 767px) {
       width: 335px;
       font-size: 14px;
       font-weight: 400;
       line-height: 18px;
       top:50%;
-       left:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
      
-       transform: translate(-50%, -50%);
-     
-       /*    */
-      /* margin-right: auto; 
-       margin-left: auto;  */
-       /*   */
           
   }
-  @media screen and (max-width: 1439px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+
       width: 470px;
       font-size: 18px;
       font-weight: 400;
@@ -179,12 +174,13 @@ button:active {
 
 
   @media screen and (max-width: 767px) {
-     
+    width: 50%;
       background: url('../../images/backgroundMobile.png') no-repeat center;  
      
   }
   
-  @media screen and (max-width: 1439px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+
       width: 50%;
       background: url('../../images/backgroundTablet.png') no-repeat center;  
   }
@@ -197,3 +193,4 @@ button:active {
 
   
 }
+
