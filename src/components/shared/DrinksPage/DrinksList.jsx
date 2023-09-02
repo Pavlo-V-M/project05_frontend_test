@@ -4,7 +4,8 @@ import styles from './DrinksPage.module.scss';
 import PaginatedItems from './Pagination/Pagination';
 import { fetchRecipets } from './Api/getRecipets';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilterValue } from './redux/filterSlice';
 import { setDataRecipets } from './redux/recipetsSlice';
 
 const STATUS = {
@@ -14,23 +15,23 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-const Drinkslist = ({ searchValue }) => {
+const Drinkslist = () => {
   const [status, setStatus] = useState('');
   const dispatch = useDispatch();
+  const filterValue = useSelector(getFilterValue);
 
   useEffect(() => {
-    fetchRecipets(1, searchValue)
+    fetchRecipets(1, filterValue)
       .then(data => {
         if (!data) {
           setStatus(STATUS.REJECTED);
           return;
         }
-        console.log(data);
         dispatch(setDataRecipets(data));
         setStatus(STATUS.RESOLVED);
       })
       .catch(error => console.log(error));
-  }, [dispatch, searchValue]);
+  }, [dispatch, filterValue]);
 
   if (status === 'resolved') {
     return (

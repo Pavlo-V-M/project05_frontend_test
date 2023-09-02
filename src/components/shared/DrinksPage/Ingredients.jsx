@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setDataRecipets } from './redux/recipetsSlice';
 import { fetchRecipets } from './Api/getRecipets';
+import { setFilterValue } from './redux/filterSlice';
 
 const STATUS = {
   IDLE: 'idle',
@@ -43,10 +44,9 @@ const Ingredients = () => {
   }, [setItems, setStatus]);
 
   const chooseCategory = e => {
-    console.log(e.target.innerHTML);
+    dispatch(setFilterValue(e.target.innerHTML));
     fetchRecipets(1, e.target.innerHTML)
       .then(data => {
-        console.log(data);
         dispatch(setDataRecipets(data));
         setStatus(STATUS.RESOLVED);
       })

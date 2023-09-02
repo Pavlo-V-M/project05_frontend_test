@@ -13,23 +13,14 @@ const PaginatedItems = ({ itemsPerPage }) => {
   const filterValue = useSelector(getFilterValue);
   console.log(filterValue);
 
-  // console.log(dataRecipets);
-  // const [nextItems, setNextItems] = useState(0);
-
-  // const endOffset = itemOffset + itemsPerPage;
-
-  //   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  // const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(dataRecipets.totalCount / itemsPerPage);
 
   const onCkick = event => {
-    // console.log(event.nextSelectedPage);
     const newOffset = event.nextSelectedPage + 1;
 
     fetchRecipets(newOffset, filterValue)
       .then(data => {
         dispatch(setDataRecipets(data));
-        // setStatus(STATUS.RESOLVED);
       })
       .catch(error => console.log(error));
   };
@@ -40,8 +31,6 @@ const PaginatedItems = ({ itemsPerPage }) => {
       <ReactPaginate
         nextLabel=">"
         onClick={onCkick}
-        // onPageActive={onPageActive}
-        // onPageChange={handlePageClick}
         pageCount={pageCount}
         initialPage={0}
         previousLabel="<"

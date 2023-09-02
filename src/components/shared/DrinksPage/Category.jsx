@@ -36,11 +36,9 @@ const Categories = () => {
   }, [setItems, setStatus]);
 
   const chooseCategory = e => {
-    console.log(e.target.innerHTML);
     dispatch(setFilterValue(e.target.innerHTML));
     fetchRecipets(1, e.target.innerHTML)
       .then(data => {
-        console.log(data);
         dispatch(setDataRecipets(data));
 
         setStatus(STATUS.RESOLVED);

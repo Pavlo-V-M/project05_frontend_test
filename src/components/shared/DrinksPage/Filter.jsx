@@ -4,26 +4,35 @@ import { ReactComponent as Search } from './svg/search.svg';
 import Categories from './Category';
 import Ingredients from './Ingredients';
 import styles from './DrinksPage.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { getFilterValue, setFilterValue } from './redux/filterSlice';
+import { useDispatch } from 'react-redux';
+import { setFilterValue } from './redux/filterSlice';
 import { fetchCategories } from './Api/getCategories';
 import { fetchIngredients } from './Api/getIngredients';
+import { fetchRecipets } from './Api/getRecipets';
+import { setDataRecipets } from './redux/recipetsSlice';
 
-const Filter = ({ onSubmit }) => {
+const Filter = () => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
-  const filterValue = useSelector(getFilterValue);
   const dispatch = useDispatch();
 
   const submitForm = e => {
     e.preventDefault();
-    if (filterValue.trim() === '') {
+    if (inputValue === '') {
       alert('Please enter a valid name !');
       return;
     }
-    onSubmit();
-    dispatch(setFilterValue(''));
+    console.log(inputValue);
+    dispatch(setFilterValue(inputValue));
+    fetchRecipets(1, inputValue)
+      .then(data => {
+        dispatch(setDataRecipets(data));
+      })
+      .catch(error => console.log(error));
+
+    dispatch(setInputValue(''));
   };
 
   const checkSelectOpenIngridients = () => {
@@ -60,10 +69,8 @@ const Filter = ({ onSubmit }) => {
           title="Enter the text"
           placeholder="Enter the text"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          value={filterValue}
-          onChange={evt =>
-            dispatch(setFilterValue(evt.currentTarget.value.toLowerCase()))
-          }
+          value={inputValue}
+          onChange={evt => setInputValue(evt.currentTarget.value.toLowerCase())}
         />
       </label>
 
