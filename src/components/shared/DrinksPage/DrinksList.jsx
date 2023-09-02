@@ -17,6 +17,7 @@ const STATUS = {
 
 const Drinkslist = () => {
   const [status, setStatus] = useState('');
+  // const [value, setValue] = useState('');
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
 

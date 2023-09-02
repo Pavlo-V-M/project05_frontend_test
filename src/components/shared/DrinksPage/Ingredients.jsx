@@ -3,8 +3,6 @@ import styles from './DrinksPage.module.scss';
 import { fetchIngredients } from './Api/getIngredients';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setDataRecipets } from './redux/recipetsSlice';
-import { fetchRecipets } from './Api/getRecipets';
 import { setFilterValue } from './redux/filterSlice';
 
 const STATUS = {
@@ -45,13 +43,8 @@ const Ingredients = () => {
 
   const chooseCategory = e => {
     dispatch(setFilterValue(e.target.innerHTML));
-    fetchRecipets(1, e.target.innerHTML)
-      .then(data => {
-        dispatch(setDataRecipets(data));
-        setStatus(STATUS.RESOLVED);
-      })
-      .catch(error => console.log(error));
   };
+
   return (
     status === 'resolved' && (
       <div className={styles.ingredients_box}>

@@ -25,7 +25,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
 
   const onCkick = event => {
     const newOffset = event.nextSelectedPage + 1;
-
+    console.log(newOffset);
     fetchRecipets(newOffset, filterValue)
       .then(data => {
         dispatch(setDataRecipets(data));
@@ -35,11 +35,13 @@ const PaginatedItems = ({ itemsPerPage }) => {
 
   return (
     <>
-      <DrinksCard currentItems={dataRecipets.cocktails} />
+      <DrinksCard />
       <ReactPaginate
         nextLabel=">"
         onClick={onCkick}
         pageCount={pageCount}
+        pageRangeDisplayed={7}
+        marginPagesDisplayed={1}
         // initialPage={0}
         forcePage={pagePaginate}
         previousLabel="<"

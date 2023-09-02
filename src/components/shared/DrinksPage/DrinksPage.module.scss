@@ -156,6 +156,10 @@
   margin-right: 20px;
   margin-bottom: 80px;
 }
+.drinks_item:hover .drinks_title {
+  color: var(--success-green-color);
+}
+
 .drinks_item:nth-child(3n + 3) {
   margin-right: 0px;
 }
@@ -167,6 +171,9 @@
 }
 .drinks_img {
   border-radius: 8px;
+}
+.drinks_link {
+  text-decoration: none;
 }
 .drinks_title {
   font-size: 18px;

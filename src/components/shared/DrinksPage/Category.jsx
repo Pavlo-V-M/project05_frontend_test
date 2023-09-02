@@ -1,14 +1,8 @@
-// import items from './categories.json';
 import { fetchCategories } from './Api/getCategories';
-// import { fetchRecipetsByCaregories } from './Api/getRecipetsByCaregories';
-import { fetchRecipets } from './Api/getRecipets';
-// import { nanoid } from 'nanoid';
 import styles from './DrinksPage.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setDataRecipets } from './redux/recipetsSlice';
 import { setFilterValue } from './redux/filterSlice';
-import { setPaginateSlice } from './redux/pagePaginateSlice';
 
 const STATUS = {
   IDLE: 'idle',
@@ -37,14 +31,6 @@ const Categories = () => {
 
   const chooseCategory = e => {
     dispatch(setFilterValue(e.target.innerHTML));
-    fetchRecipets(1, e.target.innerHTML)
-      .then(data => {
-        dispatch(setDataRecipets(data));
-        dispatch(setPaginateSlice(0));
-
-        setStatus(STATUS.RESOLVED);
-      })
-      .catch(error => console.log(error));
   };
 
   return (

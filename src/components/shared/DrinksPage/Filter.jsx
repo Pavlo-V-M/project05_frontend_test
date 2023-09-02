@@ -8,8 +8,6 @@ import { useDispatch } from 'react-redux';
 import { setFilterValue } from './redux/filterSlice';
 import { fetchCategories } from './Api/getCategories';
 import { fetchIngredients } from './Api/getIngredients';
-import { fetchRecipets } from './Api/getRecipets';
-import { setDataRecipets } from './redux/recipetsSlice';
 
 const Filter = () => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
@@ -25,13 +23,6 @@ const Filter = () => {
       return;
     }
     dispatch(setFilterValue(inputValue));
-    fetchRecipets(1, inputValue)
-      .then(data => {
-        console.log(data);
-        dispatch(setDataRecipets(data));
-      })
-      .catch(error => console.log(error));
-
     dispatch(setInputValue(''));
   };
 
