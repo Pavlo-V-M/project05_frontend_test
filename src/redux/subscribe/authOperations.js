@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance, { setAuthJWTHeader, clearAuthJWTHeader } from "./axiosInstance.js";
+import axiosInstance from "./axiosInstance.js";
 
 const subscribe = createAsyncThunk("auth/subscribe", async (creds, { rejectWithValue }) => {
 	try {
