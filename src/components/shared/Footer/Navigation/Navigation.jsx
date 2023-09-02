@@ -6,16 +6,14 @@ import css from "./Nav/Navigation.module.scss"
 
 const Navigation = () => {
   return (
-      <div className={css.navigation}>
-        <div className={css.navigation_follow}>
-          <div>
-             <FollowUs/>
-          </div>
-             <Nav />
-        </div>
-             <SubscribeForm className={css.subscribeForm}/>
-          </div>
-     );
+    <div className={css.navigation}>
+      <div className={css.navigation_follow}>
+        <FollowUs />
+        <Nav />
+      </div>
+      <SubscribeForm className={css.subscribeForm} />
+    </div>
+  );
 };
 
 export default Navigation;
