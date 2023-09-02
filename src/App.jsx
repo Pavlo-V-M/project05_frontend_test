@@ -4,6 +4,8 @@ import { lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import AuthForm from 'components/RegistrationPage/AuthForm';
+import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
+// import MyRecipes from 'components/shared/MyRecipes/MyRecipes';
 // import { Link } from 'react-router-dom';
 
 // import BackgroundComponent from '../src/components/shared/Background/Background';
@@ -22,6 +24,14 @@ const FavoritesPage = lazy (() => import('./pages/FavoritesPage/FavoritesPage'))
 const App = () => {
   return (
     <BrowserRouter basename="/project05_frontend_test">
+      <BackgroundComponent />
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/registration" element={<AuthForm isRegistration />} />
+        <Route path="/signin" element={<AuthForm />} />
+        <Route path="/own" element={<MyRecipesPage />} />
+      </Routes>
+    </BrowserRouter>
       {/* <BackgroundComponent /> */}
         <Routes>
           <Route path="/" element={<WelcomePage />} />
@@ -37,11 +47,12 @@ const App = () => {
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Route>
         </Routes>
-      </BrowserRouter>
+
   );
 };
 
 export default App;
+
 
 // >>>>>>> from main-page-test
 
