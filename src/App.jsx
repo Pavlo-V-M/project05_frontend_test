@@ -24,9 +24,9 @@ const App = () => {
     <BrowserRouter basename="/project05_frontend_test">
       {/* <BackgroundComponent /> */}
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
+          {/* <Route path="/" element={<WelcomePage />} />
           <Route path="/registration" element={<AuthForm isRegistration />} />
-          <Route path="/signin" element={<AuthForm />} />
+          <Route path="/signin" element={<AuthForm />} /> */}
           <Route path="/" element={<SharedLayout />}>
             <Route path="/main" element={<MainPage />} />
             <Route path="/drinks" element={<DrinksPage />} />

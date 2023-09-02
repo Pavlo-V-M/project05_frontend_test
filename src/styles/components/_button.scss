@@ -15,16 +15,16 @@
     background-color: var(--hover-btn-bg-color);
   }
 
-  // &:active {
-  //   border-color: var(--active-btn-border-color);
-  // }
+  &:active {
+    border-color: var(--active-btn-border-color);
+  }
 }
 
-// .button-disabled {
-//   @extend button;
-//   color: var(--primary-white-color);
-//   background-color: var(--disabled-btn-bg-color);
-// }
+.button-disabled {
+  @extend .button;
+  color: var(--primary-white-color);
+  background-color: var(--disabled-btn-bg-color);
+}
 
 @media screen and (min-width: 768px) {
   .button {
