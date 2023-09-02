@@ -1,0 +1,18 @@
+.logo_and_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 14px;
+}
+
+.icons {
+  width: 22px;
+  height: 22px;
+}
+
+.name {
+  font-size: 16px;
+}/*# sourceMappingURL=logoAndName.module.css.map */

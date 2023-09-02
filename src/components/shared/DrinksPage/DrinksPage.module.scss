@@ -1,0 +1,209 @@
+@import '../../../index.scss';
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.06;
+  color: var(--primary-text-color);
+  margin-top: 224px;
+  margin-bottom: 80px;
+}
+.filter {
+  display: flex;
+  flex-direction: row;
+}
+
+.select {
+  position: relative;
+  margin-left: 8px;
+}
+
+.label {
+  position: relative;
+}
+.input {
+  width: 264px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  background-color: inherit;
+  color: var(--primary-text-color);
+  border: 1px solid var(--primary-text-color);
+  border-radius: 42px;
+  padding: 14px 24px;
+}
+.input::placeholder {
+  font-family: Manrope;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--primary-text-color);
+  opacity: 1;
+}
+
+.btn_submit {
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  width: 25px;
+  height: 20px;
+  border: none;
+  padding: 0;
+  background-color: inherit;
+}
+
+.btn_submit:hover,
+.btn_submit:focus {
+  background-color: inherit;
+}
+
+.input_svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn_submit:hover .input_svg {
+  stroke: var(--success-green-color);
+}
+
+.select_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 199px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  border: none;
+  border-radius: 200px;
+  padding: 14px 24px;
+  margin-bottom: 4px;
+}
+.select_btn:hover {
+  background-color: var(--primary-white-color);
+  color: var(--secondary-text-color);
+}
+.select_btn:hover .btn_svg {
+  stroke: var(--secondary-text-color);
+}
+.category_list {
+  position: absolute;
+  width: 199px;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  border: 0;
+  border-radius: 20px;
+  padding: 14px 23px;
+  z-index: 999;
+}
+.category_item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.category_item {
+  cursor: pointer;
+}
+
+.ingredients_box {
+  position: absolute;
+  background-color: var(--secondary-bg-blue-color);
+  color: var(--primary-text-color);
+  width: 199px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.56;
+  border: 0;
+  border-radius: 20px;
+  padding: 14px 8px;
+  z-index: 999;
+}
+.ingredients_list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  height: 370px;
+  padding-left: 15px;
+}
+.ingredients_list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ingredients_list::-webkit-scrollbar-thumb {
+  background-color: var(--disabled-blue-color);
+  height: 110px;
+  border-radius: 20px;
+}
+.drinks {
+  margin-top: 40px;
+  z-index: 1;
+  // height: 1474px;
+}
+.drinks_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // height: inherit;
+  // overflow-y: hidden;
+}
+.drinks_item {
+  margin-right: 20px;
+  margin-bottom: 80px;
+}
+.drinks_item:nth-child(3n + 3) {
+  margin-right: 0px;
+}
+
+.drinks_card {
+  width: 400px;
+  height: 400px;
+  margin-bottom: 14px;
+}
+.drinks_img {
+  border-radius: 8px;
+}
+.drinks_title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+}
+.page {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 6px;
+  margin-right: 17px;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  height: 27px;
+  width: 27.8px;
+  border-radius: 27px;
+}
+.page:hover {
+  background-color: var(--active-btn-border-color);
+}
+.active {
+  background-color: var(--active-btn-border-color);
+}
+
+.previous {
+  margin-right: 40px;
+  cursor: pointer;
+}
+.next {
+  margin-left: 23px;
+  cursor: pointer;
+}
