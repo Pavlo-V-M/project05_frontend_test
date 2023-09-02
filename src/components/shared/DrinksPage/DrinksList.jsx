@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterValue } from './redux/filterSlice';
 import { setDataRecipets } from './redux/recipetsSlice';
+import { setPaginateValue } from './redux/pagePaginateSlice';
 
 const STATUS = {
   IDLE: 'idle',
@@ -29,6 +30,7 @@ const Drinkslist = () => {
           return;
         }
         dispatch(setDataRecipets(data));
+        dispatch(setPaginateValue(0));
         setStatus(STATUS.RESOLVED);
       })
       .catch(error => console.log(error));
