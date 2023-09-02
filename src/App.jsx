@@ -4,7 +4,7 @@ import { lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import AuthForm from 'components/RegistrationPage/AuthForm';
-import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
+// import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage'; =========> від Юлі
 // import MyRecipes from 'components/shared/MyRecipes/MyRecipes';
 // import { Link } from 'react-router-dom';
 
@@ -24,14 +24,14 @@ const FavoritesPage = lazy (() => import('./pages/FavoritesPage/FavoritesPage'))
 const App = () => {
   return (
     <BrowserRouter basename="/project05_frontend_test">
-      <BackgroundComponent />
+{/* Від Юлі =========>     <BackgroundComponent />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/registration" element={<AuthForm isRegistration />} />
         <Route path="/signin" element={<AuthForm />} />
         <Route path="/own" element={<MyRecipesPage />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> <============ Від Юлі */}
       {/* <BackgroundComponent /> */}
         <Routes>
           <Route path="/" element={<WelcomePage />} />
@@ -47,34 +47,8 @@ const App = () => {
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Route>
         </Routes>
-
+      </BrowserRouter>
   );
 };
 
 export default App;
-
-
-// >>>>>>> from main-page-test
-
-// import React from 'react';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import BackgroundComponent from 'components/shared/Background/Background.jsx';
-// import Welcome from 'components/WelcomePage/WelcomePage.jsx';
-// import AuthForm from 'components/RegistrationPage/AuthForm';
-
-// const App = () => {
-//   return (
-//     <BrowserRouter basename="/project05_frontend_test">
-//     <BackgroundComponent/>
-//     <Routes>
-//       <Route path="/" element={<Welcome />} />
-//       <Route path="/registration" element={<AuthForm isRegistration />} />
-//       <Route path="/signin" element={<AuthForm />} />
-//     </Routes>
-//     </BrowserRouter>
-//   );
-// };
-
-// export default App;
-
-// >>>>>>> from main-page-test
