@@ -1,33 +1,28 @@
 .footer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    max-width: none;  
-  }
+    width: 375px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
-.bubble1,
-.bubble2 {
-    position: absolute;
-    border-radius: 50%;
+@media screen and (min-width: 768px) {
+    .footer {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 }
-  
-.bubble1 {
-    width: 774px;
-    height: 762px;
-    top: 5%;
-    left: 10%;
-    background-color: rgba(188, 230, 210, 0.4);
-    opacity: 0.4;
-}
-  
-.bubble2 {
-    width: 784px;
-    height: 849px;
-    top: -50%;
-    right: 85%;
-    background-color: rgba(64, 112, 205, 0.5);
-    opacity: 0.5;
-}
-  
 
+@media screen and (min-width: 1440px) {
+    .footer {
+        width: 1440px;
+        padding-left: 100px;
+        padding-right: 100px;
+
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        max-width: none;
+    }
+}

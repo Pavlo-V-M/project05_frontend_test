@@ -13,7 +13,7 @@
 .subscribe_text {
 	margin-bottom: 24px;
 
-	color: #f3f3f3;
+	color: var(--primary-text-color);
 	font-size: 14px;
 	line-height: 20px;
 
@@ -40,7 +40,7 @@
 	transition: border-color 0.3s ease-in-out;
 
 	&::placeholder {
-		color: #f3f3f3;
+		color: var(--primary-white-color);
 	}
 
 	@include tablet {
@@ -53,17 +53,17 @@
 	&:focus,
 	&:hover {
 		outline: none;
-		color: #f3f3f3;
+		color: var(--primary-white-color);
 		border-color: rgba(243, 243, 243, 0.5);
 		background-color: transparent;
 	}
 	&.valid_border {
-		border-color: green;
+		border-color: var(--success-green-color);
 		outline: none;
 		background-color: transparent;
 	}
 	&.invalid_border {
-		border-color: red;
+		border-color: var(--error-red-color);
 		outline: none;
 		background-color: transparent;
 	}
@@ -72,7 +72,7 @@
 .subscribe_button {
 	margin-top: 18px;
 	height: 54px;
-	color: #f3f3f3;
+	color: var(--primary-white-color);
 	background-color: transparent;
 	text-align: center;
 	font-size: 16px;
@@ -106,7 +106,7 @@
 .error_message_on_border {
 	position: absolute;
 	font-size: 12px;
-	color: red;
+	color: var(--error-red-color);
 	bottom: 0px;
 	left: 170px;
 }
@@ -124,9 +124,9 @@
 }
 
 .success_status {
-	color: green;
+	color: var(--success-green-color);
 }
 
 .error_status {
-	color: red;
+	color: var(--error-red-color);
 }
