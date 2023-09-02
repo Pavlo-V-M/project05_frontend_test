@@ -1,40 +1,41 @@
+@import "index.scss";
 
 .navigation {
-    // display: flex;
-    justify-content: space-between;
-
-    @media screen and (max-width: 768px) {
-          display: block;
-    }
-
-    @media screen and (min-width: 768px) {
-      display: flex;
-      
-}
-
-    @media screen and (min-width: 1440px) {
-      
-    }
-}
-
-
-.navigation_follow {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  @media screen and (max-width: 768px) {
-        display: flex;
-        gap: 110px;
-    }
-
-    @media screen and (min-width: 768px) {
-      display: block;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   @media screen and (min-width: 1440px) {
     display: flex;
-    gap: 389px;
+    justify-content: space-between;
+    align-items: inherit;
+  }
 }
+
+.navigation_follow {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 110px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: table;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: contents;
+  }
 }
+
 
 .nav {
     display: grid;
@@ -49,7 +50,6 @@
   margin-top: 0;
 }
 }
-
 
 .link_pages {
   text-decoration: none;

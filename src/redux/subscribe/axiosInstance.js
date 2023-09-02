@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://drink-master-fssf-backend.onrender.com/";
+const baseUrl = "https://project05-backend.onrender.com/api-docs/";
 
 const axiosInstance = axios.create({
 	baseURL: baseUrl + "api/",
@@ -8,13 +8,5 @@ const axiosInstance = axios.create({
 		"Content-Type": "application/json",
 	},
 });
-
-export const setAuthJWTHeader = token => {
-	axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-export const clearAuthJWTHeader = () => {
-	axiosInstance.defaults.headers.common.Authorization = "";
-};
 
 export default axiosInstance;

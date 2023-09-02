@@ -1,8 +1,10 @@
+@import "index.scss";
+
 .link {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    color: #F3F3F3;
+    color: var(--primary-white-color);
 
     text-decoration: none;
 }
