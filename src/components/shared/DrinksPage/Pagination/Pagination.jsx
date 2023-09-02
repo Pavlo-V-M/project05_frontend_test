@@ -6,13 +6,21 @@ import { fetchRecipets } from '../Api/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDataRecipets, setDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';
+import { getPagePaginate } from '../redux/pagePaginateSlice';
 
 const PaginatedItems = ({ itemsPerPage }) => {
+  // const [value, setValue] = useState('');
   const dataRecipets = useSelector(getDataRecipets);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
-  console.log(filterValue);
+  const pagePaginate = useSelector(getPagePaginate);
+  console.log(pagePaginate);
 
+  // if (filterValue !== value) {
+  //   setValue(filterValue);
+  // }
+
+  // console.log(value);
   const pageCount = Math.ceil(dataRecipets.totalCount / itemsPerPage);
 
   const onCkick = event => {
@@ -32,7 +40,8 @@ const PaginatedItems = ({ itemsPerPage }) => {
         nextLabel=">"
         onClick={onCkick}
         pageCount={pageCount}
-        initialPage={0}
+        // initialPage={0}
+        forcePage={pagePaginate}
         previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName={styles.pagination}

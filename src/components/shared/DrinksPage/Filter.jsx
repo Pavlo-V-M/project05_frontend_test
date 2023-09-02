@@ -24,10 +24,10 @@ const Filter = () => {
       alert('Please enter a valid name !');
       return;
     }
-    console.log(inputValue);
     dispatch(setFilterValue(inputValue));
     fetchRecipets(1, inputValue)
       .then(data => {
+        console.log(data);
         dispatch(setDataRecipets(data));
       })
       .catch(error => console.log(error));

@@ -13,6 +13,6 @@ export const fetchCategories = async () => {
   instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
   const { data } = await instance.get(`/api/recipes/category-list`);
-  // console.log(data);
+
   return data;
 };

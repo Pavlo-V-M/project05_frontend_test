@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setDataRecipets } from './redux/recipetsSlice';
 import { setFilterValue } from './redux/filterSlice';
+import { setPaginateSlice } from './redux/pagePaginateSlice';
 
 const STATUS = {
   IDLE: 'idle',
@@ -28,18 +29,18 @@ const Categories = () => {
     // }
     fetchCategories()
       .then(data => {
-        // console.log(data);
         setItems(data);
         setStatus(STATUS.RESOLVED);
       })
       .catch(error => console.log(error));
-  }, [setItems, setStatus]);
+  }, [dispatch, setItems, setStatus]);
 
   const chooseCategory = e => {
     dispatch(setFilterValue(e.target.innerHTML));
     fetchRecipets(1, e.target.innerHTML)
       .then(data => {
         dispatch(setDataRecipets(data));
+        dispatch(setPaginateSlice(0));
 
         setStatus(STATUS.RESOLVED);
       })
