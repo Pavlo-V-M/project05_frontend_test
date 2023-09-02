@@ -9,12 +9,4 @@ const axiosInstance = axios.create({
 	},
 });
 
-export const setAuthJWTHeader = token => {
-	axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-export const clearAuthJWTHeader = () => {
-	axiosInstance.defaults.headers.common.Authorization = "";
-};
-
 export default axiosInstance;
