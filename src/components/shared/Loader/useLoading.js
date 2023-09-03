@@ -1,18 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const useLoading = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Симулюємо завантаження на 2 секунди
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+  useEffect(() => { 
+    fetch('https://project05-backend.onrender.com/api-docs')
+      .then((response) => response.json())
+      .then((data) => {
+        const isDataLoaded = data && data.length > 0;
 
-    return () => {
-      clearTimeout(timer);
-    };
+        setIsLoading(!isDataLoaded);
+      })
+      .catch((error) => {
+        console.error('Error loading data:', error);
+        setIsLoading(false); 
+      });
   }, []);
+
+//   const timer = setTimeout(() => {
+//     setIsLoading(false);
+//   }, 3000);
+
+//   return () => {
+//     clearTimeout(timer);
+//   };
+// }, []);
 
   return { isLoading };
 };
