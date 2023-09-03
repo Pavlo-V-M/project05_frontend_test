@@ -1,0 +1,15 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  width="200"
+  height="200"
+  style="width:100%;height:100%;background-size:initial;background-repeat-y:initial;background-repeat-x:initial;background-position-y:initial;background-position-x:initial;background-origin:initial;background-image:initial;background-color:transparent;background-clip:initial;background-attachment:initial;animation-play-state:paused"
+>
+  <g class="ldl-scale" style="transform-origin:50% 50%;transform:rotate(0deg) scale(.8,.8);animation-play-state:paused">
+    <circle stroke-miterlimit="10" stroke-width="3.5" stroke="#333" fill="#f8b26a" r="20.814" cy="31.814" cx="65.187" style="stroke:#191d3a;fill:#5e6fa3;animation-play-state:paused" />
+    <path stroke-miterlimit="10" stroke-width="3.5" stroke="#333" fill="#fff" d="M54.7 89H31.808a3.536 3.536 0 0 1-3.507-3.084l-6.979-54.102h43.866l-6.979 54.102A3.538 3.538 0 0 1 54.7 89z" style="stroke:#191d3a;fill:#93dbe9;animation-play-state:paused" />
+    <path d="M52.794 83.625h-19.08l-4.835-37.48h28.75z" stroke-miterlimit="10" stroke-width="3.5" stroke="#77a4bd" fill="#77a4bd" style="stroke:#3b4368;fill:#3b4368;animation-play-state:paused" />
+    <path d="M45.986 66.37 13.999 12.459" stroke-miterlimit="10" stroke-width="3.5" stroke="#333" fill="none" style="stroke:#191d3a;animation-play-state:paused" />
+    <path fill="#e0e0e0" opacity=".5" d="m51.778 49.872-5.456 1.168a3.371 3.371 0 0 1-4.002-2.591l-.926-4.325a3.371 3.371 0 0 1 2.591-4.002l5.456-1.168c1.82-.39 3.612.77 4.002 2.591l.926 4.325a3.372 3.372 0 0 1-2.591 4.002z" style="fill:#689cc5;animation-play-state:paused" />
+  </g>
+</svg>
