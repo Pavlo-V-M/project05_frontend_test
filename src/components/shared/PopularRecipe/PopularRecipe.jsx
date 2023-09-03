@@ -16,7 +16,6 @@ const PopularRecipes = () => {
     }
     receiveData();
   }, []);
-  console.log('popularRecipes: ', popularRecipes);
 
   // Add code for open PAGE!!!
   const linkClick = event => {

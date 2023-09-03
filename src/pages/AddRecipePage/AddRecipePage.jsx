@@ -1,4 +1,4 @@
-import PopularRecipes from 'components/shared/PopularRecipe/PopularRecipe';
+import PopularRecipes from '../../components/shared/PopularRecipe/PopularRecipe';
 
 const AddRecipePage = () => {
   return (
