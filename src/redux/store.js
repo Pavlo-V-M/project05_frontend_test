@@ -3,6 +3,7 @@ import { authReducer } from './slices/auth';
 import { filterSlice } from '../components/shared/DrinksPage/redux/filterSlice';
 import { recipetsSlice } from '../components/shared/DrinksPage/redux/recipetsSlice';
 import { pagePaginateSlice } from '../components/shared/DrinksPage/redux/pagePaginateSlice';
+import { numberCardsSlice } from '../components/shared/DrinksPage/redux/numberCardsSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     valueFilter: filterSlice.reducer,
     dataRecipets: recipetsSlice.reducer,
     pagePaginate: pagePaginateSlice.reducer,
+    numberCards: numberCardsSlice.reducer,
   },
 });
 
