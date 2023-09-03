@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -17,27 +16,6 @@ const DrinksPage = lazy (() => import('./pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy (() => import('./pages/AddRecipePage/AddRecipePage'));
 const MyRecipesPage = lazy (() => import('./pages/MyRecipesPage/MyRecipesPage'));
 const FavoritesPage = lazy (() => import('./pages/FavoritesPage/FavoritesPage'));
-// import RecipePage from './pages/RecipePage/RecipePage';
-// import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-
-// const App = () => {
-//   return (
-//         <Routes>
-//           {/* <Route path="/" element={<WelcomePage />} /> */}
-//           {/* <Route path="/registration" element={<AuthForm isRegistration />} /> */}
-//           {/* <Route path="/signin" element={<AuthForm />} /> */}
-//           {/* <Route path="/" element={<SharedLayout />}> */}
-//             <Route path="/main" element={<MainPage />} />
-//             <Route path="/drinks" element={<DrinksPage />} />
-//             <Route path="/add" element={<AddRecipePage />} />
-//             <Route path="/my" element={<MyRecipesPage />} />
-//             {/* <Route path="/favorite" element={<FavoritesPage />} /> */}
-//             {/* <Route path="/recipe/:recipeId" element={<RecipePage />} /> */}
-//             {/* <Route path="*" element={<NotFoundPage />} /> */}
-//           </Route>
-//         </Routes>
-//   );
-// };
 
 export const App = () => {
   return (
@@ -59,6 +37,4 @@ export const App = () => {
   );
 };
 
-
 export default App;
-
