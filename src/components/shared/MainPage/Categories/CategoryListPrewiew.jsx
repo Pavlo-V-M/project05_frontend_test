@@ -6,21 +6,21 @@ import { Link, useLocation } from "react-router-dom";
 
 const CategoryListPrewiew = () => {
   const [categories, setCategories] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   
 
   useEffect(() => {
 
     const fetchCategoriesList = () => {
-      setIsLoading(true);
+      // setIsLoading(true);
       fetchCategories().then(data => {
         setCategories(data);
             })
                 .catch(error => {
                     console.log(error);
                 })
-        .finally(() => { setIsLoading(false) });
+        // .finally(() => { setIsLoading(false) });
     };
     fetchCategoriesList();
   },[]);
