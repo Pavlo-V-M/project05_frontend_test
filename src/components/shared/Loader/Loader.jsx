@@ -1,10 +1,11 @@
-import { LiaCocktailSolid } from 'react-icons/lia';
-import sass from './Loader.module.scss';
+import React from 'react';
+import CocktailIcon from './coktail.svg';
+import scss from './Loader.module.scss'; 
 
-const Loader = ({ size, color = '#fffff' }) => {
+const Loader = () => {
   return (
-    <div className={sass.wrapper}>
-      {/* <LiaCocktailSolid size={size} color={color} className={sass.icon} /> */}
+    <div className={scss.wrapper}>
+      <img src={CocktailIcon} alt="Cocktail Icon" className={scss.icon} />
     </div>
   );
 };
