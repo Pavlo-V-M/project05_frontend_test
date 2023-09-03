@@ -1,13 +1,21 @@
 @import '../../../index.scss';
 
 .title {
-  font-size: 64px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.06;
   color: var(--primary-text-color);
-  margin-top: 224px;
-  margin-bottom: 80px;
+  margin-top: 152px;
+  margin-bottom: 40px;
 }
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 64px;
+    margin-top: 224px;
+    margin-bottom: 80px;
+  }
+}
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -197,6 +205,10 @@
   // height: inherit;
   // overflow-y: hidden;
 }
+.drinks_item:not(:last-child) {
+  margin-bottom: 28px;
+}
+
 @media screen and (min-width: 768px) {
   .drinks_item {
     // margin-right: 20px;
@@ -219,6 +231,10 @@
 .drinks_item:hover .drinks_title {
   color: var(--success-green-color);
 }
+.drinks_card {
+  width: 335px;
+  margin-bottom: 14px;
+}
 
 @media screen and (min-width: 768px) {
   .drinks_card {
@@ -230,7 +246,6 @@
   .drinks_card {
     width: 400px;
     // height: 400px;
-    margin-bottom: 14px;
   }
 }
 
@@ -260,6 +275,7 @@
   align-items: center;
   height: 55px;
 }
+
 .page {
   font-size: 12px;
   font-weight: 500;

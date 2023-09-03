@@ -18,10 +18,25 @@ const STATUS = {
 
 const Drinkslist = () => {
   const [status, setStatus] = useState('');
+  const [pageCount, setPageCount] = useState(8);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
   const { categoryName } = useParams();
+
+  useEffect(() => {
+    const handleResize = event => {
+      const width = event.target.innerWidth;
+      console.log(width);
+      if (width < 768) {
+        setPageCount(5);
+      }
+      if (width >= 768) {
+        setPageCount(8);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log(numberCards);
@@ -55,7 +70,7 @@ const Drinkslist = () => {
   if (status === 'resolved') {
     return (
       <div className={styles.drinks}>
-        <PaginatedItems itemsPerPage={numberCards} />
+        <PaginatedItems pageCount={pageCount} />
       </div>
     );
   }
