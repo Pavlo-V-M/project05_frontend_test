@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import styles from "./EditProfile.module.scss";
-import { PatchDataHeader } from "../api/api-header";
+import { PatchDataHeader,FetchById } from "../api/api-header";
 
-const EditProfileModal = ({ isOpen, closeModal, dataUser, onSave }) => {
+const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUser }) => {
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
   const [avatarFiles, setAvatarFiles] = useState(null);
@@ -25,16 +25,23 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, onSave }) => {
   if ((inputValue || dataUser.user.name) || avatarFiles) {
     PatchDataHeader(avatarFiles, inputValue || dataUser.user.name)
       .then((response) => {
-        console.log("Response from server:", response);
-        closeModal();
-      })
-      .catch((error) => {
-        console.error("Error sending request:", error);
-      });
+  console.log("Response from server:", response);
+  closeModal();
+
+  
+  FetchById(authData.user.email)
+    .then((data) => {
+      console.log("Fetched data after saving changes:", data);
+
+      updateDataUser(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+})
+
   }
 };
-
-
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);

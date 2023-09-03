@@ -10,7 +10,7 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick,dataUser,aut
   const dispatch = useDispatch();
  
   
-console.log(dataUser)
+
   
   const handleLogout = async () => {
     try {

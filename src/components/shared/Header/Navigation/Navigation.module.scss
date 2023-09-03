@@ -48,6 +48,10 @@
     background-color: var(--secondary-bg-blue-color);
 }
 
+.active {
+    background-color: var(--secondary-bg-blue-color);
+    border-radius: 38px;
+}
 
 // &:global(.active) {
 //     background-color: var(--secondary-bg-blue-color);

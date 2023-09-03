@@ -25,7 +25,6 @@ export async function PatchDataHeader(avatarFile,name) {
   try {
     const response = await instance.patch(`/api/auth/update`, formData, config);
 
-    console.log(response.data);
 
     return response.data;
   } catch (error) {

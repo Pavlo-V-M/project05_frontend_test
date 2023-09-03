@@ -18,9 +18,7 @@ const UserInfoModal = () => {
   
   const authData = useSelector(state => state.auth.data)
  
-  console.log(authData)
-
-  
+ 
   useEffect(() => {
     if (authData.user.email) {
   FetchById( authData.user.email)
@@ -39,6 +37,9 @@ const handleModalClick = (event) => {
   event.stopPropagation();
 };
 
+  const updateDataUser = (newDataUser) => {
+  setDataUser(newDataUser);
+};
 
   const ModalOpen = () => {
     setIsModalOpen(true);
@@ -88,6 +89,7 @@ const handleModalClick = (event) => {
               avatarUrl={avatarUrl}
               dataUser={dataUser}
               authData={authData}
+              updateDataUser={updateDataUser}
               
             />
             
