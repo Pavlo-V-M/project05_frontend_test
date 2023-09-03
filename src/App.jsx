@@ -6,7 +6,7 @@ import AuthForm from 'components/RegistrationPage/AuthForm';
 
 // import BackgroundComponent from '../src/components/shared/Background/Background';
 
-const WelcomePage = lazy (() => import( './pages/WelcomePage/WelcomePage'));
+const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 
 const MainPage = lazy (() => import('./pages/MainPage/MainPage'));
 const DrinksPage = lazy (() => import('./pages/DrinksPage/DrinksPage'));
