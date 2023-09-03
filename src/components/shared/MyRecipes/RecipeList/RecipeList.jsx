@@ -27,7 +27,7 @@ const RecipeList = ({ items, onDeleteRecipes }) => {
     <>
       {/* {isLoading && <p>....Loading</p>}
       {error && <p className={styles.error}>{error}</p>} */}
-      <ul className={styles.list}>{elements}</ul>;
+      <ul className={styles.list}>{elements}</ul>
     </>
   );
 };
