@@ -3,21 +3,27 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import AuthForm from 'components/RegistrationPage/AuthForm';
-// import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage'; =========> від Юлі
-// import MyRecipes from 'components/shared/MyRecipes/MyRecipes';
-// import { Link } from 'react-router-dom';
+
+import useLoading from './components/shared/Loader/useLoading';
+import Loader from "./components/shared/Loader/Loader"
 
 // import BackgroundComponent from '../src/components/shared/Background/Background';
 
-const WelcomePage = lazy (() => import( './pages/WelcomePage/WelcomePage'));
+const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 
 const MainPage = lazy (() => import('./pages/MainPage/MainPage'));
 const DrinksPage = lazy (() => import('./pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy (() => import('./pages/AddRecipePage/AddRecipePage'));
 const MyRecipesPage = lazy (() => import('./pages/MyRecipesPage/MyRecipesPage'));
 const FavoritesPage = lazy (() => import('./pages/FavoritesPage/FavoritesPage'));
+const RecipePageById = lazy(()=> import ('./pages/RecipePage/RecipePage')) ;
 
 export const App = () => {
+  const { isLoading } = useLoading();
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <Routes>
       <Route index element={<WelcomePage />} />
@@ -30,7 +36,7 @@ export const App = () => {
         <Route path="add" element={<AddRecipePage />} />
         <Route path="my" element={<MyRecipesPage />} />
         <Route path="favorite" element={<FavoritesPage />}/>
-        {/* <Route path="/recipe/:recipeId" element={<RecipePage />} />      */}
+        <Route path="recipe/:recipeId" element={<RecipePageById />} />     
       </Route>
       <Route path="*" element={"NotFound"} ></Route>
     </Routes>
