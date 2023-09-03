@@ -1,87 +1,115 @@
 import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import { fetchCategories } from "components/services/Api";
-import styles from './CoctailList.module.scss'
+import styles from './CategoryListPrewiew.module.scss'
 // import CategoryCard from "./CategoryCard";
+import { Link, useLocation } from "react-router-dom";
 
 const CategoryListPrewiew = () => {
   const [categories, setCategories] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  
 
   useEffect(() => {
 
-   const fetchCategoriesList = () => {
-
-            fetchCategories().then(category => { console.log(category)
-                setCategories(category);
+    const fetchCategoriesList = () => {
+      setIsLoading(true);
+      fetchCategories().then(data => {
+        setCategories(data);
             })
                 .catch(error => {
                     console.log(error);
                 })
-        };
+        .finally(() => { setIsLoading(false) });
+    };
     fetchCategoriesList();
-  }, []);
+  },[]);
 
-
-    console.log(categories)
+  console.log(categories)
   const categoriesKeys = Object.keys(categories);
   // console.log(categoriesKeys);
+  const [odinary, cocktail, shake, other] = categoriesKeys;
+  // console.log(odinary)
+
+  const odinaryList = categories["Odinary Drink"];  
+  // console.log(odinaryList)
+  const cocktailList = categories['Cocktail'];
+  const shakeList = categories["Shake"]
+  const otherList = categories["Other/Unknown"]
   
-  const odinaryDrinks = categories["Odinary Drink"];  
-  // console.log(odinaryDrinks)
-  const coctails = categories['Cocktail'];
-  // console.log(coctails)
-  const shakes = categories["Shake"]
-  const other = categories["Other/Unknown"]
-  
-return (
-      <div>
-        <ul>
-              <li>
-                <h2>{categoriesKeys[0]}</h2>
-                <ul className={styles.coctail_list}>{odinaryDrinks.map(({ _id, drinkThumb, drink}) => {
-                    return (
-                      <li key={_id}>
-                        <img src={drinkThumb} alt="Odinary Drink" />
-                        <h2>{drink}</h2>
-                        <p>ingredients</p>
-                      </li>)
-              })}</ul>
-      </li>
-                    <li>
-                <h2>{categoriesKeys[1]}</h2>
-                <ul className={styles.coctail_list}>{coctails.map(({ _id, drinkThumb, drink}) => {
-                    return (
-                      <li key={_id}>
-                        <img src={drinkThumb} alt='Cocktail' />
-                        <h2>{drink}</h2>
-                        <p>ingredients</p>
-                      </li>)
-              })}</ul>
-      </li>
-                    <li>
-                <h2>{categoriesKeys[2]}</h2>
-                <ul className={styles.coctail_list}>{shakes.map(({ _id, drinkThumb, drink}) => {
-                    return (
-                      <li key={_id}>
-                        <img src={drinkThumb} alt="Shake" />
-                        <h2>{drink}</h2>
-                        <p>ingredients</p>
-                      </li>)
-              })}</ul>
-      </li>
-                    <li>
-                <h2>{categoriesKeys[3]}</h2>
-                <ul className={styles.coctail_list}>{other.map(({ _id, drinkThumb, drink}) => {
-                    return (
-                      <li key={_id}>
-                        <img src={drinkThumb} alt="Other/Unknown" />
-                        <h2>{drink}</h2>
-                        <p>ingredients</p>
-                      </li>)
-              })}</ul>
-              </li>
-        </ul>
-      </div>
+  return (
+    <div>
+      <ul>
+        <li className={styles.category}>
+          <Link className={styles.link} to={`/recipes/${odinary}`}>
+            <h2 className={styles.category_title}>{odinary}</h2>
+          </Link>
+          <ul className={styles.coctail_list} >{odinaryList && odinaryList.map(({ _id, drinkThumb, drink }) => {
+            return (
+              <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
+                <li className={styles.card}>
+                  <img src={drinkThumb} width="400" alt="Odinary Drink" />
+                  <div className={styles.card_info}>
+                    <h2 className={styles.card_title}>{drink}</h2>
+                    <p className={styles.card_text}>ingredients</p>
+                  </div>
+                </li>
+              </Link>)
+          })}
+          </ul>
+        </li>
+        <li className={styles.category}>
+          <Link className={styles.link} to={`/recipes/${cocktail}`}>
+            <h2 className={styles.category_title}>{cocktail}</h2>
+          </Link>
+          <ul className={styles.coctail_list} >{cocktailList && cocktailList.map(({ _id, drinkThumb, drink }) => {
+            return (
+              <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
+                <li className={styles.card}>
+                  <img src={drinkThumb} max-width="400" alt="Cocktail" />
+                  <div className={styles.card_info}>
+                    <h2 className={styles.card_title}>{drink}</h2>
+                    <p className={styles.card_text}>ingredients</p>
+                  </div>
+                </li>
+              </Link>)
+          })}
+          </ul>
+        </li>
+        <li className={styles.category}>
+          <Link className={styles.link} to={`/recipes/${shake}`}><h2 className={styles.category_title}>{shake}</h2></Link>
+          <ul className={styles.coctail_list} >{shakeList && shakeList.map(({ _id, drinkThumb, drink }) => {
+            return (
+              <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
+                <li className={styles.card}>
+                  <img src={drinkThumb} width="400" alt="Shake" />
+                  <div className={styles.card_info}>
+                    <h2 className={styles.card_title}>{drink}</h2>
+                    <p className={styles.card_text}>ingredients</p>
+                  </div>
+                </li>
+              </Link>)
+          })}
+          </ul>
+        </li>
+        <li className={styles.category}>
+          <Link className={styles.link} to={`/recipes/${other}`}><h2 className={styles.category_title}>{other}</h2></Link>
+          <ul className={styles.coctail_list} >{otherList && otherList.map(({ _id, drinkThumb, drink }) => {
+            return (
+              <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
+                <li className={styles.card}>
+                  <img src={drinkThumb} width="400" alt="Other" />
+                  <div className={styles.card_info}>
+                    <h2 className={styles.card_title}>{drink}</h2>
+                    <p className={styles.card_text}>ingredients</p>
+                  </div>
+                </li>
+              </Link>)
+          })}
+          </ul>
+        </li>
+      </ul>
+    </div>
 )
 };
 
