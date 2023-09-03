@@ -1,14 +1,16 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { fetchAuth, fetchRegister, selectIsAuth } from 'redux/slices/auth';
-import { GoEyeClosed } from 'react-icons/go';
-import { GoEye } from 'react-icons/go';
-
-import { Navigate } from 'react-router-dom';
-
-import css from './AuthForm.module.css';
+import { 
+  GoEyeClosed, 
+  GoEye, 
+  GoX,
+  GoCheckCircle } from 'react-icons/go';
+import { BsExclamationCircle  } from "react-icons/bs";
+import css from './AuthForm.module.scss';
 
 const AuthForm = ({ isRegistration }) => {
   const isAuth = useSelector(selectIsAuth);
@@ -18,7 +20,7 @@ const AuthForm = ({ isRegistration }) => {
   const [passwordActive, setPasswordActive] = useState(false);
   const [showNameField, setShowNameField] = useState(isRegistration);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const { register, handleSubmit, formState, reset } = useForm({
+  const { register, handleSubmit, formState: { errors }, formState, reset } = useForm({
     defaultValues: {
       email: '',
       password: ''
@@ -32,25 +34,35 @@ const AuthForm = ({ isRegistration }) => {
 
   const onSubmit = async (values) => {
     const data = isRegistration ? await dispatch(fetchRegister(values)) : await dispatch(fetchAuth(values));
-  
+    
     if (isRegistration && data) {
       window.localStorage.setItem('token', data.payload.token);
+      const emailInput = document.querySelector('.input[name="email"]');
+      const passwordInput = document.querySelector('.input[name="password"]');
+      if (emailInput) emailInput.classList.add('ok');
+      if (passwordInput) passwordInput.classList.add('ok');
     } else if (!isRegistration && data && 'payload' in data && 'token' in data.payload) {
       window.localStorage.setItem('token', data.payload.token);
+      const emailInput = document.querySelector('.input[name="email"]');
+      const passwordInput = document.querySelector('.input[name="password"]');
+      if (emailInput) emailInput.classList.add('ok');
+      if (passwordInput) passwordInput.classList.add('ok');
     } else {
       alert('Failed to ' + (isRegistration ? 'register' : 'login') + '!');
     }
-    
   };
-
-  if (isAuth) {
-    return <Navigate to="/main"/>
-  }
 
   const handleFormToggle = () => {
     setShowNameField(!isRegistration);
     reset();
   };
+
+  const emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;  
+  const passwordlPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$/;
+
+  if (isAuth) {
+    return <Navigate to="/main"/>
+  }
 
   return (
     <div>
@@ -58,35 +70,64 @@ const AuthForm = ({ isRegistration }) => {
         <h2 className={css.title}>{isRegistration ? 'Registration' : 'Sign In'}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Name input */}
-            <div className={css.form_group}>
+          <div className={css.form_group}>
             {showNameField && (
-              <input
+              <div className={css.input_wrapper}>
+                <input
                 type="text"
                 placeholder="Name"
-                className={`${css.input} ${nameActive ? css.active : ''}`}
+                className={`${css.input} ${nameActive ? css.active : ''} `}
                 onFocus={() => setNameActive(true)}
                 onBlur={() => setNameActive(false)}
-                {...register('name', { required: 'Enter your name' })}
+                {...register('name', { 
+                  required: 'Enter your name',
+                  minLength: 6
+                })}
               />
+              <button
+                type="button"
+                className={css.clear_btn}  
+                onClick={() => reset({ name: '' })}  
+              >
+                <GoX className={css.clearIcon} />
+              </button>
+              </div>
             )}
-            {showNameField && formState.errors.name && <span className={css.error_message}>{formState.errors.name.message}</span>}
+            {showNameField && formState.errors.name && <span className={css.warning_message}>{formState.errors.name.message}</span>}
           </div>
 
           {/* Email input */}
-          <div className={css.form_group}>
+        <div className={`${css.form_group} ${errors.email || formState.isSubmitted ? css.error : ''} ${formState.isValid ? css.ok : ''}`}>
+          <div className={css.input_wrapper}>
             <input
               type="email"
               placeholder="Email"
               className={`${css.input} ${emailActive ? css.active : ''}`}
               onFocus={() => setEmailActive(true)}
               onBlur={() => setEmailActive(false)}
-              {...register('email', { required: 'Enter your email' })}
+              {...register('email', { 
+                required: 'Enter your email',
+                pattern: {
+                  value: emailPattern,
+                  message: 'This is an ERROR email'
+                }
+              })}
             />
-            {formState.errors.email && <span className={css.error_message}>{formState.errors.email.message}</span>}
+            {formState.isValid && !errors.email && (
+              <GoCheckCircle className={css.successIcon} />
+            )}
+            {errors.email && (
+              <BsExclamationCircle className={css.errorIcon} />
+            )}
           </div>
+          {formState.isValid && (
+            <span className={`${css.error_message} ${css.success_message}`}>This is a CORRECT email</span>
+          )}
+          {errors.email && <span className={css.error_message}>{errors.email.message}</span>}
+        </div>
 
           {/* Password input */}
-          <div className={css.form_group}>
+          <div className={`${css.form_group} ${errors.password || formState.isSubmitted ? css.error : ''} ${formState.isValid ? css.ok : ''}`}>            
             <div className={css.input_wrapper}>
               <input
                 type={passwordVisible ? 'text' : 'password'}
@@ -94,7 +135,13 @@ const AuthForm = ({ isRegistration }) => {
                 className={`${css.input} ${passwordActive ? css.active : ''}`}
                 onFocus={() => setPasswordActive(true)}
                 onBlur={() => setPasswordActive(false)}
-                {...register('password', { required: 'Enter your password' })}
+                {...register('password', { 
+                  required: 'Enter your password',
+                  pattern: {
+                    value: passwordlPattern,
+                    message: 'This is an ERROR password'
+                  }
+                })}
               />
               <button
                 type="button"
@@ -102,15 +149,18 @@ const AuthForm = ({ isRegistration }) => {
                 onClick={togglePasswordVisibility}
               >
                 {passwordVisible ? (
-                  <GoEye id="svg" className={css.eye_icon} />
+                  <GoEye id="svg" className={css.eyeIcon} />
                 ) : (
-                  <GoEyeClosed id="svg" className={css.eye_icon} />
+                  <GoEyeClosed id="svg" className={css.eyeIcon} />
                 )}
               </button>
             </div>
-            {formState.errors.password && (
+            {formState.isValid && (
+          <span className={`${css.error_message} ${css.success_message}`}>This is a CORRECT password</span>
+        )}
+            {errors.password && (
               <span className={css.error_message}>
-                {formState.errors.password.message}
+                {errors.password.message}
               </span>
             )}
           </div>
