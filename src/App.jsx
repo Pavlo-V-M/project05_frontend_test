@@ -43,17 +43,17 @@ export const App = () => {
       <Route index element={<WelcomePage />} />
       <Route path="registration" element={<AuthForm isRegistration />} />
       <Route path="signin" element={<AuthForm />} />
+
       <Route path="/" element={<SharedLayout />}>
         <Route path="main" element={<MainPage />} />
         <Route path="drinks" element={<DrinksPage />} />
         <Route path="add" element={<AddRecipePage />} />
         <Route path="my" element={<MyRecipesPage />} />
-        <Route path="favorite" element={<FavoritesPage />} />
-        {/* <Route path="/recipe/:recipeId" element={<RecipePage />} /> */}
-        <Route path="*" element={"NotFound"} />
-
-        </Route>
-      </Routes>
+        <Route path="favorite" element={<FavoritesPage />}/>
+        {/* <Route path="/recipe/:recipeId" element={<RecipePage />} />      */}
+      </Route>
+      <Route path="*" element={"NotFound"} ></Route>
+    </Routes>
   );
 };
 
