@@ -1,0 +1,218 @@
+.auth_form {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 20px;
+    z-index: 999;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .auth_form {
+      left: 100px;
+    }
+  }
+  
+  .form_group {
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    font-family: Manrope;
+    color: var(--primary-text-color);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+  
+  .form_group {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    background: none;
+    width: 335px;
+    height: 54px;
+    border-radius: 200px;
+    opacity: 80%;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    padding-left: 24px;
+    transition: border var(--transition-duration), color var(--transition-duration);
+    color: var(--primary-text-color);
+  
+    &.active {
+      border: 1px solid rgba(243, 243, 243, 0.5);
+      background-color: transparent;
+    }
+  
+    &:focus {
+      outline: none;
+      border: 1px solid rgba(243, 243, 243, 0.5);
+      background-color: transparent;
+      color: var(--primary-text-color);
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .input {
+      width: 400px;
+      height: 56px;
+    }
+  }
+  
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+  
+    &:hover, &:focus {
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  
+    -webkit-text-fill-color: white !important;
+  }
+  
+  .error .input {
+    border-color: var(--error-red-color);
+  }
+  
+  .ok .input {
+    border-color: var(--success-green-color);
+  }
+  
+  .eye_btn, .clear_btn {
+    width: 48px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: rgba(243, 243, 243, 0.5);
+    font-size: 20px;
+  }
+  
+  .eyeIcon, .clearIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .errorIcon, .successIcon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 20px;
+  }
+  
+  .errorIcon {
+    color: var(--error-red-color);
+  }
+  
+  .successIcon {
+    color: var(--success-green-color);
+  }
+  
+  .warning_message, .error_message, .success_message {
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    margin-left: 25px;
+  }
+  
+  .warning_message {
+    color: rgba(243, 243, 243, 0.5);
+  }
+  
+  .error_message {
+    color: var(--error-red-color);
+  }
+  
+  .success_message {
+    color: var(--success-green-color);
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  .sign_button {
+    font-family: Manrope;
+    width: 335px;
+    border-radius: 42px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .sign_button {
+      width: 400px;
+    }
+  }
+  
+  .sign_link {
+    font-family: Manrope;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-decoration: underline;
+    margin-top: 14px;
+    color: var(--primary-text-color);
+  }
+  
+  .image_half {
+    background: url('../../images/backgroundMobile.png') no-repeat center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .image_half {
+      width: 50%;
+      height: 100%;
+      background: url('../../images/backgroundTablet.png') no-repeat center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .image_half {
+      background: url('../../images/BackgroundImage.png') no-repeat center;
+      width: 50%;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  }
