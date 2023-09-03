@@ -30,7 +30,6 @@ const EditProfileModal = ({ isOpen, closeModal, avatarUrl, handleFile }) => {
             </label>
             <input type="text" className={styles.modal__info_input} placeholder="Victoria" />
             <button className={styles.modal__info__save}>Save changes</button>
-            
           </form>
         </div>
       </div>
