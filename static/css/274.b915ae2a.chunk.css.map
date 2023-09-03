@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/274.b915ae2a.chunk.css","mappings":"AAAA,2BACE,oBACA,gBACA","sources":["components/shared/MainPage/Buttons/OtherDrinksBtn.module.scss"],"sourcesContent":[".btn{\n  margin-bottom: 140px;\n  margin-top: 80px;\n  text-align: center;\n}"],"names":[],"sourceRoot":""}
