@@ -4,6 +4,7 @@ import { fetchIngredients } from './Api/getIngredients';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilterValue } from './redux/filterSlice';
+import { Link, useLocation } from 'react-router-dom';
 
 const STATUS = {
   IDLE: 'idle',
@@ -16,6 +17,8 @@ const Ingredients = () => {
   const [items, setItems] = useState([]);
   const [status, setStatus] = useState('');
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const checkCategoryLength = array => {
     const newArray = array.map(({ title }) => {
       if (title.length > 18) {
@@ -41,22 +44,29 @@ const Ingredients = () => {
       .catch(error => console.log(error));
   }, [setItems, setStatus]);
 
-  const chooseCategory = e => {
-    dispatch(setFilterValue(e.target.innerHTML));
-  };
+  // const chooseCategory = e => {
+  //   dispatch(setFilterValue(e.target.innerHTML));
+  // };
 
   return (
     status === 'resolved' && (
       <div className={styles.ingredients_box}>
         <ul className={styles.ingredients_list}>
           {items.map(item => (
-            <li
-              onClick={e => chooseCategory(e)}
-              className={styles.category_item}
+            <Link
+              className={styles.category_link}
+              to={`/drinks/${item}`}
+              state={{ from: location }}
               key={nanoid()}
             >
-              {item}
-            </li>
+              <li
+                onClick={() => dispatch(setFilterValue(item))}
+                className={styles.category_item}
+                key={nanoid()}
+              >
+                {item}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

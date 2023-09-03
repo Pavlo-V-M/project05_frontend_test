@@ -8,13 +8,17 @@ import { useDispatch } from 'react-redux';
 import { setFilterValue } from './redux/filterSlice';
 import { fetchCategories } from './Api/getCategories';
 import { fetchIngredients } from './Api/getIngredients';
+import { useSearchParams } from 'react-router-dom';
 
 const Filter = () => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams('');
 
   const dispatch = useDispatch();
+
+  console.log(searchParams.get('query'));
 
   const submitForm = e => {
     e.preventDefault();
@@ -22,6 +26,8 @@ const Filter = () => {
       alert('Please enter a valid name !');
       return;
     }
+    console.log(inputValue);
+    setSearchParams({ query: inputValue });
     dispatch(setFilterValue(inputValue));
     dispatch(setInputValue(''));
   };
@@ -53,6 +59,7 @@ const Filter = () => {
         >
           <Search className={styles.input_svg} stroke="#F3F3F3" />
         </button>
+
         <input
           className={styles.input}
           type="text"

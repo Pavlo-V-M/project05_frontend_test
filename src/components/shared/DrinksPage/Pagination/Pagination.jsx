@@ -9,17 +9,11 @@ import { getFilterValue } from '../redux/filterSlice';
 import { getPagePaginate, setPaginateValue } from '../redux/pagePaginateSlice';
 
 const PaginatedItems = ({ itemsPerPage }) => {
-  // const [value, setValue] = useState('');
   const dataRecipets = useSelector(getDataRecipets);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const pagePaginate = useSelector(getPagePaginate);
 
-  // if (filterValue !== value) {
-  //   setValue(filterValue);
-  // }
-
-  // console.log(value);
   const pageCount = Math.ceil(dataRecipets.totalCount / itemsPerPage);
 
   const onCkick = event => {
@@ -32,7 +26,6 @@ const PaginatedItems = ({ itemsPerPage }) => {
       })
       .catch(error => console.log(error));
   };
-  console.log(pagePaginate);
 
   return (
     <>
