@@ -5,7 +5,7 @@ import Footer from '../shared/Footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 
-export const SharedLayout = () => { 
+export const SharedLayout = () => {
   return (
     <>
       <BackgroundComponent>
@@ -18,7 +18,7 @@ export const SharedLayout = () => {
       </BackgroundComponent>
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default SharedLayout;
