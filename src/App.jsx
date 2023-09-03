@@ -4,6 +4,8 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import AuthForm from 'components/RegistrationPage/AuthForm';
+// import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage'; =========> від Юлі
+// import MyRecipes from 'components/shared/MyRecipes/MyRecipes';
 // import { Link } from 'react-router-dom';
 
 // import BackgroundComponent from '../src/components/shared/Background/Background';

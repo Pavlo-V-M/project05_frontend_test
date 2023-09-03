@@ -1,0 +1,6 @@
+.coctail_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}/*# sourceMappingURL=CoctailList.module.css.map */
