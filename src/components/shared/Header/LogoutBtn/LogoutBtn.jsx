@@ -1,8 +1,28 @@
 import React from "react";
 import styles from "./LogoutBtn.module.scss"; 
+import { logout } from "redux/slices/auth";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick }) => {
+
+
+const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick,dataUser,authData}) => {
+  const dispatch = useDispatch();
+ 
   
+console.log(dataUser)
+  
+  const handleLogout = async () => {
+    try {
+      
+      await dispatch(logout(dataUser));
+      console.log("Sucssesfull")
+      localStorage.clear()
+     
+    } catch (error) {
+      console.log(error.message)
+    }
+  };
   
   return (
     <div>
@@ -15,8 +35,8 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick }) => {
           <div className={styles.modal} onClick={handleModalClick}>
             <p>Are you sure you want to log out?</p>
             <div className={styles.modal__info_div}>
-            <button className={styles.logoutButton_modal} onClick={closeModal}>
-              Logout
+            <button className={styles.logoutButton_modal} onClick={handleLogout}>
+              <Link to={`/registration`}>Logout</Link>
             </button>
             <button className={styles.cancelButton} onClick={closeModal}>
               Cancel
