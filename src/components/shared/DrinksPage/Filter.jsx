@@ -15,10 +15,19 @@ const Filter = () => {
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [searchParams, setSearchParams] = useSearchParams('');
-
+  const [ingredient, setIngredient] = useState('');
+  const [category, setCategory] = useState('');
+  // const filterValue = useSelector(getFilterValue);
   const dispatch = useDispatch();
 
   console.log(searchParams.get('query'));
+
+  const setCategoryValue = value => {
+    setCategory(value);
+  };
+  const setIngredientValue = value => {
+    setIngredient(value);
+  };
 
   const submitForm = e => {
     e.preventDefault();
@@ -77,10 +86,12 @@ const Filter = () => {
           className={styles.select_btn}
           onClick={() => checkSelectOpenCategories()}
         >
-          All categories
+          {!category ? 'All categories' : `${category}`}
           <Vector className={styles.btn_svg} stroke="#F3F3F3" />
         </button>
-        {isSelectOpenCategories && <Categories />}
+        {isSelectOpenCategories && (
+          <Categories categoryValue={setCategoryValue} />
+        )}
       </div>
 
       <div className={styles.select}>
@@ -88,10 +99,12 @@ const Filter = () => {
           className={styles.select_btn}
           onClick={() => checkSelectOpenIngridients()}
         >
-          Ingredients
+          {!ingredient ? 'Ingredients' : `${ingredient}`}
           <Vector className={styles.btn_svg} stroke="#F3F3F3" />
         </button>
-        {isSelectOpenIngridients && <Ingredients />}
+        {isSelectOpenIngridients && (
+          <Ingredients ingredientValue={setIngredientValue} />
+        )}
       </div>
     </div>
   );
