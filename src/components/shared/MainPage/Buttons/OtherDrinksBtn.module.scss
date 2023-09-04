@@ -1,23 +1,24 @@
 .btn{
+  display: inline-flex;
   margin-bottom: 140px;
   margin-top: 80px;
   text-align: center;
+  
 }
-
 .btn {
-  font-family: inherit;
-  font-size: inherit;
+  font-size: 16px;
   font-weight: 600;
   border-radius: 42px;
   padding: 14px 40px;
-  background-color: var(--hover-btn-bg-color);
-  color: var(--primary-text-color);
+  background-color: #F3F3F3;
+  color: #161F37;
   border-color: transparent;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn:hover, .btn:focus {
-  background-color: var(--primary-text-color);
-  color: var(--hover-btn-bg-color);
+  background-color: #161F37;
+  color: #F3F3F3;
   border-color: transparent;
 }
 @media (min-width: 768px) {
@@ -25,4 +26,8 @@
     font-size: 16px;
     padding: 18px 44px;
   }
+}
+
+.btn_cont{
+  text-align: center;
 }

@@ -1,13 +1,13 @@
-import Button from "components/shared/Button/Button";
 import { Link, useLocation } from "react-router-dom";
+// import styles from '../../../index.scss';
 import styles from './OtherDrinksBtn.module.scss'
 
 const OtherDrinksBtn = () => {
 const location = useLocation();
 
   return (
-    <div className={styles.btn}>
-      <Link to={`/drinks`} state={{ from: location }} >{<Button type="button" >Other drinks</Button>}</Link> 
+    <div className={styles.btn_cont} >
+      <Link className={styles.btn} to={`/drinks`} state={{ from: location }} >Other drinks</Link> 
     </div>
         
   );
