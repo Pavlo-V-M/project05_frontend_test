@@ -8,6 +8,7 @@ import { getNumberCards } from './redux/numberCardsSlice';
 import { setDataRecipets } from './redux/recipetsSlice';
 import { setPaginateValue } from './redux/pagePaginateSlice';
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 const STATUS = {
   IDLE: 'idle',
@@ -43,7 +44,6 @@ const Drinkslist = () => {
     if (categoryName) {
       fetchRecipets(1, categoryName, numberCards)
         .then(data => {
-          console.log(data);
           if (!data) {
             setStatus(STATUS.REJECTED);
             return;
@@ -67,6 +67,10 @@ const Drinkslist = () => {
       .catch(error => console.log(error));
   }, [categoryName, dispatch, filterValue, numberCards]);
 
+  if (status === 'panding') {
+    return <Loader />;
+  }
+
   if (status === 'resolved') {
     return (
       <div className={styles.drinks}>
@@ -75,13 +79,15 @@ const Drinkslist = () => {
     );
   }
   if (status === 'rejected') {
-    <div className={styles.drinks}>
-      <img
-        className={styles.drinks_img_error}
-        src="../../../images/404.jpg"
-        alt="404"
-      />
-    </div>;
+    return (
+      <div className={styles.drinks}>
+        <img
+          className={styles.drinks_img_error}
+          src="../../../images/404.jpg"
+          alt="404"
+        />
+      </div>
+    );
   }
 };
 export default Drinkslist;

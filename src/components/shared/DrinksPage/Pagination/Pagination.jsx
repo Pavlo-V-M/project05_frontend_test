@@ -2,31 +2,30 @@
 import styles from '../DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
 import DrinksCard from '../DrinksCard';
-// import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { fetchRecipets } from '../Api/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
-import { setDataRecipets } from '../redux/recipetsSlice';
+import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';
 import { getPagePaginate, setPaginateValue } from '../redux/pagePaginateSlice';
 import { getNumberCards } from '../redux/numberCardsSlice';
+import { useEffect } from 'react';
 
 const PaginatedItems = ({ pageCount }) => {
-  // const [pageCount, setPageCount] = useState(8);
+  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
-  console.log(pageCount);
-  // useEffect(() => {
-  //   const handleResize = event => {
-  //     const width = event.target.innerWidth;
-  //     if (width < 768) {
-  //       setPageCount(5);
-  //     } else {
-  //       setPageCount(8);
-  //     }
-  //   };
-  //   window.addEventListener('resize', handleResize);
-  // }, [dispatch]);
+  const dataRecipets = useSelector(getDataRecipets);
+
+  useEffect(() => {
+    if (dataRecipets.totalPages > pageCount) {
+      setCount(pageCount);
+    }
+    if (dataRecipets.totalPages < pageCount) {
+      setCount(dataRecipets.totalPages);
+    }
+  }, [dataRecipets.totalPages, numberCards, pageCount]);
 
   const pagePaginate = useSelector(getPagePaginate);
 
@@ -47,7 +46,7 @@ const PaginatedItems = ({ pageCount }) => {
       <ReactPaginate
         nextLabel=">"
         onClick={onClick}
-        pageCount={pageCount}
+        pageCount={count}
         pageRangeDisplayed={7}
         marginPagesDisplayed={1}
         // initialPage={0}
