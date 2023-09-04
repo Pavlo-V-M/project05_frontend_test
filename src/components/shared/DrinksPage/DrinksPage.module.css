@@ -148,36 +148,62 @@ ul {
 }
 
 .title {
-  font-size: 64px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.06;
   color: var(--primary-text-color);
-  margin-top: 224px;
-  margin-bottom: 80px;
+  margin-top: 152px;
+  margin-bottom: 40px;
 }
 
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 64px;
+    margin-top: 224px;
+    margin-bottom: 80px;
+  }
+}
 .filter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .select {
   position: relative;
-  margin-left: 8px;
+  margin-top: 14px;
 }
 
+@media screen and (min-width: 768px) {
+  .filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .select {
+    margin-left: 8px;
+    margin-bottom: 4px;
+    margin-top: 0px;
+  }
+}
 .label {
   position: relative;
 }
 
 .input {
-  width: 264px;
-  height: 56px;
+  width: 335px;
+  height: 54px;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.56;
@@ -190,7 +216,7 @@ ul {
 
 .input::-webkit-input-placeholder {
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   color: var(--primary-text-color);
@@ -199,7 +225,7 @@ ul {
 
 .input::-moz-placeholder {
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   color: var(--primary-text-color);
@@ -208,7 +234,7 @@ ul {
 
 .input:-ms-input-placeholder {
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   color: var(--primary-text-color);
@@ -217,7 +243,7 @@ ul {
 
 .input::-ms-input-placeholder {
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   color: var(--primary-text-color);
@@ -226,13 +252,34 @@ ul {
 
 .input::placeholder {
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   color: var(--primary-text-color);
   opacity: 1;
 }
 
+@media screen and (min-width: 768px) {
+  .input {
+    width: 264px;
+    height: 56px;
+  }
+  .input::-webkit-input-placeholder {
+    font-size: 17px;
+  }
+  .input::-moz-placeholder {
+    font-size: 17px;
+  }
+  .input:-ms-input-placeholder {
+    font-size: 17px;
+  }
+  .input::-ms-input-placeholder {
+    font-size: 17px;
+  }
+  .input::placeholder {
+    font-size: 17px;
+  }
+}
 .btn_submit {
   position: absolute;
   right: 24px;
@@ -272,9 +319,9 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 199px;
-  height: 56px;
-  font-size: 17px;
+  width: 335px;
+  height: 54px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.56;
   background-color: var(--secondary-bg-blue-color);
@@ -282,9 +329,16 @@ ul {
   border: none;
   border-radius: 200px;
   padding: 14px 24px;
-  margin-bottom: 4px;
+  cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .select_btn {
+    width: 199px;
+    height: 56px;
+    font-size: 17px;
+  }
+}
 .select_btn:hover {
   background-color: var(--primary-white-color);
   color: var(--secondary-text-color);
@@ -317,11 +371,16 @@ ul {
 }
 
 .category_item {
-  color: var(--primary-text-color);
+  color: rgba(243, 243, 243, 0.4);
   font-size: 17px;
   font-weight: 400;
   line-height: 1.56;
   cursor: pointer;
+}
+
+.category_item:hover,
+.category_item:focus {
+  color: var(--primary-text-color);
 }
 
 .ingredients_box {
@@ -361,6 +420,11 @@ ul {
   z-index: 1;
 }
 
+.drinks_img_error {
+  width: 465px;
+  height: 517px;
+}
+
 .drinks_list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -373,25 +437,46 @@ ul {
       flex-wrap: wrap;
 }
 
-.drinks_item {
-  margin-right: 20px;
-  margin-bottom: 80px;
+.drinks_item:not(:last-child) {
+  margin-bottom: 28px;
 }
 
+@media screen and (min-width: 768px) {
+  .drinks_item {
+    margin-bottom: 40px;
+  }
+  .drinks_item:nth-child(odd) {
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .drinks_item {
+    margin-right: 20px;
+    margin-bottom: 80px;
+  }
+  .drinks_item:nth-child(3n+3) {
+    margin-right: 0px;
+  }
+}
 .drinks_item:hover .drinks_title {
   color: var(--success-green-color);
 }
 
-.drinks_item:nth-child(3n+3) {
-  margin-right: 0px;
-}
-
 .drinks_card {
-  width: 400px;
-  height: 400px;
+  width: 335px;
   margin-bottom: 14px;
 }
 
+@media screen and (min-width: 768px) {
+  .drinks_card {
+    width: 342px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .drinks_card {
+    width: 400px;
+  }
+}
 .drinks_img {
   border-radius: 8px;
 }
@@ -401,11 +486,16 @@ ul {
 }
 
 .drinks_title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary-text-color);
 }
 
+@media screen and (min-width: 768px) {
+  .drinks_title {
+    font-size: 18px;
+  }
+}
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
