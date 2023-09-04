@@ -2,14 +2,14 @@
 import styles from '../DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
 import DrinksCard from '../DrinksCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchRecipets } from '../Api/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';
 import { getPagePaginate, setPaginateValue } from '../redux/pagePaginateSlice';
 import { getNumberCards } from '../redux/numberCardsSlice';
-import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const PaginatedItems = ({ pageCount }) => {
   const [count, setCount] = useState(0);
@@ -61,6 +61,9 @@ const PaginatedItems = ({ pageCount }) => {
       />
     </>
   );
+};
+PaginatedItems.propTypes = {
+  pageCount: PropTypes.number.isRequired,
 };
 
 export default PaginatedItems;
