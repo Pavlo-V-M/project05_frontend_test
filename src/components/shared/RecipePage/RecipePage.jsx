@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from 'react';
 import {
 //   Link,
@@ -14,17 +12,13 @@ import IngredientList from './IngredientList';
 import css from './RecipePage.module.css';
 import fetchDetails from '../api/RecipeById/apiRecipeById';
 import cocktailGlass from '../../../images/cocktailglass.jpg';
- const RecipeDetails = ()=> {
-    // const recipeId = '639b6de9ff77d221f190c508'
-    const [recipe, setRecipe] = useState('');
-    const [loading, setLoading] = useState(false);
-  
+const RecipeDetails = ()=> {
+// const recipeId = '639b6de9ff77d221f190c508'
+const [recipe, setRecipe] = useState('');
+const [loading, setLoading] = useState(false);
+const { recipeId } = useParams();
 
-    const { recipeId } = useParams();
-
-  
-    
-      useEffect(() => {
+  useEffect(() => {
         if (recipeId === '') {
           return;
         }
@@ -43,7 +37,6 @@ import cocktailGlass from '../../../images/cocktailglass.jpg';
         });
       };
 
-  
       return (
         <div className={css.recipe_container}>
          
@@ -82,8 +75,7 @@ import cocktailGlass from '../../../images/cocktailglass.jpg';
                  src= {PreparationCocktail}
                 alt="drink_photo"
                 className={css.preparation_image}/>
-          
-         
+                  
 </div>
           </div>
       </div>

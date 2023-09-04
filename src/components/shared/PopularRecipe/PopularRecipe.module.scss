@@ -1,0 +1,82 @@
+.popularTitle {
+	margin-bottom: 28px;
+
+	color: var(--primary-text-color);
+	font-family: "Manrope-Medium", Helvetica;
+	font-size: 18px;
+	font-weight: 500;
+
+
+	@media (min-width: 768px) {
+		margin-bottom: 40px;
+
+		font-size: 24px;
+		line-height: calc(32/24);
+	}
+}
+
+.popularList {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 32px;
+	}
+
+	@media (min-width: 1440px) {
+		width: 313px;
+
+		flex-direction: column;
+	}
+}
+
+.popularItem {
+	height: 90px;
+
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	gap: 14px;
+
+
+	@media (min-width: 768px) {
+		flex-basis: calc((100% - 32px)/2);
+	}
+}
+
+.popularPhoto {
+	border-radius: 10px;
+	height: 90px;
+	width: 90px;
+}
+
+.popularSubTitle {
+	margin-bottom: 8px;
+
+	color: var(--primary-text-color);
+	font-family: "Manrope-Medium", Helvetica;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: calc(22/16);
+}
+
+.popularInstruction {
+	height: 63px;
+	overflow: hidden;
+
+	color: #f3f3f380;
+	font-family: "Manrope-Regular", Helvetica;
+	font-size: 14px;
+	font-weight: 400;
+
+	line-height: calc(18/14);
+
+	@media (min-width: 1440px) {
+		line-height: calc(20/14);
+	}
+}

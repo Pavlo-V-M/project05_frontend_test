@@ -1,0 +1,28 @@
+.div__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 30px;
+  align-items: center;
+  height: 100px;
+  gap: 15px;
+}
+
+.header {
+  transition: height 0.3s ease;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+}
+
+.div__header_position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden_navigation {
+  display: none;
+}
+@media (min-width: 1440px) {
+  .hidden_navigation {
+    display: flex;
+  }
+}
