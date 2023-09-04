@@ -77,6 +77,6 @@ const Ingredients = ({ ingredientValue }) => {
   );
 };
 Ingredients.propTypes = {
-  ingredientValue: PropTypes.string.isRequired,
+  ingredientValue: PropTypes.func.isRequired,
 };
 export default Ingredients;
