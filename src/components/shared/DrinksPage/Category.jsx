@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilterValue } from './redux/filterSlice';
 import { Link, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const STATUS = {
   IDLE: 'idle',
@@ -73,6 +74,10 @@ const Categories = ({ categoryValue }) => {
       </ul>
     )
   );
+};
+
+Categories.propTypes = {
+  categoryValue: PropTypes.string.isRequired,
 };
 
 export default Categories;
