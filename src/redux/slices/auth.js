@@ -72,11 +72,7 @@ const authSlice = createSlice({
               state.data = null; 
             })
             .addCase(logout.rejected, setErrorState);
-        
-            
-            
-        
-            
+             
     },
 });
 

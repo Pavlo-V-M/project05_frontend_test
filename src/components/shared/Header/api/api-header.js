@@ -13,7 +13,6 @@ export async function PatchDataHeader(avatarFile,name) {
     formData.append("name", name);
   }
   
- 
 
   const config = {
     headers: {
