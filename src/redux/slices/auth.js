@@ -1,10 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
 import axios from "../../axios.js";
+ 
 
 const initialState = {
     data: null,
     status: 'idle', 
 };
+
+
 
 const setLoadingState = (state) => {
     state.status = 'loading';
@@ -20,6 +24,21 @@ const setErrorState = (state) => {
     state.status = 'error';
     state.data = null;
 };
+
+export const logout = createAsyncThunk('auth/logout', async (params) => {
+  const token = localStorage.token;
+  
+
+  try {
+      await axios.post('/auth/logout', params, {
+         headers: {
+      'authorization': `Bearer ${token}`,
+    },
+    });
+  } catch (error) {
+    throw error;
+  }
+});
 
 export const fetchAuth = createAsyncThunk('/auth/fetchAuth', async (params) => {
     const {data} = await axios.post('/auth/logIn', params);
@@ -46,7 +65,14 @@ const authSlice = createSlice({
             .addCase(fetchAuth.rejected, setErrorState)
             .addCase(fetchRegister.pending, setLoadingState)
             .addCase(fetchRegister.fulfilled, setLoadedState)
-            .addCase(fetchRegister.rejected, setErrorState);
+            .addCase(fetchRegister.rejected, setErrorState)
+            .addCase(logout.pending, setLoadingState)
+            .addCase(logout.fulfilled, (state) => {
+              state.status = 'idle';
+              state.data = null; 
+            })
+            .addCase(logout.rejected, setErrorState);
+             
     },
 });
 
