@@ -4,8 +4,7 @@ import axios from 'axios';
 
 export const fetchIngredients = async () => {
   const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWJlMjY0ZDJhZTdkYWJjYjViZTBkYiIsImlhdCI6MTY5MzUyMDI3MiwiZXhwIjoxNjk1MzM0NjcyfQ.6OCZSjvRR58UwD2zQ-ncGfxLwmeZBOzLdHFy4yx-4l0';
-
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWM2M2IxYTE5ZDcyYjdmM2YwYmE3MiIsImlhdCI6MTY5MzY3MjUwNCwiZXhwIjoxNjk1NDg2OTA0fQ.9OA4SHcrkeNE8YSWBxu60VqsGSpmmD3qJi6zQp-pwSE';
   const instance = axios.create({
     baseURL: 'https://project05-backend.onrender.com',
   });

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { fetchAuth, fetchRegister, selectIsAuth } from 'redux/slices/auth';
+import { fetchAuth, fetchRegister } from 'redux/slices/auth';
 import { 
   GoEyeClosed, 
   GoEye, 
@@ -13,7 +12,7 @@ import { BsExclamationCircle  } from "react-icons/bs";
 import css from './AuthForm.module.scss';
 
 const AuthForm = ({ isRegistration }) => {
-  const isAuth = useSelector(selectIsAuth);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [nameActive, setNameActive] = useState(false);
   const [emailActive, setEmailActive] = useState(false);
@@ -47,6 +46,8 @@ const AuthForm = ({ isRegistration }) => {
       const passwordInput = document.querySelector('.input[name="password"]');
       if (emailInput) emailInput.classList.add('ok');
       if (passwordInput) passwordInput.classList.add('ok');
+
+      navigate('/main');
     } else {
       alert('Failed to ' + (isRegistration ? 'register' : 'login') + '!');
     }
@@ -59,10 +60,6 @@ const AuthForm = ({ isRegistration }) => {
 
   const emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;  
   const passwordlPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$/;
-
-  if (isAuth) {
-    return <Navigate to="/main"/>
-  }
 
   return (
     <div>

@@ -13,7 +13,7 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-const Categories = () => {
+const Categories = ({ categoryValue }) => {
   const [items, setItems] = useState([]);
   const [status, setStatus] = useState('');
   const dispatch = useDispatch();
@@ -45,10 +45,11 @@ const Categories = () => {
       .catch(error => console.log(error));
   }, [dispatch, setItems, setStatus]);
 
-  // const chooseCategory = e => {
-  //   console.log(e);
-  //   dispatch(setFilterValue(e));
-  // };
+  const chooseCategory = e => {
+    console.log(e.target.innerHTML);
+    dispatch(setFilterValue(e.target.innerHTML));
+    categoryValue(e.target.innerHTML);
+  };
 
   return (
     status === 'resolved' && (
@@ -61,7 +62,7 @@ const Categories = () => {
             key={nanoid()}
           >
             <li
-              onClick={() => dispatch(setFilterValue(item.category))}
+              onClick={e => chooseCategory(e)}
               className={styles.category_item}
               key={nanoid()}
             >
