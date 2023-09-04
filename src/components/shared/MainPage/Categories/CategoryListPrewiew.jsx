@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchCategories } from "components/services/Api";
 import styles from './CategoryListPrewiew.module.scss'
-// import CategoryCard from "./CategoryCard";
 import { Link, useLocation } from "react-router-dom";
 
 const CategoryListPrewiew = () => {
@@ -25,14 +24,10 @@ const CategoryListPrewiew = () => {
     fetchCategoriesList();
   },[]);
 
-  console.log(categories)
   const categoriesKeys = Object.keys(categories);
-  // console.log(categoriesKeys);
   const [odinary, cocktail, shake, other] = categoriesKeys;
-  // console.log(odinary)
 
   const odinaryList = categories["Odinary Drink"];  
-  // console.log(odinaryList)
   const cocktailList = categories['Cocktail'];
   const shakeList = categories["Shake"]
   const otherList = categories["Other/Unknown"]
