@@ -8,6 +8,8 @@ import { pagePaginateSlice } from '../components/shared/DrinksPage/redux/pagePag
 import { numberCardsSlice } from '../components/shared/DrinksPage/redux/numberCardsSlice';
 // <<<<<<< DrinkPages
 
+import { recipesReducer } from './recipes/recipes-slice';
+
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -15,6 +17,8 @@ const store = configureStore({
     dataRecipets: recipetsSlice.reducer,
     pagePaginate: pagePaginateSlice.reducer,
     numberCards: numberCardsSlice.reducer,
+
+    recipes: recipesReducer,
   },
 });
 

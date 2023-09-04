@@ -1,19 +1,36 @@
+// new try
+
 import axios from 'axios';
 
-const recipesInstance = axios.create({
-  baseURL: 'https://project05-backend.onrender.com/api',
-});
-
-recipesInstance.defaults.headers.common['Authorization'] =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWM2M2IxYTE5ZDcyYjdmM2YwYmE3MiIsImlhdCI6MTY5MzU3MDc4OCwiZXhwIjoxNjk1Mzg1MTg4fQ.WDCyDqkVhnzOf3a7lBAU5N6lN9RHkb4Rwp9aQXD4SNk';
-
 export const getMyRecipes = async () => {
-  const { data } = await recipesInstance.get('/own');
+
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWM2M2IxYTE5ZDcyYjdmM2YwYmE3MiIsImlhdCI6MTY5MzY3MjUwNCwiZXhwIjoxNjk1NDg2OTA0fQ.9OA4SHcrkeNE8YSWBxu60VqsGSpmmD3qJi6zQp-pwSE';
+  
+  const recipesInstance = axios.create({
+    baseURL: 'https://project05-backend.onrender.com',
+  });
+  
+  recipesInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+  const { data } = await recipesInstance.get('/api/own');
+  // :category
   console.log(data);
   return data;
 };
 
-export const deleteRecipes = async _id => {
-  const data = await recipesInstance.delete(`/own/${_id}`);
+export const deleteRecipes = async (_id) => {
+
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWM2M2IxYTE5ZDcyYjdmM2YwYmE3MiIsImlhdCI6MTY5MzY3MjUwNCwiZXhwIjoxNjk1NDg2OTA0fQ.9OA4SHcrkeNE8YSWBxu60VqsGSpmmD3qJi6zQp-pwSE';
+  
+  const recipesInstance = axios.create({
+    baseURL: 'https://project05-backend.onrender.com',
+  });
+  
+  recipesInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+  const { data } = await recipesInstance.get(`/api/own/${_id}`);
+  console.log(data);
   return data;
 };
