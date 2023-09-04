@@ -1,0 +1,27 @@
+/* Стилі для контейнера іконки */
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Стилі для іконки */
+  .icon {
+    background: transparent; /* Прибираємо бекграунд */
+    width: 100px; /* Змінюємо розмір */
+    height: 100px;
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Додаємо обертову анімацію */
+  }
+  
+  /* Анімація обертання */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
