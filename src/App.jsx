@@ -4,6 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import AuthForm from 'components/RegistrationPage/AuthForm';
 
+import useLoading from './components/shared/Loader/useLoading';
+import Loader from "./components/shared/Loader/Loader"
+
 // import BackgroundComponent from '../src/components/shared/Background/Background';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
@@ -16,6 +19,11 @@ const FavoritesPage = lazy (() => import('./pages/FavoritesPage/FavoritesPage'))
 const RecipePageById = lazy(()=> import ('./pages/RecipePage/RecipePage')) ;
 
 export const App = () => {
+  const { isLoading } = useLoading();
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <Routes>
       <Route index element={<WelcomePage />} />
