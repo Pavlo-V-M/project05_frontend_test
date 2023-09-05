@@ -1,31 +1,21 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useLoading = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => { 
-  fetch('https://project05-backend.onrender.com/api-docs')
-    .then((response) => response.json())
-    .then((data) => {
-      const isDataLoaded = data && data.length > 0;
-
-      setIsLoading(!isDataLoaded);
-    })
-    .catch((error) => {
-      // console.error('Error loading data:', error);
-      setIsLoading(false); 
-    });
-}, []);
-
-
-//   const timer = setTimeout(() => {
-//     setIsLoading(false);
-//   }, 3000);
-
-//   return () => {
-//     clearTimeout(timer);
-//   };
-// }, []);
+  useEffect(() => {
+    fetch('https://project05-backend.onrender.com/api-docs')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        setIsLoading(false); 
+      })
+      .catch((error) => {
+        console.error('Error loading data:', error);
+        setIsLoading(false);  
+      });
+  }, []);
 
   return { isLoading };
 };
