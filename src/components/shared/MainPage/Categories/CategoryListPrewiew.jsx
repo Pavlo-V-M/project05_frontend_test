@@ -43,7 +43,7 @@ const CategoryListPrewiew = () => {
             return (
               <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
                 <li className={styles.card}>
-                  <img src={drinkThumb} width="400" alt="Odinary Drink" />
+                  <img className={styles.img} src={drinkThumb} width="400" alt="Odinary Drink" />
                   <div className={styles.card_info}>
                     <h2 className={styles.card_title}>{drink}</h2>
                     <p className={styles.card_text}>ingredients</p>
@@ -61,7 +61,7 @@ const CategoryListPrewiew = () => {
             return (
               <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
                 <li className={styles.card}>
-                  <img src={drinkThumb} max-width="400" alt="Cocktail" />
+                  <img className={styles.img} src={drinkThumb} max-width="400" alt="Cocktail" />
                   <div className={styles.card_info}>
                     <h2 className={styles.card_title}>{drink}</h2>
                     <p className={styles.card_text}>ingredients</p>
@@ -77,7 +77,7 @@ const CategoryListPrewiew = () => {
             return (
               <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
                 <li className={styles.card}>
-                  <img src={drinkThumb} width="400" alt="Shake" />
+                  <img className={styles.img} src={drinkThumb} width="400" alt="Shake" />
                   <div className={styles.card_info}>
                     <h2 className={styles.card_title}>{drink}</h2>
                     <p className={styles.card_text}>ingredients</p>
@@ -93,7 +93,7 @@ const CategoryListPrewiew = () => {
             return (
               <Link className={styles.link} key={_id} to={`/recipe/${_id}`} state={{ from: location }} >
                 <li className={styles.card}>
-                  <img src={drinkThumb} width="400" alt="Other" />
+                  <img className={styles.img} src={drinkThumb} width="400" alt="Other" />
                   <div className={styles.card_info}>
                     <h2 className={styles.card_title}>{drink}</h2>
                     <p className={styles.card_text}>ingredients</p>
