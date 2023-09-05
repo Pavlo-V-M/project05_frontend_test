@@ -28,7 +28,7 @@ const Drinkslist = () => {
   const numberCards = useSelector(getNumberCards);
   const { categoryName } = useParams();
 
-  console.log(setSearchParams);
+  // console.log(setSearchParams);
   const params = searchParams.get('query');
   console.log(params);
 

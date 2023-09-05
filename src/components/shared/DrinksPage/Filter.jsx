@@ -23,7 +23,7 @@ const Filter = () => {
   const [tittleCategories, setTittleCategories] = useState(false);
   const dispatch = useDispatch();
 
-  console.log(searchParams.get('query'));
+  // console.log(searchParams.get('query'));
 
   const setCategoryValue = value => {
     setCategory(value);
