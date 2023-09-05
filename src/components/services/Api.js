@@ -33,29 +33,30 @@ export async function getMyFavorites() {
       });
       
       instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;	
-      const { data } = await instance.get('/favorite');		
+      const { data } = await instance.get('api/favorite');		
       console.log(data);		
       return data;		
 };		
 
-export async function deleteFavorites (recipeId) {	
+export const deleteFavorites = async _id =>  {	
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
       });
       
       instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;		
-      const { data } = await instance.delete(`/favorite/${recipeId}`);		
-      return data;		
-};		
+      const { data } = await instance.delete(`api/favorite/${_id}`);		
+      console.log(data);
+      return data;	
+};
     
-export async function addFavorites (recipeId) {		
+export async function addFavorites (_id) {		
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
       });
       
       instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;	
-      const { data } = await instance.patch(`/favorite/${recipeId}`);		
+      const { data } = await instance.patch(`api/favorite/${_id}`);		
       return data;		
 };		
