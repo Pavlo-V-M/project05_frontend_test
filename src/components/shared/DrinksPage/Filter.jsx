@@ -9,22 +9,25 @@ import { setFilterValue } from './redux/filterSlice';
 import { fetchCategories } from './Api/getCategories';
 import { fetchIngredients } from './Api/getIngredients';
 import { useSearchParams } from 'react-router-dom';
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
+
+const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 
 const Filter = () => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams('');
+  const [setSearchParams] = useSearchParams('');
   const [ingredient, setIngredient] = useState('');
   const [category, setCategory] = useState('');
-  // const filterValue = useSelector(getFilterValue);
   const dispatch = useDispatch();
-
-  console.log(searchParams.get('query'));
+  const currentUrl = window.location.href;
 
   const setCategoryValue = value => {
     setCategory(value);
   };
+
   const setIngredientValue = value => {
     setIngredient(value);
   };
@@ -32,13 +35,13 @@ const Filter = () => {
   const submitForm = e => {
     e.preventDefault();
     if (inputValue === '') {
-      alert('Please enter a valid name !');
+      NotificationManager.info('Please enter a valid name !', 'Info', 3000);
       return;
     }
     console.log(inputValue);
     setSearchParams({ query: inputValue });
     dispatch(setFilterValue(inputValue));
-    dispatch(setInputValue(''));
+    setInputValue('');
   };
 
   const checkSelectOpenIngridients = () => {
@@ -86,7 +89,7 @@ const Filter = () => {
           className={styles.select_btn}
           onClick={() => checkSelectOpenCategories()}
         >
-          {!category ? 'All categories' : `${category}`}
+          {currentUrl === defaultURL ? 'All categories' : `${category}`}
           <Vector className={styles.btn_svg} stroke="#F3F3F3" />
         </button>
         {isSelectOpenCategories && (
@@ -99,7 +102,7 @@ const Filter = () => {
           className={styles.select_btn}
           onClick={() => checkSelectOpenIngridients()}
         >
-          {!ingredient ? 'Ingredients' : `${ingredient}`}
+          {currentUrl === defaultURL ? 'Ingredients' : `${ingredient}`}
           <Vector className={styles.btn_svg} stroke="#F3F3F3" />
         </button>
         {isSelectOpenIngridients && (

@@ -8,7 +8,10 @@ import { getNumberCards } from './redux/numberCardsSlice';
 import { setDataRecipets } from './redux/recipetsSlice';
 import { setPaginateValue } from './redux/pagePaginateSlice';
 import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
+const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 const STATUS = {
   IDLE: 'idle',
   PENDING: 'panding',
@@ -19,31 +22,36 @@ const STATUS = {
 const Drinkslist = () => {
   const [status, setStatus] = useState('');
   const [pageCount, setPageCount] = useState(8);
+  const [searchParams] = useSearchParams('');
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
   const { categoryName } = useParams();
+
+  const params = searchParams.get('query');
+  console.log(params);
 
   useEffect(() => {
     const handleResize = event => {
       const width = event.target.innerWidth;
       console.log(width);
       if (width < 768) {
-        setPageCount(5);
+        setPageCount(3);
       }
       if (width >= 768) {
-        setPageCount(8);
+        setPageCount(6);
       }
     };
     window.addEventListener('resize', handleResize);
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(numberCards);
-    if (categoryName) {
-      fetchRecipets(1, categoryName, numberCards)
+    const currentUrl = window.location.href;
+
+    if (currentUrl === defaultURL) {
+      fetchRecipets(1, ' ', numberCards)
         .then(data => {
-          console.log(data);
+          console.log('drinrlist');
           if (!data) {
             setStatus(STATUS.REJECTED);
             return;
@@ -54,18 +62,26 @@ const Drinkslist = () => {
         })
         .catch(error => console.log(error));
     }
-    fetchRecipets(1, filterValue, numberCards)
-      .then(data => {
-        if (!data) {
-          setStatus(STATUS.REJECTED);
-          return;
-        }
-        dispatch(setDataRecipets(data));
-        dispatch(setPaginateValue(0));
-        setStatus(STATUS.RESOLVED);
-      })
-      .catch(error => console.log(error));
-  }, [categoryName, dispatch, filterValue, numberCards]);
+
+    if (currentUrl !== defaultURL || params) {
+      fetchRecipets(1, filterValue, numberCards)
+        .then(data => {
+          console.log('drinrlist2');
+          if (!data) {
+            setStatus(STATUS.REJECTED);
+            return;
+          }
+          dispatch(setDataRecipets(data));
+          dispatch(setPaginateValue(0));
+          setStatus(STATUS.RESOLVED);
+        })
+        .catch(error => console.log(error));
+    }
+  }, [categoryName, dispatch, filterValue, numberCards, params]);
+
+  if (status === 'panding') {
+    return <Loader />;
+  }
 
   if (status === 'resolved') {
     return (
@@ -75,13 +91,15 @@ const Drinkslist = () => {
     );
   }
   if (status === 'rejected') {
-    <div className={styles.drinks}>
-      <img
-        className={styles.drinks_img_error}
-        src="../../../images/404.jpg"
-        alt="404"
-      />
-    </div>;
+    return (
+      <div className={styles.drinks}>
+        <img
+          className={styles.drinks_img_error}
+          src="../../../images/404.jpg"
+          alt="404"
+        />
+      </div>
+    );
   }
 };
 export default Drinkslist;

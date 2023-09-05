@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 
 const DrinksCard = () => {
   const dataRecipets = useSelector(getDataRecipets);
-
-  <Link to="/registration">Registration</Link>;
+  console.log(dataRecipets);
   return (
     <ul className={styles.drinks_list}>
       {dataRecipets.cocktails.map(({ drink, drinkThumb, _id }) => (

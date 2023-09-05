@@ -2,43 +2,58 @@
 import styles from '../DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
 import DrinksCard from '../DrinksCard';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchRecipets } from '../Api/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
-import { setDataRecipets } from '../redux/recipetsSlice';
+import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';
 import { getPagePaginate, setPaginateValue } from '../redux/pagePaginateSlice';
 import { getNumberCards } from '../redux/numberCardsSlice';
+import PropTypes from 'prop-types';
+
+const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 
 const PaginatedItems = ({ pageCount }) => {
-  // const [pageCount, setPageCount] = useState(8);
+  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
-  console.log(pageCount);
-  // useEffect(() => {
-  //   const handleResize = event => {
-  //     const width = event.target.innerWidth;
-  //     if (width < 768) {
-  //       setPageCount(5);
-  //     } else {
-  //       setPageCount(8);
-  //     }
-  //   };
-  //   window.addEventListener('resize', handleResize);
-  // }, [dispatch]);
+  const dataRecipets = useSelector(getDataRecipets);
+
+  useEffect(() => {
+    if (dataRecipets.totalPages > pageCount) {
+      setCount(dataRecipets.totalPages);
+    }
+    if (dataRecipets.totalPages < pageCount) {
+      setCount(dataRecipets.totalPages);
+    }
+  }, [dataRecipets.totalPages, numberCards, pageCount]);
 
   const pagePaginate = useSelector(getPagePaginate);
 
   const onClick = event => {
     const newOffset = event.nextSelectedPage + 1;
     console.log(newOffset);
-    fetchRecipets(newOffset, filterValue, numberCards)
-      .then(data => {
-        dispatch(setDataRecipets(data));
-        dispatch(setPaginateValue(event.nextSelectedPage));
-      })
-      .catch(error => console.log(error));
+    const currentUrl = window.location.href;
+
+    if (currentUrl === defaultURL) {
+      fetchRecipets(newOffset, ' ', numberCards)
+        .then(data => {
+          console.log('paginate');
+          dispatch(setDataRecipets(data));
+          dispatch(setPaginateValue(event.nextSelectedPage));
+        })
+        .catch(error => console.log(error));
+    }
+    if (currentUrl !== defaultURL) {
+      fetchRecipets(newOffset, filterValue, numberCards)
+        .then(data => {
+          console.log('paginate2');
+          dispatch(setDataRecipets(data));
+          dispatch(setPaginateValue(event.nextSelectedPage));
+        })
+        .catch(error => console.log(error));
+    }
   };
 
   return (
@@ -46,9 +61,10 @@ const PaginatedItems = ({ pageCount }) => {
       <DrinksCard />
       <ReactPaginate
         nextLabel=">"
+        breakLabel="..."
         onClick={onClick}
-        pageCount={pageCount}
-        pageRangeDisplayed={7}
+        pageCount={count}
+        pageRangeDisplayed={pageCount}
         marginPagesDisplayed={1}
         // initialPage={0}
         forcePage={pagePaginate}
@@ -62,6 +78,9 @@ const PaginatedItems = ({ pageCount }) => {
       />
     </>
   );
+};
+PaginatedItems.propTypes = {
+  pageCount: PropTypes.number.isRequired,
 };
 
 export default PaginatedItems;

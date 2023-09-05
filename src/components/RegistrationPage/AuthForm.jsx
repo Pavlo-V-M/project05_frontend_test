@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { fetchAuth, fetchRegister } from 'redux/slices/auth';
-import { 
-  GoEyeClosed, 
-  GoEye, 
+import {
+  GoEyeClosed,
+  GoEye,
   GoX,
-  GoCheckCircle } from 'react-icons/go';
-import { BsExclamationCircle  } from "react-icons/bs";
+  GoCheckCircle,
+} from 'react-icons/go';
+import { BsExclamationCircle } from "react-icons/bs";
 import css from './AuthForm.module.scss';
 
 const AuthForm = ({ isRegistration }) => {
@@ -19,6 +20,7 @@ const AuthForm = ({ isRegistration }) => {
   const [passwordActive, setPasswordActive] = useState(false);
   const [showNameField, setShowNameField] = useState(isRegistration);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isRegistrationMode, setIsRegistrationMode] = useState(isRegistration);
   const { register, handleSubmit, formState: { errors }, formState, reset } = useForm({
     defaultValues: {
       email: '',
@@ -32,7 +34,7 @@ const AuthForm = ({ isRegistration }) => {
   };
 
   const onSubmit = async (values) => {
-    const data = isRegistration ? await dispatch(fetchRegister(values)) : await dispatch(fetchAuth(values));
+    const data = isRegistrationMode ? await dispatch(fetchRegister(values)) : await dispatch(fetchAuth(values));
     
     if (isRegistration && data) {
       window.localStorage.setItem('token', data.payload.token);
@@ -40,6 +42,8 @@ const AuthForm = ({ isRegistration }) => {
       const passwordInput = document.querySelector('.input[name="password"]');
       if (emailInput) emailInput.classList.add('ok');
       if (passwordInput) passwordInput.classList.add('ok');
+
+      navigate('/signin');
     } else if (!isRegistration && data && 'payload' in data && 'token' in data.payload) {
       window.localStorage.setItem('token', data.payload.token);
       const emailInput = document.querySelector('.input[name="email"]');
@@ -53,8 +57,14 @@ const AuthForm = ({ isRegistration }) => {
     }
   };
 
+  useEffect(() => {
+    setShowNameField(isRegistration);
+    setIsRegistrationMode(isRegistration);
+    reset();
+  }, [isRegistration, reset]);
+
   const handleFormToggle = () => {
-    setShowNameField(!isRegistration);
+    setIsRegistrationMode(!isRegistrationMode);
     reset();
   };
 
@@ -64,7 +74,7 @@ const AuthForm = ({ isRegistration }) => {
   return (
     <div>
       <div className={css.auth_form}>
-        <h2 className={css.title}>{isRegistration ? 'Registration' : 'Sign In'}</h2>
+      <h2 className={css.title}>{isRegistrationMode ? 'Registration' : 'Sign In'}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Name input */}
           <div className={css.form_group}>
@@ -136,7 +146,7 @@ const AuthForm = ({ isRegistration }) => {
                   required: 'Enter your password',
                   pattern: {
                     value: passwordlPattern,
-                    message: 'This is an ERROR password'
+                    message: 'This is an ERROR password/Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number'
                   }
                 })}
               />
@@ -163,9 +173,13 @@ const AuthForm = ({ isRegistration }) => {
           </div>
           
           <div className={css.buttons}>
-            <button disabled={!formState.isValid} className={css.sign_button} type="submit">
-              {isRegistration ? 'Sign Up' : 'Sign In'}
-            </button>
+          <button
+            disabled={!formState.isValid}
+            className={`${css.sign_button} ${formState.isValid ? css.validButton : css.invalidButton}`}
+            type="submit"
+          >
+            {isRegistration ? 'Sign Up' : 'Sign In'}
+          </button>
             <Link
               to={isRegistration ? "/signIn" : "/registration"}
               onClick={handleFormToggle}

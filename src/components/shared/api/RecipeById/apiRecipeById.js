@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export default async function fetchDetails(recipeId) {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZjQzODgxOGJhM2I4YjlhZDk2NDJkOCIsImlhdCI6MTY5MzczMTQyOCwiZXhwIjoxNjk1NTQ1ODI4fQ.6Pg_b0OgFrpL1RasbRgkejnA77vNY_1RNPo4_GVOYIA'
+  const token = localStorage.getItem('token');
+    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZjQzODgxOGJhM2I4YjlhZDk2NDJkOCIsImlhdCI6MTY5MzczMTQyOCwiZXhwIjoxNjk1NTQ1ODI4fQ.6Pg_b0OgFrpL1RasbRgkejnA77vNY_1RNPo4_GVOYIA'
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
       });
