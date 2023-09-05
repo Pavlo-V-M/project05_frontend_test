@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as Vector } from './svg/Vector.svg';
 import { ReactComponent as Search } from './svg/search.svg';
 import Categories from './Category';
@@ -18,7 +18,7 @@ const Filter = () => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams('');
+  const [setSearchParams] = useSearchParams('');
   const [ingredient, setIngredient] = useState('');
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
