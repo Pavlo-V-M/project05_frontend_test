@@ -28,11 +28,21 @@ const Filter = () => {
   const setCategoryValue = value => {
     setCategory(value);
     setTittleCategories(true);
+    setIsSelectOpenCategories(false);
+
+    console.log(tittleCategories);
+    if (tittleCategories) {
+      setTittleIngridients(false);
+    }
   };
 
   const setIngredientValue = value => {
     setIngredient(value);
     setTittleIngridients(true);
+    setIsSelectOpenIngridients(false);
+    if (tittleIngridients) {
+      setTittleCategories(false);
+    }
   };
 
   const submitForm = e => {
