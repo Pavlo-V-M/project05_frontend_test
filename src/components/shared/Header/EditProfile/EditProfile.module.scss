@@ -38,11 +38,15 @@
     margin-top: 20px;
     background-color: transparent;
     color: var(--primary-text-color);
+    
+    
+    
     @media screen and (min-width: 768px) {
             width: 400px;
         }
     
 }
+
 
 .modal__info_addimg{
     display: none;
@@ -77,4 +81,8 @@
     @media screen and (min-width: 768px) {
             width: 400px;
         }
+}
+
+.modal__info_p{
+    color: #DA141480;
 }

@@ -17,6 +17,7 @@ const UserInfoModal = () => {
   const [dataUser, setDataUser] = useState([])
   
   const authData = useSelector(state => state.auth.data)
+  
  
  
   useEffect(() => {
@@ -65,7 +66,7 @@ const handleModalClick = (event) => {
   };
 
   return (
-    authData?.user && (
+    
     <div className={styles.div__auth_header}>
       <Avatar avatarUrl={avatarUrl} dataUser={dataUser} />
       <p onClick={ModalInfoOpen}>
@@ -97,7 +98,7 @@ const handleModalClick = (event) => {
           </div>
         </div>
       )}
-    </div>)
+    </div>
   );
 };
 
