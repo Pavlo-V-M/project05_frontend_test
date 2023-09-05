@@ -47,7 +47,6 @@ const Categories = ({ categoryValue }) => {
   }, [dispatch, setItems, setStatus]);
 
   const chooseCategory = e => {
-    console.log(e.target.innerHTML);
     dispatch(setFilterValue(e.target.innerHTML));
     categoryValue(e.target.innerHTML);
   };

@@ -10,7 +10,7 @@ const DrinksCard = () => {
     <ul className={styles.drinks_list}>
       {dataRecipets.cocktails.map(({ drink, drinkThumb, _id }) => (
         <li className={styles.drinks_item} key={_id}>
-          <Link className={styles.drinks_link} to={`/recipe/:${_id}`}>
+          <Link className={styles.drinks_link} to={`/recipe/${_id}`}>
             <div className={styles.drinks_card}>
               <img className={styles.drinks_img} src={drinkThumb} alt={drink} />
             </div>
