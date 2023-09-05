@@ -25,3 +25,37 @@ export async function fetchCategories() {
       console.log(data);
        
       return data;}
+
+export async function getMyFavorites() {	
+  const token = localStorage.getItem('token');
+    const instance = axios.create({
+        baseURL: 'https://project05-backend.onrender.com',
+      });
+      
+      instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;	
+      const { data } = await instance.get('/favorite');		
+      console.log(data);		
+      return data;		
+};		
+
+export async function deleteFavorites (recipeId) {	
+  const token = localStorage.getItem('token');
+    const instance = axios.create({
+        baseURL: 'https://project05-backend.onrender.com',
+      });
+      
+      instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;		
+      const { data } = await instance.delete(`/favorite/${recipeId}`);		
+      return data;		
+};		
+    
+export async function addFavorites (recipeId) {		
+  const token = localStorage.getItem('token');
+    const instance = axios.create({
+        baseURL: 'https://project05-backend.onrender.com',
+      });
+      
+      instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;	
+      const { data } = await instance.patch(`/favorite/${recipeId}`);		
+      return data;		
+};		

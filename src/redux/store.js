@@ -18,6 +18,10 @@ import { pagePaginateSlice } from '../components/shared/DrinksPage/redux/pagePag
 import { numberCardsSlice } from '../components/shared/DrinksPage/redux/numberCardsSlice';
 // <<<<<<< DrinkPages
 
+// <<<<<<< Favorites			
+import { favoritesReducer } from './favoriteCocktails/favorites-slice';			
+// <<<<<<< Favorites			
+
 import { recipesReducer } from './recipes/recipes-slice';
 
 import storage from 'redux-persist/lib/storage';
@@ -37,12 +41,12 @@ const store = configureStore({
     pagePaginate: pagePaginateSlice.reducer,
     numberCards: numberCardsSlice.reducer,
     recipes: recipesReducer,
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+    favorites: persistReducer(favoritesReducer),
+    },
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
     }),
 });
 
