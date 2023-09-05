@@ -41,7 +41,7 @@ const store = configureStore({
     pagePaginate: pagePaginateSlice.reducer,
     numberCards: numberCardsSlice.reducer,
     recipes: recipesReducer,
-    favorites: persistReducer(favoritesReducer),
+    favorites: favoritesReducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({
         serializableCheck: {
