@@ -22,7 +22,7 @@ const STATUS = {
 const Drinkslist = () => {
   const [status, setStatus] = useState('');
   const [pageCount, setPageCount] = useState(8);
-  const [searchParams, setSearchParams] = useSearchParams('');
+  const [searchParams] = useSearchParams('');
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
