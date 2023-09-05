@@ -6,6 +6,7 @@ import AuthForm from 'components/RegistrationPage/AuthForm';
 
 import useLoading from './components/shared/Loader/useLoading';
 import Loader from "./components/shared/Loader/Loader"
+import NotFound from 'components/shared/404/404';
 
 // import BackgroundComponent from '../src/components/shared/Background/Background';
 
@@ -36,9 +37,9 @@ export const App = () => {
         <Route path="add" element={<AddRecipePage />} />
         <Route path="my" element={<MyRecipesPage />} />
         <Route path="favorite" element={<FavoritesPage />}/>
-        <Route path="recipe/:recipeId" element={<RecipePageById />} />     
+        <Route path="recipe/:recipeId" element={<RecipePageById />} />
+        <Route path="*" element={<NotFound/>}></Route>
       </Route>
-      <Route path="*" element={"NotFound"} ></Route>
     </Routes>
   );
 };
