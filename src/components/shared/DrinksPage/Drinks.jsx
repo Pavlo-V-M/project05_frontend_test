@@ -4,10 +4,14 @@ import DrinksList from './DrinksList';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setNumberCards } from './redux/numberCardsSlice';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 const Drinks = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
+    console.log('drinks');
     const handleResize = event => {
       const width = event.target.innerWidth;
       if (width < 1440) {
@@ -25,6 +29,7 @@ const Drinks = () => {
       <h1 className={styles.title}>Drinks</h1>
       <Filter />
       <DrinksList />
+      <NotificationContainer />
     </div>
   );
 };

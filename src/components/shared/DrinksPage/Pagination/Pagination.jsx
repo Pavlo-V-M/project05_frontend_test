@@ -11,6 +11,8 @@ import { getPagePaginate, setPaginateValue } from '../redux/pagePaginateSlice';
 import { getNumberCards } from '../redux/numberCardsSlice';
 import PropTypes from 'prop-types';
 
+const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
+
 const PaginatedItems = ({ pageCount }) => {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const PaginatedItems = ({ pageCount }) => {
 
   useEffect(() => {
     if (dataRecipets.totalPages > pageCount) {
-      setCount(pageCount);
+      setCount(dataRecipets.totalPages);
     }
     if (dataRecipets.totalPages < pageCount) {
       setCount(dataRecipets.totalPages);
@@ -32,12 +34,26 @@ const PaginatedItems = ({ pageCount }) => {
   const onClick = event => {
     const newOffset = event.nextSelectedPage + 1;
     console.log(newOffset);
-    fetchRecipets(newOffset, filterValue, numberCards)
-      .then(data => {
-        dispatch(setDataRecipets(data));
-        dispatch(setPaginateValue(event.nextSelectedPage));
-      })
-      .catch(error => console.log(error));
+    const currentUrl = window.location.href;
+
+    if (currentUrl === defaultURL) {
+      fetchRecipets(newOffset, ' ', numberCards)
+        .then(data => {
+          console.log('paginate');
+          dispatch(setDataRecipets(data));
+          dispatch(setPaginateValue(event.nextSelectedPage));
+        })
+        .catch(error => console.log(error));
+    }
+    if (currentUrl !== defaultURL) {
+      fetchRecipets(newOffset, filterValue, numberCards)
+        .then(data => {
+          console.log('paginate2');
+          dispatch(setDataRecipets(data));
+          dispatch(setPaginateValue(event.nextSelectedPage));
+        })
+        .catch(error => console.log(error));
+    }
   };
 
   return (
@@ -45,9 +61,10 @@ const PaginatedItems = ({ pageCount }) => {
       <DrinksCard />
       <ReactPaginate
         nextLabel=">"
+        breakLabel="..."
         onClick={onClick}
         pageCount={count}
-        pageRangeDisplayed={7}
+        pageRangeDisplayed={pageCount}
         marginPagesDisplayed={1}
         // initialPage={0}
         forcePage={pagePaginate}
