@@ -20,7 +20,7 @@ const UserInfoModal = () => {
  
  
   useEffect(() => {
-    if (authData.user.email) {
+    if (authData?.user.email) {
   FetchById( authData.user.email)
       .then(data => {
          setDataUser(data)
@@ -31,7 +31,7 @@ const UserInfoModal = () => {
       });
 }
     
-  }, [authData.user.email]);
+  }, [authData?.user.email]);
 
 const handleModalClick = (event) => {
   event.stopPropagation();
@@ -65,6 +65,7 @@ const handleModalClick = (event) => {
   };
 
   return (
+    authData?.user && (
     <div className={styles.div__auth_header}>
       <Avatar avatarUrl={avatarUrl} dataUser={dataUser} />
       <p onClick={ModalInfoOpen}>
@@ -96,7 +97,7 @@ const handleModalClick = (event) => {
           </div>
         </div>
       )}
-    </div>
+    </div>)
   );
 };
 
