@@ -1,0 +1,59 @@
+.cont{
+  margin-top: 137px;
+  margin-bottom: 80px;
+
+    @media screen and (min-width: 768px){
+        margin-top: 191px;
+        margin-bottom: 140px;
+    }
+
+
+}
+
+.text{
+position: absolute;
+  left: 0;
+  right: 0;
+margin-left: 45px;
+margin-right: auto;
+  z-index: 1;
+  // max-width: 265px;
+font-size: 120px;
+color: rgba(243, 243, 243, 0.1);
+text-align: center;
+margin-top: 111px;
+letter-spacing: 40px;
+
+  @media screen and (min-width: 768px){
+    font-size: 150px;
+    margin-top: 161px;
+  }
+}
+
+.pic{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 375px;
+  height: 476px;
+  background-image: url(../404/images/pic-mob-404-glass.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  @media screen and (min-width: 768px){
+    max-width: 465px;
+    height: 517px;
+
+    background-image: url(./images/pic-tablet-404-glass.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url(./images/pic-desctop-404-glass.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+}
