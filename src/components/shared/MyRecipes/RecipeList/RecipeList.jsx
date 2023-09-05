@@ -1,9 +1,27 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMyRecipes } from '../../../../redux/recipes/recipes-selectors';
+import {
+  fetchRecipes,
+  deleteRecipes,
+} from '../../../../redux/recipes/recipes-operations';
 import { Link } from 'react-router-dom';
 import ButtonDelete from '../../Button/ButtonDelete';
 import styles from './recipeList.module.scss';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
-const RecipeList = ({ items, onDeleteRecipes }) => {
+const RecipeList = () => {
+  const items = useSelector(getMyRecipes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRecipes());
+  }, [dispatch]);
+
+  const onDeleteRecipes = _id => {
+    dispatch(deleteRecipes(_id));
+  };
+
   const elements =
     items &&
     items.map(({ _id, drinkThumb, drink, describe }) => (
@@ -16,7 +34,7 @@ const RecipeList = ({ items, onDeleteRecipes }) => {
           <Link className={styles.btn} to={`/recipe/:${_id}`}>
             See recipe
           </Link>
-          <ButtonDelete id={_id} onClick={() => onDeleteRecipes(_id)}>
+          <ButtonDelete id={_id} onDeleteRecipes={onDeleteRecipes}>
             <RiDeleteBin6Line className={styles.iconDelete} />
           </ButtonDelete>
         </div>
@@ -25,9 +43,7 @@ const RecipeList = ({ items, onDeleteRecipes }) => {
 
   return (
     <>
-      {/* {isLoading && <p>....Loading</p>}
-      {error && <p className={styles.error}>{error}</p>} */}
-      <ul className={styles.list}>{elements}</ul>;
+      <ul className={styles.list}>{elements}</ul>
     </>
   );
 };
