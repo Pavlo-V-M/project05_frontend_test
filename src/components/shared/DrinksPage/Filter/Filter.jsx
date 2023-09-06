@@ -3,7 +3,7 @@ import { ReactComponent as Vector } from '../svg/Vector.svg';
 import { ReactComponent as Search } from '../svg/search.svg';
 import Categories from '../Category';
 import Ingredients from '../Ingredients';
-import styles from '../style/DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import { useDispatch } from 'react-redux';
 import { setFilterValue } from '../redux/filterSlice';
 import { fetchCategories } from '../../api/DrinkPage/getCategories';
