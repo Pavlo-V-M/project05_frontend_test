@@ -1,4 +1,4 @@
-import styles from '../style/DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
 import DrinksCard from '../DrinksCard/DrinksCard';
 import { useState, useEffect } from 'react';
