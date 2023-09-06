@@ -1,1 +1,1 @@
-export { default } from './Drinks';
+export { default as Drinks } from './Drinks';
