@@ -11,6 +11,7 @@ import css from './RecipePage.module.scss';
 import fetchDetails from '../api/RecipeById/apiRecipeById';
 import cocktailGlass from '../../../images/cocktailglass.jpg';
 import { FetchId } from '../api/RecipeById/apiRecipeById';
+import Loader from '../Loader/Loader';
 const RecipeDetails = ()=> {
     const dispatch = useDispatch();
   
@@ -71,7 +72,7 @@ const [favorite, setFavorite] =useState(false)
       return (
         <div className={css.recipe_container}>
          
-          {/* {loading && <div>...Loading</div>} */}
+          {loading && <div><Loader/></div>}
           <div className={css.recipe_details}>
           <div className={css.recipe_details_main}>
           <p className={css.recipe_glass}>{recipe.glass}</p>
