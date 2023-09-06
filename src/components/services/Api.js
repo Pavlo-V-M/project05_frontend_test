@@ -12,6 +12,14 @@ import axios from 'axios';
 //   // return response.data;
 // };
 
+const token = localStorage.getItem('token');
+
+export const instance = axios.create({
+  baseURL: 'https://project05-backend.onrender.com/api'
+})
+
+instance.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
 
 export async function fetchCategories() {
     const token = localStorage.getItem('token');
@@ -26,7 +34,7 @@ export async function fetchCategories() {
        
       return data;}
 
-export async function getMyFavorites() {	
+export const getMyFavorites = async () => {	
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
@@ -50,7 +58,7 @@ export const deleteFavorites = async _id =>  {
       return data;	
 };
     
-export async function addFavorites (_id) {		
+export const addFavorites = async _id => {		
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
@@ -60,3 +68,23 @@ export async function addFavorites (_id) {
       const { data } = await instance.patch(`api/favorite/${_id}`);		
       return data;		
 };		
+
+// export const addCocktailImg = async (formData) => {
+//   const response = await axios.post(`api/own`);
+//   return response.data;
+// };
+
+export const getCategoryList  = async () => {
+  const response = await instance.get(`api/recipes/category-list`);
+  return response;
+};
+
+export const getGlassList  = async () => {
+  const response = await instance.get(`api/glass`);
+  return response;
+};
+
+export const addRecipe  = async () => {
+  const response = await instance.post(`api/glass`);
+  return response;
+};

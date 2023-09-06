@@ -1,11 +1,10 @@
-import styles from '../../shared/RecipePreparation/RecipePreparation.module.scss';
+import styles from '../../AddRecipeForm/RecipePreparation/RecipePreparation.module.scss';
 
 const RecipePreparation = () => {
   return (
-    <>
-      <div className="container">
+      <div>
         <h3 className={styles.recipePrepTitle}>Recipe preparation</h3>
-        <form className={styles.wrap}>
+        <div className={styles.wrap}>
           <label>
             <textarea className={styles.textArea}
               type="text"
@@ -16,9 +15,8 @@ const RecipePreparation = () => {
             />
           </label>
           <button className={styles.recipePrepBtn} type="submit">Add</button>
-        </form>
+        </div>
       </div>
-    </>
   )
 };
 
