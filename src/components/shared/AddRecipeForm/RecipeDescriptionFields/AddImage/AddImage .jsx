@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import addImage from '../../../../../images/addRecipe/addImage.png';
-import { addCocktailImg } from '../../../../services/Api';
+// import { addCocktailImg } from '../../../../services/Api';
 import styles from './AddImage.module.scss';
 
 const AddImage = () => {
