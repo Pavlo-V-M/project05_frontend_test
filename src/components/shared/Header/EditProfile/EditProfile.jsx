@@ -7,11 +7,9 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
   const [inputValue, setInputValue] = useState(`${dataUser?.user.name}`);
   const [avatarFiles, setAvatarFiles] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   
   const minLength = 6;
-
-
-
 
   const handleFile = (event) => {
     const selectedFile = event.target.files[0];
@@ -52,9 +50,11 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
     const value = event.target.value;
     setInputValue(value);
      if (value.length < minLength) {
-    event.target.style.border = "1px solid #DA141480";
+       event.target.style.border = "1px solid #DA141480"
+       setIsButtonDisabled(true)
   } else {
-    event.target.style.border = "1px solid #3CBC8180";
+       event.target.style.border = "1px solid #3CBC8180"
+       setIsButtonDisabled(false)
   }
   };
    
@@ -84,10 +84,10 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
               value={inputValue}
             /> 
              {inputValue.length < minLength && (
-              <p className={styles.modal__info_p}>Minimum {minLength} words</p>
+              <p className={styles.modal__info_p}>Minimum {minLength} letters</p>
             )}
           </form>
-        <button className={styles.modal__info__save} onClick={handleSaveChangesClick} >Save changes</button>
+        <button className={styles.modal__info__save} onClick={handleSaveChangesClick} disabled={isButtonDisabled}>Save changes</button>
         </div>
       </div>
     )
@@ -95,4 +95,3 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
 };
 
 export default EditProfileModal;
-

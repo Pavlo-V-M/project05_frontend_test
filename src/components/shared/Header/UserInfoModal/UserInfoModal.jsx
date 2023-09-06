@@ -19,7 +19,6 @@ const UserInfoModal = () => {
   const authData = useSelector(state => state.auth.data)
   
  
- 
   useEffect(() => {
     if (authData?.user.email) {
   FetchById( authData.user.email)
@@ -69,7 +68,7 @@ const handleModalClick = (event) => {
     
     <div className={styles.div__auth_header}>
       <Avatar avatarUrl={avatarUrl} dataUser={dataUser} />
-      <p onClick={ModalInfoOpen}>
+      <p onClick={ModalInfoOpen} className={styles.user_info__p}>
          {dataUser && dataUser.user && dataUser.user.name ? dataUser.user.name : "victoria"}
         </p>
 
@@ -82,19 +81,14 @@ const handleModalClick = (event) => {
               authData={authData}
               closeModal={ModalLogoutClose}
               openModal={ModalLogoutOpen}
-              handleModalClick ={handleModalClick}
-              
-                      />
+              handleModalClick ={handleModalClick}/>
             <EditProfileModal
               isOpen={isModalOpen}
               closeModal={ModalClose}
               avatarUrl={avatarUrl}
               dataUser={dataUser}
               authData={authData}
-              updateDataUser={updateDataUser}
-              
-            />
-            
+              updateDataUser={updateDataUser} />
           </div>
         </div>
       )}

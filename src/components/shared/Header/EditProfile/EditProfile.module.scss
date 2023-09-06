@@ -1,19 +1,20 @@
 .modal {
     background-color: var(--secondary-bg-blue-color);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 335px;
-        height: 345px;
-        position: relative;
-        @media screen and (min-width: 768px) {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 335px;
+    height: 345px;
+    position: relative;
+
+    @media screen and (min-width: 768px) {
         width: 450px;
-            }
-         
+    }
+
 }
 
 .modal-overlay {
@@ -28,6 +29,7 @@
     align-items: center;
     z-index: 9999;
 }
+
 .modal__info_input {
     border-radius: 200px;
     border: 1px solid var(--primary-text-color);
@@ -38,51 +40,61 @@
     margin-top: 20px;
     background-color: transparent;
     color: var(--primary-text-color);
-    
-    
-    
+
+
+
     @media screen and (min-width: 768px) {
-            width: 400px;
-        }
-    
+        width: 400px;
+    }
+
 }
 
 
-.modal__info_addimg{
+.modal__info_addimg {
     display: none;
 }
 
-.modal__info_img_modal{
-    border-radius:200px;
+.modal__info_img_modal {
+    border-radius: 200px;
     width: 100px;
     height: 100px;
-   
+
 }
 
-.modal__info_button_add{
+.modal__info_button_add {
     position: absolute;
-    top:30%;
-    left: 45%;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.modal__info_form{
+
+.modal__info_form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.modal__info__save{
+
+.modal__info__save {
     width: 285px;
     height: 54px;
     border-radius: 42px;
     padding: 18px 90px;
-    color:var(#161f37);
-    border: 1px solid gray;
+    color: var(#161f37);
+    border: none;
     background-color: var(#F3F3F3);
     margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--main-blue-color);
+        color: var(--primary-text-color);
+    }
+
     @media screen and (min-width: 768px) {
-            width: 400px;
-        }
+        width: 400px;
+    }
 }
 
-.modal__info_p{
+.modal__info_p {
     color: #DA141480;
 }
