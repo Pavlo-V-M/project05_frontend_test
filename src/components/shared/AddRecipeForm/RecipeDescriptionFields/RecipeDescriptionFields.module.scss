@@ -1,0 +1,93 @@
+.AddRecipeFormWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.imgFieldWrapper {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  gap: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+  gap: 40px;
+  }
+
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  margin-bottom: 40px;
+  padding-bottom: 18px;
+  border: none;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+  outline: none;
+  width: 335px;
+  height: 34px;
+  background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 352px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 41px;
+    width: 393px;
+    padding-bottom: 19px;
+  }
+}
+
+input::placeholder {
+  color: #f3f3f3;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    letter-spacing: -0.32px;
+  }
+}
+
+input,
+label {
+  color: #f3f3f3;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    letter-spacing: -0.32px;
+  }
+}
+
+.inputFilter {
+  width: 335px;
+  height: 34px;
+
+  @media screen and (min-width: 768px) {
+    width: 352px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 41px;
+    width: 393px;
+  }
+}
