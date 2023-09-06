@@ -14,10 +14,10 @@ const LogoAndName = () => {
 
   return (
     <div className={css.link}>
-      <Link to="/" className={css.link} onClick={scrollToTop}>
+      <Link to="main" className={css.link} onClick={scrollToTop}>
         <SiteLogo className={css.logoImg} />
+        <p className={css.logoText}>Drink Master</p>
       </Link>
-      <p className={css.logoText}>Drink Master</p>
     </div>
   );
 };
