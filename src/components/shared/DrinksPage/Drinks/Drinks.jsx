@@ -1,4 +1,4 @@
-import styles from '../style/DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import Filter from '../Filter';
 import DrinksList from '../DrinksList';
 import { useEffect } from 'react';
