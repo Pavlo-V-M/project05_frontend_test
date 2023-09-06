@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import styles from '../style/DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import { fetchIngredients } from '../../api/DrinkPage/getIngredients';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
