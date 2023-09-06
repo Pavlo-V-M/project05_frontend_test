@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
 //   Link,
 //   Outlet,
@@ -12,8 +13,10 @@ import IngredientList from './IngredientList';
 import css from './RecipePage.module.css';
 import fetchDetails from '../api/RecipeById/apiRecipeById';
 import cocktailGlass from '../../../images/cocktailglass.jpg';
+import { addFavorites } from 'redux/favoriteCocktails/favorites-operations';
 const RecipeDetails = ()=> {
 // const recipeId = '639b6de9ff77d221f190c508'
+const dispatch = useDispatch();
 const [recipe, setRecipe] = useState('');
 const [loading, setLoading] = useState(false);
 const { recipeId } = useParams();
@@ -37,6 +40,8 @@ const { recipeId } = useParams();
         });
       };
 
+      const handleFavButton = () => dispatch(addFavorites(recipeId));
+
       return (
         <div className={css.recipe_container}>
          
@@ -46,7 +51,7 @@ const { recipeId } = useParams();
           <p className={css.recipe_glass}>{recipe.glass}</p>
           <h2 className={css.recipe_title}>{recipe.drink}</h2>
           <p className={css.recipe_about}> { recipe.description? recipe.drink: "Do you want to mix up some quick and easy cocktail at home? This recipe is for you."}  </p>
-          <button className={css.add_button} type ="button">         
+          <button className={css.add_button} type ="button" onClick={handleFavButton()}>         
              Add to favorite recipe</button>
           </div>
           <img 

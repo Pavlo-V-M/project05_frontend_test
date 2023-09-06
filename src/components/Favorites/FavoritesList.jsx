@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch} from "react-redux";
-import { getMyFavorites } from "redux/favoriteCocktails/favorites-selectors";
-import ButtonDelete from "components/shared/Button/ButtonDelete";
 import { Link } from "react-router-dom";
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { deleteFavorites } from "components/services/Api";
-import { fetchFavorites } from "redux/favoriteCocktails/favorites-operations";
+import ButtonFavDelete from './ButtonFavDelete';
+import { getMyFavorites } from "redux/favoriteCocktails/favorites-selectors";
+import { fetchFavorites, deleteFavorites } from 'redux/favoriteCocktails/favorites-operations';
 import styles from '../shared/MyRecipes/RecipeList/recipeList.module.scss';
 
 const FavoritesList = () => {
@@ -30,9 +29,9 @@ const FavoritesList = () => {
             <Link className={styles.btn} to={`/recipe/:${_id}`}>
               See recipe
             </Link>
-            <ButtonDelete id={_id} onDeleteFavorites={onDeleteFavorites}>
+            <ButtonFavDelete id={_id} onDeleteFavorites={onDeleteFavorites}>
               <RiDeleteBin6Line className={styles.iconDelete} />
-            </ButtonDelete>
+            </ButtonFavDelete>
           </div>
         </li>
       ));
