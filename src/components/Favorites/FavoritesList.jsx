@@ -26,7 +26,7 @@ const FavoritesList = () => {
           <p className={styles.text}>ingredients</p>
           <p className={styles.description}>{describe}</p>
           <div className={styles.btns}>
-            <Link className={styles.btn} to={`/recipe/:${_id}`}>
+            <Link className={styles.btn} to={`/recipe/${_id}`}>
               See recipe
             </Link>
             <ButtonFavDelete id={_id} onDeleteFavorites={onDeleteFavorites}>

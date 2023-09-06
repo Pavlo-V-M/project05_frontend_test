@@ -1,58 +1,87 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
-import {
-//   Link,
-//   Outlet,
-  useParams,
-//   useNavigate,
-//   useLocation,
-} from 'react-router-dom';
-import PreparationCocktail from '../../../images/PreparationCocktail.jpg';
+import { addFavorites, deleteFavorites } from 'redux/favoriteCocktails/favorites-operations';
 
+import {useParams} from 'react-router-dom';
+import PreparationCocktail from '../../../images/PreparationCocktail.jpg';
+import { AddButton, RemoveButton } from './AddButton';
 import IngredientList from './IngredientList';
-import css from './RecipePage.module.css';
+import css from './RecipePage.module.scss';
 import fetchDetails from '../api/RecipeById/apiRecipeById';
 import cocktailGlass from '../../../images/cocktailglass.jpg';
-import { addFavorites } from 'redux/favoriteCocktails/favorites-operations';
+import { FetchId } from '../api/RecipeById/apiRecipeById';
 const RecipeDetails = ()=> {
-// const recipeId = '639b6de9ff77d221f190c508'
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
+  
+
 const [recipe, setRecipe] = useState('');
 const [loading, setLoading] = useState(false);
+const [id, setId] = useState('');
+const [usersId, setUsersId]= useState([]);
+
 const { recipeId } = useParams();
+const [favorite, setFavorite] =useState(false)
 
   useEffect(() => {
         if (recipeId === '') {
           return;
         }
-        fetchRecipeDetails();
-        console.log(recipeId);
+        fetchUserID();
+      fetchRecipeDetails();
+
          // eslint-disable-next-line 
       }, [recipeId]);
     
+   
+ 
+
       const fetchRecipeDetails = () => {
         setLoading(true);
         fetchDetails(recipeId).then(data => {
-        
           setRecipe(data);
-          console.log(data);
+    
+          setUsersId(data.usersId);
+          
           setLoading(false);
         });
       };
+      const onDeleteFavorites = recipeId => {
+     
+        dispatch(deleteFavorites(recipeId));
+        fetchRecipeDetails();
+        setFavorite(false)
+      };
+      const handleFavButton = recipeId=> {
+        dispatch(addFavorites(recipeId)); 
+        fetchRecipeDetails();
+        setFavorite(true)  };
 
-      const handleFavButton = () => dispatch(addFavorites(recipeId));
-
+     
+      const email = useSelector(state => state.auth.data.user.email);
+    const fetchUserID = () => {
+      setLoading(true);
+      FetchId(email).then(data => {
+        setId(data);
+     
+        setLoading(false);
+      });
+    };
+   
       return (
         <div className={css.recipe_container}>
          
-          {loading && <div>...Loading</div>}
+          {/* {loading && <div>...Loading</div>} */}
           <div className={css.recipe_details}>
           <div className={css.recipe_details_main}>
           <p className={css.recipe_glass}>{recipe.glass}</p>
           <h2 className={css.recipe_title}>{recipe.drink}</h2>
           <p className={css.recipe_about}> { recipe.description? recipe.drink: "Do you want to mix up some quick and easy cocktail at home? This recipe is for you."}  </p>
-          <button className={css.add_button} type ="button" onClick={handleFavButton()}>         
-             Add to favorite recipe</button>
+          <div>
+         { favorite || usersId.includes(id)  ? <RemoveButton  id={recipeId} onDeleteFavorites={onDeleteFavorites} />: <AddButton id={recipeId} handleFavButton={handleFavButton}/>} 
+        </div>
+
+          
           </div>
           <img 
       

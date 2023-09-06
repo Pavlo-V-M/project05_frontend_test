@@ -1,5 +1,5 @@
 import IngredientListItem from './IngredientListItem.jsx';
-import css from './RecipePage.module.css';
+import css from './RecipePage.module.scss';
 // import { v4 as uuidv4 } from 'uuid';
 import { nanoid } from 'nanoid'
 

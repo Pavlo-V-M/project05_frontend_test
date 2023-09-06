@@ -1,4 +1,4 @@
-import css from './RecipePage.module.css';
+import css from './RecipePage.module.scss';
 import glass from '../../../images/glass.jpg';
 
 
