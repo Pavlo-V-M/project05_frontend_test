@@ -1,11 +1,11 @@
 import MainPageTitle from 'components/shared/MyPageTitle/MyPageTitle';
-import MyRecipes from 'components/shared/MyRecipes/MyRecipes';
+import RecipeList from 'components/shared/MyRecipes/RecipeList/RecipeList';
 
 const MyRecipesPage = () => {
   return (
     <div>
       <MainPageTitle text="My recipes" />
-      <MyRecipes />
+      <RecipeList />
     </div>
   );
 };

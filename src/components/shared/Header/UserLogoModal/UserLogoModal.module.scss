@@ -69,6 +69,8 @@
   right: 10px;
   cursor: pointer;
   background-color: black;
+  border: none;
+  background: inherit;
   
 }
 
@@ -78,7 +80,8 @@
     background-color: transparent;
     fill:white;
     border:none;
-    @media screen and (min-width: 1440px) {
+    margin-left: 10px;
+    @media screen and (min-width: 1200px) {
             display: none;
         }
 }

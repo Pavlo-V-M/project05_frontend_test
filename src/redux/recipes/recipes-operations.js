@@ -16,10 +16,10 @@ export const fetchRecipes = createAsyncThunk(
 
 export const deleteRecipes = createAsyncThunk(
   'recipes/delete',
-  async (id, { rejectWithValue }) => {
+  async (_id, { rejectWithValue }) => {
     try {
-      const data = await api.deleteRecipes(id);
-      return data;
+      await api.deleteRecipes(_id);
+      return _id;
     } catch ({ response }) {
       return rejectWithValue(response);
     }

@@ -1,0 +1,120 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px 0 0;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+
+    margin-right: auto;
+    margin-left: 0;
+
+    width: 540px;
+  }
+}
+
+.title_thumb {
+  display: flex;
+  gap: 77px;
+  margin-bottom: 34px;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+.title {
+  font-family: Manrope;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(243, 243, 243, 1);
+  width: 154px;
+  @media screen and (min-width: 768px) {
+    width: 220px;
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+.counter_thumb {
+  box-sizing: border-box;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  border-radius: 200px;
+  width: 104px;
+  height: 38px;
+  padding: 10px 16px;
+  align-items: center;
+
+  display: flex;
+  justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    width: 114px;
+    height: 44px;
+  }
+}
+
+.counter_minus {
+  border-style: none;
+  background-color: transparent;
+  color: rgba(243, 243, 243, 1);
+  padding: 0;
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+}
+.counter_plus {
+  border-style: none;
+  background-color: transparent;
+  color: rgba(243, 243, 243, 1);
+  padding: 0;
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+}
+
+.counter_display {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: rgba(243, 243, 243, 1);
+}
+
+.select_thumb {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    gap: 14px;
+  }
+}
+
+.one_select_thumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    gap: 14px;
+  }
+}
+
+.delete_button {
+  border-style: none;
+  background-color: transparent;
+  padding: 0;
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+  }
+}

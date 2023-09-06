@@ -22,8 +22,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       if (event.key === "Escape" && isModalOpen) {
         closeModal()
       }
-      
-      
+       
     }
     window.addEventListener("keydown", handleEscapeKey)
       
@@ -40,7 +39,6 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         <button onClick={openModal} className={styles.modal__burger} >
         <SvgButtonModal className={styles.modal__burger} />
        </button>
-
     {isModalOpen && (
         <div className={styles["modal-overlay"]}>
           <div className={styles.backdrop} onClick={() => closeModal()}></div> 
@@ -48,15 +46,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
            <button className={styles["close-button"]} onClick={closeModal}>
             <SvgButtonClose  />
             </button>     
-            <Navigation/>
+            <Navigation onClose={closeModal} />
         </div>
     </div>
 )}
-
-
-
-
-
       </div>
     )
 }

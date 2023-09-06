@@ -141,6 +141,12 @@
   
   .error_message {
     color: var(--error-red-color);
+    width: 375px;
+  }
+  @media screen and (max-width: 767px) {
+    .error_message {
+      width: 315px;
+    }
   }
   
   .success_message {
@@ -163,12 +169,20 @@
     font-weight: 600;
     line-height: 18px;
     letter-spacing: 0em;
+    cursor: pointer;
   }
   
   @media screen and (min-width: 768px) {
     .sign_button {
       width: 400px;
     }
+  }
+  .validButton {
+    cursor: pointer;
+  }
+  
+  .invalidButton {
+    cursor: not-allowed;
   }
   
   .sign_link {
