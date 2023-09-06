@@ -24,3 +24,6 @@ export default async function fetchDetails(recipeId) {
     //   return Promise.reject(new Error(`recipe not found`));
     // });
   };
+
+ 
+  

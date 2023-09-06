@@ -26,7 +26,7 @@ export async function fetchCategories() {
        
       return data;}
 
-export async function getMyFavorites() {	
+export const getMyFavorites = async () => {	
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
@@ -50,7 +50,7 @@ export const deleteFavorites = async _id =>  {
       return data;	
 };
     
-export async function addFavorites (_id) {		
+export const addFavorites = async _id => {		
   const token = localStorage.getItem('token');
     const instance = axios.create({
         baseURL: 'https://project05-backend.onrender.com',
