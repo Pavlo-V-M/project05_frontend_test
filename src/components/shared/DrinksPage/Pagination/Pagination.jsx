@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 
 const PaginatedItems = ({ pageCount }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
