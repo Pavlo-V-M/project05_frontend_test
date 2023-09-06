@@ -101,6 +101,6 @@ const Drinkslist = ({ searchParams }) => {
   }
 };
 Drinkslist.propTypes = {
-  searchParams: PropTypes.func.isRequired,
+  searchParams: PropTypes.object.isRequired,
 };
 export default Drinkslist;
