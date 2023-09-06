@@ -1,9 +1,8 @@
-// import React, { useState } from 'react';
-import styles from '../DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
-import DrinksCard from '../DrinksCard';
+import DrinksCard from '../DrinksCard/DrinksCard';
 import { useState, useEffect } from 'react';
-import { fetchRecipets } from '../Api/getRecipets';
+import { fetchRecipets } from '../../../shared/api/DrinkPage/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';
@@ -14,7 +13,7 @@ import PropTypes from 'prop-types';
 const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 
 const PaginatedItems = ({ pageCount }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);

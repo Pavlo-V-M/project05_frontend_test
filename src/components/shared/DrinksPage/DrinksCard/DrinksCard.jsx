@@ -1,6 +1,6 @@
-import styles from './DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import { useSelector } from 'react-redux';
-import { getDataRecipets } from './redux/recipetsSlice';
+import { getDataRecipets } from '../redux/recipetsSlice';
 import { Link } from 'react-router-dom';
 
 const DrinksCard = () => {

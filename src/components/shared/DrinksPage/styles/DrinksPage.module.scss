@@ -1,21 +1,24 @@
-@import '../../../index.scss';
+@import '../../../../index.scss';
 
+/* Drinks */
 .title {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.06;
   color: var(--primary-text-color);
-  margin-top: 152px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
   .title {
     font-size: 64px;
-    margin-top: 224px;
+    margin-top: 160px;
     margin-bottom: 80px;
   }
 }
+/* Drinks */
 
+/* Filter */
 .filter {
   display: flex;
   flex-direction: column;
@@ -130,6 +133,10 @@
 .select_btn:hover .btn_svg {
   stroke: var(--secondary-text-color);
 }
+/* Filter */
+
+/* Category */
+
 .category_list {
   position: absolute;
   width: 199px;
@@ -160,6 +167,10 @@
 .category_item:focus {
   color: var(--primary-text-color);
 }
+/* Category */
+
+/* Ingredients */
+
 .ingredients_box {
   position: absolute;
   background-color: var(--secondary-bg-blue-color);
@@ -189,21 +200,25 @@
   height: 110px;
   border-radius: 20px;
 }
+/* Ingredients */
+
+/* DrinksList */
 .drinks {
   margin-top: 40px;
   z-index: 1;
-  // height: 1474px;
 }
 .drinks_img_error {
   width: 465px;
   height: 517px;
 }
+/* DrinksList */
+
+/* DrinksCard */
+
 .drinks_list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  // height: inherit;
-  // overflow-y: hidden;
 }
 .drinks_item:not(:last-child) {
   margin-bottom: 28px;
@@ -267,14 +282,24 @@
     font-size: 18px;
   }
 }
+/* DrinksCard */
 
+/* Pagination */
+
+@media screen and (min-width: 768px) {
+  .pagination {
+    margin-bottom: 140px;
+  }
+}
 .pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 55px;
+  margin-bottom: 80px;
 }
+
 @media screen and (min-width: 768px) {
   .page {
     margin-right: 17px;
@@ -307,3 +332,4 @@
   margin-left: 23px;
   cursor: pointer;
 }
+/* Pagination */

@@ -1,15 +1,15 @@
-import styles from './DrinksPage.module.scss';
-import PaginatedItems from './Pagination/Pagination';
-import { fetchRecipets } from './Api/getRecipets';
+import styles from '../styles/DrinksPage.module.scss';
+import PaginatedItems from '../Pagination/Pagination';
+import { fetchRecipets } from '../../api/DrinkPage/getRecipets';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterValue } from './redux/filterSlice';
-import { getNumberCards } from './redux/numberCardsSlice';
-import { setDataRecipets } from './redux/recipetsSlice';
-import { setPaginateValue } from './redux/pagePaginateSlice';
+import { getFilterValue } from '../redux/filterSlice';
+import { getNumberCards } from '../redux/numberCardsSlice';
+import { setDataRecipets } from '../redux/recipetsSlice';
+import { setPaginateValue } from '../redux/pagePaginateSlice';
 import { useParams } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
-import Loader from '../Loader/Loader';
+import PropTypes from 'prop-types';
+import Loader from '../../Loader/Loader';
 
 const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 const STATUS = {
@@ -19,18 +19,15 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-const Drinkslist = () => {
+const Drinkslist = ({ searchParams }) => {
   const [status, setStatus] = useState('');
   const [pageCount, setPageCount] = useState(8);
-  const [searchParams] = useSearchParams('');
   const dispatch = useDispatch();
   const filterValue = useSelector(getFilterValue);
   const numberCards = useSelector(getNumberCards);
   const { categoryName } = useParams();
 
-  // console.log(setSearchParams);
   const params = searchParams.get('query');
-  console.log(params);
 
   useEffect(() => {
     const handleResize = event => {
@@ -102,5 +99,8 @@ const Drinkslist = () => {
       </div>
     );
   }
+};
+Drinkslist.propTypes = {
+  searchParams: PropTypes.object.isRequired,
 };
 export default Drinkslist;

@@ -1,9 +1,9 @@
 import { nanoid } from 'nanoid';
-import styles from './DrinksPage.module.scss';
-import { fetchIngredients } from './Api/getIngredients';
+import styles from '../styles/DrinksPage.module.scss';
+import { fetchIngredients } from '../../api/DrinkPage/getIngredients';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilterValue } from './redux/filterSlice';
+import { setFilterValue } from '../redux/filterSlice';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

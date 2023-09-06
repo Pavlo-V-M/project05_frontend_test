@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import { ReactComponent as Vector } from './svg/Vector.svg';
-import { ReactComponent as Search } from './svg/search.svg';
-import Categories from './Category';
-import Ingredients from './Ingredients';
-import styles from './DrinksPage.module.scss';
+import { ReactComponent as Vector } from '../svg/Vector.svg';
+import { ReactComponent as Search } from '../svg/search.svg';
+import Categories from '../Category';
+import Ingredients from '../Ingredients';
+import styles from '../styles/DrinksPage.module.scss';
 import { useDispatch } from 'react-redux';
-import { setFilterValue } from './redux/filterSlice';
-import { fetchCategories } from './Api/getCategories';
-import { fetchIngredients } from './Api/getIngredients';
-import { useSearchParams } from 'react-router-dom';
+import { setFilterValue } from '../redux/filterSlice';
+import { fetchCategories } from '../../api/DrinkPage/getCategories';
+import { fetchIngredients } from '../../api/DrinkPage/getIngredients';
 import 'react-notifications/lib/notifications.css';
+import PropTypes from 'prop-types';
 import { NotificationManager } from 'react-notifications';
 
-const Filter = () => {
+const Filter = ({ setSearchParams }) => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [setSearchParams] = useSearchParams('');
   const [ingredient, setIngredient] = useState('');
   const [category, setCategory] = useState('');
   const [tittleIngridients, setTittleIngridients] = useState(false);
   const [tittleCategories, setTittleCategories] = useState(false);
-  const dispatch = useDispatch();
 
-  // console.log(searchParams.get('query'));
+  const dispatch = useDispatch();
 
   const setCategoryValue = value => {
     setCategory(value);
@@ -51,7 +49,6 @@ const Filter = () => {
       NotificationManager.info('Please enter a valid name !', 'Info', 3000);
       return;
     }
-    console.log(inputValue);
     setSearchParams({ query: inputValue });
     dispatch(setFilterValue(inputValue));
     setInputValue('');
@@ -126,6 +123,9 @@ const Filter = () => {
       </div>
     </div>
   );
+};
+Filter.propTypes = {
+  setSearchParams: PropTypes.func.isRequired,
 };
 
 export default Filter;
