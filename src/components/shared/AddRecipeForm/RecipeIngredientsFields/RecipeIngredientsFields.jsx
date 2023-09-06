@@ -19,7 +19,7 @@ import { ReactComponent as Minus } from '../../../../images/addRecipe/Minus.svg'
 export const RecipeIngredientsFields = () => {
   const [count, setCount] = useState(1);
   const [ingredients, setIngredients] = useState([ingredientsList]);
-  const [selectValue, setSelectValue] = useState('');
+  // const [selectValue, setSelectValue] = useState('');
   const plusButtonHandler = () => {
     setCount(count + 1);
     setIngredients(prevState => [...prevState, [...ingredientsList]]);
@@ -39,9 +39,9 @@ export const RecipeIngredientsFields = () => {
     });
   };
 
-  const handleChange = event => {
-    console.log(event.target.value);
-  };
+  // const handleChange = event => {
+  //   console.log(event.target.value);
+  // };
 
   console.log(ingredients.map((ingredient, index, arr) => arr[index]));
 
