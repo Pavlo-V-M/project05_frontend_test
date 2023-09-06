@@ -1,9 +1,9 @@
-import styles from './DrinksPage.module.scss';
-import Filter from './Filter';
-import DrinksList from './DrinksList';
+import styles from '../style/DrinksPage.module.scss';
+import Filter from '../Filter';
+import DrinksList from '../DrinksList';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setNumberCards } from './redux/numberCardsSlice';
+import { setNumberCards } from '../redux/numberCardsSlice';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
 import { useSearchParams } from 'react-router-dom';

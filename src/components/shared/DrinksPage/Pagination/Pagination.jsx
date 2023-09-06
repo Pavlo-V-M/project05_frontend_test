@@ -1,9 +1,8 @@
-// import React, { useState } from 'react';
-import styles from '../DrinksPage.module.scss';
+import styles from '../style/DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
-import DrinksCard from '../DrinksCard';
+import DrinksCard from '../DrinksCard/DrinksCard';
 import { useState, useEffect } from 'react';
-import { fetchRecipets } from '../Api/getRecipets';
+import { fetchRecipets } from '../../../shared/api/DrinkPage/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';

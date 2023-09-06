@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ReactComponent as Vector } from './svg/Vector.svg';
-import { ReactComponent as Search } from './svg/search.svg';
-import Categories from './Category';
-import Ingredients from './Ingredients';
-import styles from './DrinksPage.module.scss';
+import { ReactComponent as Vector } from '../svg/Vector.svg';
+import { ReactComponent as Search } from '../svg/search.svg';
+import Categories from '../Category';
+import Ingredients from '../Ingredients';
+import styles from '../style/DrinksPage.module.scss';
 import { useDispatch } from 'react-redux';
-import { setFilterValue } from './redux/filterSlice';
-import { fetchCategories } from './Api/getCategories';
-import { fetchIngredients } from './Api/getIngredients';
+import { setFilterValue } from '../redux/filterSlice';
+import { fetchCategories } from '../../api/DrinkPage/getCategories';
+import { fetchIngredients } from '../../api/DrinkPage/getIngredients';
 import 'react-notifications/lib/notifications.css';
 import PropTypes from 'prop-types';
 import { NotificationManager } from 'react-notifications';
@@ -49,7 +49,6 @@ const Filter = ({ setSearchParams }) => {
       NotificationManager.info('Please enter a valid name !', 'Info', 3000);
       return;
     }
-    console.log(inputValue);
     setSearchParams({ query: inputValue });
     dispatch(setFilterValue(inputValue));
     setInputValue('');

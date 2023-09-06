@@ -1,9 +1,9 @@
 import { nanoid } from 'nanoid';
-import { fetchCategories } from './Api/getCategories';
-import styles from './DrinksPage.module.scss';
+import { fetchCategories } from '../../api/DrinkPage/getCategories';
+import styles from '../style/DrinksPage.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilterValue } from './redux/filterSlice';
+import { setFilterValue } from '../redux/filterSlice';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -33,10 +33,7 @@ const Categories = ({ categoryValue }) => {
 
   useEffect(() => {
     setStatus(STATUS.PENDING);
-    // if (!items) {
-    //   setStatus(STATUS.REJECTED);
-    //   return;
-    // }
+
     fetchCategories()
       .then(data => {
         checkCategoryString(data);

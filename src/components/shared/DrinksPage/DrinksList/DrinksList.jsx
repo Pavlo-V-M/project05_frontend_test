@@ -1,15 +1,15 @@
-import styles from './DrinksPage.module.scss';
-import PaginatedItems from './Pagination/Pagination';
-import { fetchRecipets } from './Api/getRecipets';
+import styles from '../styles/DrinksPage.module.scss';
+import PaginatedItems from '../Pagination/Pagination';
+import { fetchRecipets } from '../../api/DrinkPage/getRecipets';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterValue } from './redux/filterSlice';
-import { getNumberCards } from './redux/numberCardsSlice';
-import { setDataRecipets } from './redux/recipetsSlice';
-import { setPaginateValue } from './redux/pagePaginateSlice';
+import { getFilterValue } from '../redux/filterSlice';
+import { getNumberCards } from '../redux/numberCardsSlice';
+import { setDataRecipets } from '../redux/recipetsSlice';
+import { setPaginateValue } from '../redux/pagePaginateSlice';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Loader from '../Loader/Loader';
+import Loader from '../../Loader/Loader';
 
 const defaultURL = 'http://localhost:3000/project05_frontend_test/drinks';
 const STATUS = {
