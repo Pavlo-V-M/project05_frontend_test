@@ -4,9 +4,14 @@ import { PatchDataHeader,FetchById } from "../api/api-header";
 
 const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUser }) => {
   const inputRef = useRef(null);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(`${dataUser?.user.name}`);
   const [avatarFiles, setAvatarFiles] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
+  
+  const minLength = 6;
+
+
+
 
   const handleFile = (event) => {
     const selectedFile = event.target.files[0];
@@ -43,11 +48,16 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
   }
 };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    const handleInputChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+     if (value.length < minLength) {
+    event.target.style.border = "1px solid #DA141480";
+  } else {
+    event.target.style.border = "1px solid #3CBC8180";
+  }
   };
-
- 
+   
 
   return (
     isOpen && (
@@ -60,49 +70,24 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
           />
           <form action="" className={styles.modal__info_form}>
             <label htmlFor="">
-              <input
-                type="file"
-                accept="image/*"
-                name="file"
-                ref={inputRef}
-                onChange={handleFile}
-                className={styles.modal__info_addimg}
-              />
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className={styles.modal__info_button_add}
-                onClick={() => inputRef.current.click()}
-              >
+              <input type="file" accept="image/*" name="file" ref={inputRef} onChange={handleFile} className={styles.modal__info_addimg}/>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.modal__info_button_add}
+                onClick={() => inputRef.current.click()}>
                 <circle cx="16" cy="16" r="16" fill="#546081" />
-                <path
-                  d="M16.25 11V21.5"
-                  stroke="#F3F3F3"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M11 16.25H21.5"
-                  stroke="#F3F3F3"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M16.25 11V21.5" stroke="#F3F3F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11 16.25H21.5" stroke="#F3F3F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </label>
-            <input
-              type="text"
-              className={styles.modal__info_input}
-              placeholder={dataUser.user.name}
-              onChange={handleInputChange}
-            />
-            
+            <input type="text"
+            className={styles.modal__info_input}
+            onChange={handleInputChange}
+              value={inputValue}
+            /> 
+             {inputValue.length < minLength && (
+              <p className={styles.modal__info_p}>Minimum {minLength} words</p>
+            )}
           </form>
-        <button className={styles.modal__info__save} onClick={handleSaveChangesClick}>Save changes</button>
+        <button className={styles.modal__info__save} onClick={handleSaveChangesClick} >Save changes</button>
         </div>
       </div>
     )
@@ -110,3 +95,4 @@ const EditProfileModal = ({ isOpen, closeModal, dataUser, authData,updateDataUse
 };
 
 export default EditProfileModal;
+

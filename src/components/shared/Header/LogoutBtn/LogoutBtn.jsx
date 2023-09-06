@@ -36,7 +36,7 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick,dataUser,aut
             <p>Are you sure you want to log out?</p>
             <div className={styles.modal__info_div}>
             <button className={styles.logoutButton_modal} onClick={handleLogout}>
-              <Link to={`/registration`}>Logout</Link>
+            <Link to={`/registration`}>Logout</Link>
             </button>
             <button className={styles.cancelButton} onClick={closeModal}>
               Cancel
