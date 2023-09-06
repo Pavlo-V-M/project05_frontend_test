@@ -101,6 +101,6 @@ const Drinkslist = ({ searchParams }) => {
   }
 };
 Drinkslist.propTypes = {
-  categoryValue: PropTypes.func.isRequired,
+  searchParams: PropTypes.func.isRequired,
 };
 export default Drinkslist;

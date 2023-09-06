@@ -126,7 +126,7 @@ const Filter = ({ setSearchParams }) => {
   );
 };
 Filter.propTypes = {
-  categoryValue: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
 };
 
 export default Filter;
