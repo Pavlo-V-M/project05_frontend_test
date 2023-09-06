@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { fetchAuth, fetchRegister } from 'redux/slices/auth';
+import BackgroundComponent from "components/shared/Background/Background";
 import {
   GoEyeClosed,
   GoEye,
@@ -72,6 +73,7 @@ const AuthForm = ({ isRegistration }) => {
   const passwordlPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$/;
 
   return (
+    <BackgroundComponent>
     <div>
       <div className={css.auth_form}>
       <h2 className={css.title}>{isRegistrationMode ? 'Registration' : 'Sign In'}</h2>
@@ -194,6 +196,7 @@ const AuthForm = ({ isRegistration }) => {
         <div className={css.image_half}></div>
       </div>
     </div>
+    </BackgroundComponent>
   );
 };
 

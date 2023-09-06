@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import css from './welcome-page.module.scss';
-
+import BackgroundComponent from "components/shared/Background/Background";
 const Welcome = ()=> {
     return(
+        <BackgroundComponent>
         <div className={css.welcome_page}>
             <div className={css.welcome_form}>
                 <h1 className={css.title}>Welcome to the app!</h1>
@@ -17,8 +18,12 @@ const Welcome = ()=> {
                     </Link>
                 </div>
             </div>
+         
             <div className={css.image_half}></div>
+            
+          
         </div>
+        </BackgroundComponent>
     )
 }
 export default Welcome;
