@@ -6,8 +6,11 @@ import { useDispatch } from 'react-redux';
 import { setNumberCards } from './redux/numberCardsSlice';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
+import { useSearchParams } from 'react-router-dom';
 
 const Drinks = () => {
+  const [searchParams, setSearchParams] = useSearchParams('');
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +30,8 @@ const Drinks = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Drinks</h1>
-      <Filter />
-      <DrinksList />
+      <Filter setSearchParams={setSearchParams} />
+      <DrinksList searchParams={searchParams} />
       <NotificationContainer />
     </div>
   );

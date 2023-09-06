@@ -8,22 +8,20 @@ import { useDispatch } from 'react-redux';
 import { setFilterValue } from './redux/filterSlice';
 import { fetchCategories } from './Api/getCategories';
 import { fetchIngredients } from './Api/getIngredients';
-import { useSearchParams } from 'react-router-dom';
 import 'react-notifications/lib/notifications.css';
+import PropTypes from 'prop-types';
 import { NotificationManager } from 'react-notifications';
 
-const Filter = () => {
+const Filter = ({ setSearchParams }) => {
   const [isSelectOpenIngridients, setIsSelectOpenIngridients] = useState(false);
   const [isSelectOpenCategories, setIsSelectOpenCategories] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams('');
   const [ingredient, setIngredient] = useState('');
   const [category, setCategory] = useState('');
   const [tittleIngridients, setTittleIngridients] = useState(false);
   const [tittleCategories, setTittleCategories] = useState(false);
-  const dispatch = useDispatch();
 
-  console.log(searchParams.get('query'));
+  const dispatch = useDispatch();
 
   const setCategoryValue = value => {
     setCategory(value);
@@ -126,6 +124,9 @@ const Filter = () => {
       </div>
     </div>
   );
+};
+Filter.propTypes = {
+  categoryValue: PropTypes.func.isRequired,
 };
 
 export default Filter;
