@@ -21,6 +21,7 @@ const [id, setId] = useState('');
 const [usersId, setUsersId]= useState([]);
 
 const { recipeId } = useParams();
+const [favorite, setFavorite] =useState(false)
 
   useEffect(() => {
         if (recipeId === '') {
@@ -42,43 +43,45 @@ const { recipeId } = useParams();
     
           setUsersId(data.usersId);
           
-          console.log(usersId.includes(id))
           setLoading(false);
         });
       };
-   
-
       const onDeleteFavorites = recipeId => {
+     
         dispatch(deleteFavorites(recipeId));
-        ;
+        fetchRecipeDetails();
+        setFavorite(false)
       };
-      const handleFavButton = recipeId=> {dispatch(addFavorites(recipeId))
-       };
+      const handleFavButton = recipeId=> {
+        dispatch(addFavorites(recipeId)); 
+        fetchRecipeDetails();
+        setFavorite(true)  };
+
+     
       const email = useSelector(state => state.auth.data.user.email);
     const fetchUserID = () => {
       setLoading(true);
       FetchId(email).then(data => {
         setId(data);
-        // console.log(id);
+     
         setLoading(false);
       });
     };
-
+   
       return (
         <div className={css.recipe_container}>
          
-          {loading && <div>...Loading</div>}
+          {/* {loading && <div>...Loading</div>} */}
           <div className={css.recipe_details}>
           <div className={css.recipe_details_main}>
           <p className={css.recipe_glass}>{recipe.glass}</p>
           <h2 className={css.recipe_title}>{recipe.drink}</h2>
           <p className={css.recipe_about}> { recipe.description? recipe.drink: "Do you want to mix up some quick and easy cocktail at home? This recipe is for you."}  </p>
           <div>
-         {usersId && usersId.includes(id)? <RemoveButton  id={recipeId} onDeleteFavorites={onDeleteFavorites} />: <AddButton id={recipeId} handleFavButton={handleFavButton}/>} 
+         { favorite || usersId.includes(id)  ? <RemoveButton  id={recipeId} onDeleteFavorites={onDeleteFavorites} />: <AddButton id={recipeId} handleFavButton={handleFavButton}/>} 
         </div>
 
-          {/* <button className={css.add_button} type ="button" onClick={handleFavButton()}>         
-             Add to favorite recipe</button> */}
+          
           </div>
           <img 
       
