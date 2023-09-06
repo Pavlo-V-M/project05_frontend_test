@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { fetchCategories } from '../../api/DrinkPage/getCategories';
-import styles from '../style/DrinksPage.module.scss';
+import styles from '../styles/DrinksPage.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilterValue } from '../redux/filterSlice';
