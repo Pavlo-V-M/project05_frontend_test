@@ -2,7 +2,7 @@ import styles from '../styles/DrinksPage.module.scss';
 import ReactPaginate from 'react-paginate';
 import DrinksCard from '../DrinksCard/DrinksCard';
 import { useState, useEffect } from 'react';
-import { fetchRecipets } from '../../../shared/api/DrinkPage/getRecipets';
+import { fetchRecipets } from '../Api/getRecipets';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDataRecipets, getDataRecipets } from '../redux/recipetsSlice';
 import { getFilterValue } from '../redux/filterSlice';

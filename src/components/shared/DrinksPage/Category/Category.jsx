@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-// import { fetchCategories } from 'components/shared/api/DrinkPage/getCategories';
+import { fetchCategories } from 'components/shared/DrinksPage/Api/getCategories';
 // import { fetchCategories } from '../../api/DrinkPage/getCategories';
 import styles from '../styles/DrinksPage.module.scss';
 import { useEffect, useState } from 'react';
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setFilterValue } from '../redux/filterSlice';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { fetchCategories } from 'components/services/Api';
+// import { fetchCategories } from 'components/services/Api';
 
 const STATUS = {
   IDLE: 'idle',
