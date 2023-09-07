@@ -33,9 +33,9 @@ export async function PatchDataHeader(avatarFile,name) {
 }
 
 
-export async function FetchById(id) {
+export async function FetchById() {
   try {
-    const response = await instance.get(`api/auth/${id}`, {
+    const response = await instance.get(`api/auth/`, {
       headers: {
         Authorization: `Bearer ${localStorage.token}`,
       },

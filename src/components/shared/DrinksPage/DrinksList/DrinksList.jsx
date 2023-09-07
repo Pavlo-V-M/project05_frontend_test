@@ -1,6 +1,7 @@
 import styles from '../styles/DrinksPage.module.scss';
 import PaginatedItems from '../Pagination/Pagination';
-import { fetchRecipets } from '../../api/DrinkPage/getRecipets';
+import { fetchRecipets } from 'components/shared/DrinksPage/Api/getRecipets';
+// import { fetchRecipets } from '../../api/DrinkPage/getRecipets';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterValue } from '../redux/filterSlice';
