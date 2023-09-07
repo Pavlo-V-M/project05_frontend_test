@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import './select-styles.scss';
 
-const FilterCategory = ({ categories, onSelect }) => {
+const FilterCategory = ({ categories, onSelect, clearValue }) => {
   const handleCategoryChange = selectedOption => {
     onSelect(selectedOption.value);
   };
@@ -16,6 +16,7 @@ const FilterCategory = ({ categories, onSelect }) => {
       classNamePrefix="react-select"
       placeholder="Category"
       name="category"
+      value={clearValue}
       onChange={handleCategoryChange}
       required
     />

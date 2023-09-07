@@ -9,7 +9,7 @@ import { ReactComponent as Minus } from '../../../../images/addRecipe/Minus.svg'
 
 export const RecipeIngredientsFields = ({
   onSelectIngredients,
-  // onSelectMeasure,
+  clearValue,
 }) => {
   const [count, setCount] = useState(1);
   const [ingredients, setIngredients] = useState([ingredientsList]);
@@ -40,7 +40,6 @@ export const RecipeIngredientsFields = ({
       return newState;
     });
   };
-
   // const handleMeasureChange = selectedOption => {
   //   onSelectMeasure(state => {
   //     return {
@@ -73,6 +72,7 @@ export const RecipeIngredientsFields = ({
                 return { value: 'ingredient', label: title };
               })}
               name="ingredients"
+              value={clearValue}
               onChange={handleIngredientsChange}
               className="ingredient"
               classNamePrefix="react-select-ingredient"
@@ -80,9 +80,17 @@ export const RecipeIngredientsFields = ({
             />
             <Select
               options={[
-                { label: '1 cl', value: 'measure' },
-                { label: '100 cl', value: 'measure' },
+                { label: 'cl', value: 'measure' },
+                { label: 'oz', value: 'measure' },
+                { label: 'tsp', value: 'measure' },
+                { label: 'tblsp', value: 'measure' },
+                { label: 'part', value: 'measure' },
+                { label: 'ml', value: 'measure' },
+                { label: 'shot', value: 'measure' },
+                { label: 'cubes', value: 'measure' },
+                { label: 'cups', value: 'measure' },
               ]}
+              value={clearValue}
               name="measure"
               onChange={handleIngredientsChange}
               className="value"
