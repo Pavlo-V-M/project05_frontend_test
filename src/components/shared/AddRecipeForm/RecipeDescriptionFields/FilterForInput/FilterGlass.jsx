@@ -3,10 +3,11 @@ import Select from 'react-select';
 import './select-styles.scss';
 
 const FilterGlass = ({ glasses, onSelect }) => {
-  const handleGlassChange = (selectedOption) => {
+  const handleGlassChange = selectedOption => {
     onSelect(selectedOption.value);
+    console.log(selectedOption.value);
   };
-  
+
   return (
     <Select
       options={glasses.map(({ _id, glass }) => {
@@ -15,6 +16,7 @@ const FilterGlass = ({ glasses, onSelect }) => {
       className="filter"
       classNamePrefix="react-select"
       placeholder="Glass"
+      name="glass"
       onChange={handleGlassChange}
       required
     />

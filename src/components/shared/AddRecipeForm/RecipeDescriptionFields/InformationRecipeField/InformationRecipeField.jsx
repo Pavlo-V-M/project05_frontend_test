@@ -1,8 +1,21 @@
 import React from 'react';
 
-const InputField = ({ name, value, text, onChange, ...otherProps }) => {
+const InputField = ({
+  name,
+  value,
+  text,
+  onChange,
+  setTitle,
+  ...otherProps
+}) => {
   const handleChange = event => {
- return (event.target.value);
+    console.dir(event.target.name);
+    setTitle(state => {
+      return {
+        ...state,
+        [event.target.name]: event.target.value,
+      };
+    });
   };
 
   return (
