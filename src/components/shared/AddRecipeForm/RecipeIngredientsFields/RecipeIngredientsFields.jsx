@@ -1,25 +1,19 @@
 import { useState } from 'react';
+import Select from 'react-select';
 import { ingredientsList } from './ingredientsList';
 import css from './RecipeIngredientsFields.module.scss';
-import Select from 'react-select';
 import './react-select.scss';
 import { ReactComponent as X } from '../../../../images/addRecipe/X.svg';
 import { ReactComponent as Plus } from '../../../../images/addRecipe/Plus.svg';
 import { ReactComponent as Minus } from '../../../../images/addRecipe/Minus.svg';
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' }
-// ]
 
-// const MyComponent = () => (
-//   <Select options={options} />
-// )
-
-export const RecipeIngredientsFields = () => {
+export const RecipeIngredientsFields = ({
+  onSelectIngredients,
+  onSelectMeasure,
+}) => {
   const [count, setCount] = useState(1);
   const [ingredients, setIngredients] = useState([ingredientsList]);
-  // const [selectValue, setSelectValue] = useState('');
+
   const plusButtonHandler = () => {
     setCount(count + 1);
     setIngredients(prevState => [...prevState, [...ingredientsList]]);
@@ -39,14 +33,23 @@ export const RecipeIngredientsFields = () => {
     });
   };
 
-  // const handleChange = event => {
-  //   console.log(event.target.value);
-  // };
-
-  console.log(ingredients.map((ingredient, index, arr) => arr[index]));
+  const handleIngredientsChange = selectedOption => {
+    onSelectIngredients(state => {
+      const newState = [...state];
+      newState.push({ [selectedOption.value]: selectedOption.label });
+      return newState;
+    });
+  };
+  const handleMeasureChange = selectedOption => {
+    onSelectMeasure(state => {
+      return {
+        ...state,
+        [selectedOption.label]: selectedOption.value,
+      };
+    });
+  };
 
   return (
-    // <div className="container">
     <div className={css.container}>
       <div className={css.title_thumb}>
         <h2 className={css.title}>Ingredients</h2>
@@ -60,24 +63,27 @@ export const RecipeIngredientsFields = () => {
           </button>
         </div>
       </div>
-      {/* With react-select */}
       <div className={css.select_thumb}>
         {ingredients?.map((arr, index) => (
           <div className={css.one_select_thumb} key={index}>
             <Select
               key={index}
               options={arr.map(({ title, _id: key }) => {
-                return { value: title, label: title };
+                return { value: 'ingredient', label: title };
               })}
+              name="ingredients"
+              onChange={handleIngredientsChange}
               className="ingredient"
               classNamePrefix="react-select-ingredient"
               placeholder={'Choose ingredient'}
             />
             <Select
               options={[
-                { value: '1 cl', label: '1 cl' },
-                { value: '100 cl', label: '100 cl' },
+                { label: '1 cl', value: 'measure' },
+                { label: '100 cl', value: 'measure' },
               ]}
+              name="measure"
+              onChange={handleIngredientsChange}
               className="value"
               classNamePrefix="react-select-value"
               placeholder={'Vol.'}
