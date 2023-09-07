@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { addFavorites, deleteFavorites } from 'redux/favoriteCocktails/favorites-operations';
-
+import { fetchRecipes } from 'redux/recipes/recipes-operations';
 import {useParams} from 'react-router-dom';
 import PreparationCocktail from '../../../images/PreparationCocktail.jpg';
 import { AddButton, RemoveButton } from './AddButton';
@@ -12,6 +12,7 @@ import fetchDetails from '../api/RecipeById/apiRecipeById';
 import cocktailGlass from '../../../images/cocktailglass.jpg';
 import { FetchId } from '../api/RecipeById/apiRecipeById';
 import Loader from '../Loader/Loader';
+import { getMyRecipes } from 'redux/recipes/recipes-selectors';
 const RecipeDetails = ()=> {
     const dispatch = useDispatch();
   
@@ -47,6 +48,15 @@ const [favorite, setFavorite] =useState(false)
           setLoading(false);
         });
       };
+
+      
+      useEffect(() => {
+        dispatch(fetchRecipes());
+      }, [dispatch]);
+      const items = useSelector(getMyRecipes);
+     const myItem = items.map(item=> item._id);
+
+
       const onDeleteFavorites = recipeId => {
      
         dispatch(deleteFavorites(recipeId));
@@ -78,9 +88,11 @@ const [favorite, setFavorite] =useState(false)
           <p className={css.recipe_glass}>{recipe.glass}</p>
           <h2 className={css.recipe_title}>{recipe.drink}</h2>
           <p className={css.recipe_about}> { recipe.description? recipe.drink: "Do you want to mix up some quick and easy cocktail at home? This recipe is for you."}  </p>
-          <div>
-         { favorite || usersId.includes(id)  ? <RemoveButton  id={recipeId} onDeleteFavorites={onDeleteFavorites} />: <AddButton id={recipeId} handleFavButton={handleFavButton}/>} 
-        </div>
+         {myItem.includes(recipeId) ? <div></div> :
+          (<div>
+          { favorite || usersId.includes(id)  ? <RemoveButton  id={recipeId} onDeleteFavorites={onDeleteFavorites} />: <AddButton id={recipeId} handleFavButton={handleFavButton}/>} 
+         </div>)  }
+         
 
           
           </div>
