@@ -4,8 +4,8 @@
   min-height: 100vh;
   overflow: hidden;
 } */
-  
-  /* .gradient {
+
+/* .gradient {
     flex: 1; 
     background: linear-gradient(to right, rgb(9, 1, 43), black);
     position: absolute;
@@ -58,50 +58,71 @@
     background-color: rgba(64, 112, 205, 0.5);
   }
    */
-  
-  
 
-
-  .bgContainer {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    /* display: flex;
+.bgContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
-    margin: 0 auto; 
-    box-sizing: border-box;
-    background-color: #0a0a11;
-    color: #f3f3f3;
-    overflow: hidden;
-  } 
-  
-  .gradient {
-    position: absolute;
-    top: 5.5em;
-    left: 0;
-    width: 387px;
-    height: 381px;
-    flex-shrink: 0;
-    /* border-radius: 387px; */
-    background: rgba(188, 230, 210, 0.4);
-    filter: blur(104.8543701171875px); 
-  } 
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #0a0a11;
+  color: #f3f3f3;
+  overflow: hidden;
+}
 
-  .ellipse1 {
-    position: absolute;
-    left: -80%;
-    top: 1.25em;
-    width: 520px;
-    height: 550px;
-    flex-shrink: 0;
-    border-radius: 550px;
-    background: rgba(64, 112, 205, 0.5);
-    filter: blur(104.8543701171875px);
-  } 
-.ellipse2 {
-    display: none;
+.gradient {
+  position: absolute;
+  top: 5.5em;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  /* border-radius: 387px; */
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+  z-index: 1;
+
+  @media screen and (min-width: 768px) {
+    width: 235px;
+    height: 240px;
   }
-  .ellipse3 {
-    display: none;
-  } 
+}
+
+.ellipse1 {
+  position: absolute;
+  left: -50%;
+  top: 1.25em;
+  width: 520px;
+  height: 550px;
+  flex-shrink: 0;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+  z-index: 2;
+
+  @media screen and (min-width: 768px) {
+    left: -30%;
+  }
+}
+.ellipse2 {
+  display: none;
+}
+.ellipse3 {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+  z-index: 2;
+
+  @media screen and (max-width: 768px) {
+    left: -30%;
+  }
+}
