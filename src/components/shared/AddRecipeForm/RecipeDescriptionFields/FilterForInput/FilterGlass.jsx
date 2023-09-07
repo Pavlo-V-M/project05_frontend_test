@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import './select-styles.scss';
 
-const FilterGlass = ({ glasses, onSelect }) => {
+const FilterGlass = ({ glasses, onSelect, clearValue }) => {
   const handleGlassChange = selectedOption => {
     onSelect(selectedOption.value);
     console.log(selectedOption.value);
@@ -17,6 +17,7 @@ const FilterGlass = ({ glasses, onSelect }) => {
       classNamePrefix="react-select"
       placeholder="Glass"
       name="glass"
+      value={clearValue}
       onChange={handleGlassChange}
       required
     />

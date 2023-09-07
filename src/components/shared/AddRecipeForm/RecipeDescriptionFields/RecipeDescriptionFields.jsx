@@ -18,6 +18,7 @@ const RecipeDescriptionFields = () => {
   const [selectedGlass, setSelectedGlass] = useState('');
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [prepatarion, setPreparation] = useState('');
+  const [clearValue, setClearValue] = useState();
 
   useEffect(() => {
     if (categories.length === 0 && glasses.length === 0) {
@@ -42,7 +43,7 @@ const RecipeDescriptionFields = () => {
   };
   const onSubmitHandler = async event => {
     event.preventDefault();
-
+    const form = event.currentTarget;
     const ingredients = selectedIngredients.filter(item => item.ingredient);
     const measure = selectedIngredients.filter(item => item.measure);
 
@@ -68,6 +69,9 @@ const RecipeDescriptionFields = () => {
       describe: prepatarion,
     };
     instance.post('/own', data);
+    form.reset();
+    setClearValue(null);
+    return;
   };
 
   return (
@@ -93,11 +97,13 @@ const RecipeDescriptionFields = () => {
           />
           <div className={styles.inputFilter}>
             <FilterCategory
+              clearValue={clearValue}
               value={selectedCategory}
               categories={categories}
               onSelect={handleCategorySelect}
             />
             <FilterGlass
+              clearValue={clearValue}
               glasses={glasses}
               value={selectedGlass}
               onSelect={handleGlassSelect}
@@ -105,7 +111,10 @@ const RecipeDescriptionFields = () => {
           </div>
         </div>
       </div>
-      <RecipeIngredientsFields onSelectIngredients={setSelectedIngredients} />
+      <RecipeIngredientsFields
+        onSelectIngredients={setSelectedIngredients}
+        clearValue={clearValue}
+      />
       <RecipePreparation setPreparation={setPreparation} />
     </form>
   );
