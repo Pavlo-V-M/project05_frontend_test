@@ -3,17 +3,18 @@ import addImage from '../../../../../images/addRecipe/addImage.png';
 // import { addCocktailImg } from '../../../../services/Api';
 import styles from './AddImage.module.scss';
 
-const AddImage = () => {
+const AddImage = ({ setFile }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const defaultImage = `${addImage}`;
 
   const handleFileChange = async event => {
     const file = event.target.files[0];
     setSelectedFile(file);
-
+    setFile(file);
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
+      setFile(formData.append('file', file));
       // addCocktailImg(formData).catch(error => error.message);
     }
   };
