@@ -13,7 +13,7 @@ const RecipeDescriptionFields = () => {
   const [categories, setCategories] = useState([]);
   const [glasses, setGlasses] = useState([]);
   const [title, setTitle] = useState({});
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedGlass, setSelectedGlass] = useState('');
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -74,7 +74,9 @@ const RecipeDescriptionFields = () => {
     <form onSubmit={onSubmitHandler} className={styles.AddRecipeFormWrap}>
       <div className={styles.imgFieldWrapper}>
         <div>
-          <AddImage setFile={setSelectedFile} />
+          <AddImage
+          // setFile={setSelectedFile}
+          />
         </div>
         <div className={styles.inputWrapper}>
           <InputField
