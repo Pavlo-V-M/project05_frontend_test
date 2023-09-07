@@ -1,0 +1,13 @@
+.container {
+    @media screen and (min-width:1440px) {
+        display: flex;
+        justify-content:space-between;
+    }
+    
+}
+.right {
+    @media screen and (min-width:1440px) {
+        display: block;
+  margin-top: 288px;
+    }
+}

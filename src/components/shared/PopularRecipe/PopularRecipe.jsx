@@ -25,7 +25,7 @@ const PopularRecipes = () => {
 
   return (
     <>
-      <div className="container">
+      <div className={styles.container}>
         <h3 className={styles.popularTitle}>Popular recipe</h3>
         {popularRecipes ? (
           <ul className={styles.popularList} onClick={linkClick}>
