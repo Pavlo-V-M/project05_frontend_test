@@ -26,6 +26,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 32px;
+		
 	}
 
 	@media (min-width: 1440px) {
@@ -83,7 +84,9 @@
 		line-height: calc(20/14);
 	}
 }
-
+.link{
+text-decoration: none;
+}
 .container{
 	@media (max-width: 768px) {
 		display: block;
