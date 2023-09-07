@@ -21,7 +21,7 @@ const FavoritesPage = () => {
     }, [dispatch]);			
   return (			
     <Container>			
-      <MainPageTitle title="Favorites" />	
+      <MainPageTitle text="Favorites" />	
     {items.length === 0 ? (			
     <NoFavoriteCocktail title="You haven't added any favorite cocktails yet" />			
     ): (	
