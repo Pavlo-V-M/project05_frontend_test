@@ -15,7 +15,7 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick,dataUser,aut
   const handleLogout = async () => {
     try {
       
-      await dispatch(logout(dataUser));
+      await dispatch(logout(dataUser._id));
       console.log("Sucssesfull")
       localStorage.clear()
      
@@ -36,7 +36,7 @@ const LogoutBtn = ({ isOpen, closeModal, openModal,handleModalClick,dataUser,aut
             <p>Are you sure you want to log out?</p>
             <div className={styles.modal__info_div}>
             <button className={styles.logoutButton_modal} onClick={handleLogout}>
-            <Link to={`/registration`}>Logout</Link>
+            <Link className={styles.logoutButton_link} to={`/registration`}>Logout</Link>
             </button>
             <button className={styles.cancelButton} onClick={closeModal}>
               Cancel

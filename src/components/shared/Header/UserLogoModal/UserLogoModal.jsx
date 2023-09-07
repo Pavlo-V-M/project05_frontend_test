@@ -41,13 +41,18 @@ const [isModalOpen, setIsModalOpen] = useState(false);
        </button>
     {isModalOpen && (
         <div className={styles["modal-overlay"]}>
-          <div className={styles.backdrop} onClick={() => closeModal()}></div> 
-        <div className={`${styles.modal} ${isModalOpen ? styles.slideIn : styles.slideOut}`}>
-           <button className={styles["close-button"]} onClick={closeModal}>
-            <SvgButtonClose  />
-            </button>     
+          
+          <div className={styles.backdrop} onClick={() => closeModal()}></div>
+          
+        <div className={styles.modal}>
+            <div className="Background_gradient__kwHBf"></div>
+            <div className={`${styles.modal__logo_div} ${isModalOpen ? styles.slideIn : styles.slideOut}`}>
             <Navigation onClose={closeModal} />
-        </div>
+            </div>
+            <button className={styles["close-button"]} onClick={closeModal}>
+            <SvgButtonClose />
+            </button>   
+          </div>
     </div>
 )}
       </div>
