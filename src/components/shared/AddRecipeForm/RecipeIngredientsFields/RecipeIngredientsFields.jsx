@@ -9,7 +9,7 @@ import { ReactComponent as Minus } from '../../../../images/addRecipe/Minus.svg'
 
 export const RecipeIngredientsFields = ({
   onSelectIngredients,
-  onSelectMeasure,
+  // onSelectMeasure,
 }) => {
   const [count, setCount] = useState(1);
   const [ingredients, setIngredients] = useState([ingredientsList]);
@@ -40,14 +40,15 @@ export const RecipeIngredientsFields = ({
       return newState;
     });
   };
-  const handleMeasureChange = selectedOption => {
-    onSelectMeasure(state => {
-      return {
-        ...state,
-        [selectedOption.label]: selectedOption.value,
-      };
-    });
-  };
+
+  // const handleMeasureChange = selectedOption => {
+  //   onSelectMeasure(state => {
+  //     return {
+  //       ...state,
+  //       [selectedOption.label]: selectedOption.value,
+  //     };
+  //   });
+  // };
 
   return (
     <div className={css.container}>
