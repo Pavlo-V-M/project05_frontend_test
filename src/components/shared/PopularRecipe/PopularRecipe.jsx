@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import styles from './PopularRecipe.module.scss';
 import { getPopularRecipes } from './popularRecipesApi';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PopularRecipes = () => {
   const [popularRecipes, setPopularRecipes] = useState(null);
@@ -25,13 +26,14 @@ const PopularRecipes = () => {
 
   return (
     <>
-      <div className="container">
+      <div className={styles.popular}>
         <h3 className={styles.popularTitle}>Popular recipe</h3>
         {popularRecipes ? (
           <ul className={styles.popularList} onClick={linkClick}>
             {popularRecipes.map(data => {
               return (
-                <li key={data._id} className={styles.popularItem} id={data._id}>
+                <li className={styles.popularItem} key={data._id}  id={data._id}>
+                  <Link className={styles.popularLink} to={`/recipe/${data._id}`}>
                   <img
                     src={data.drinkThumb}
                     alt="Recipe`sPhoto"
@@ -46,7 +48,8 @@ const PopularRecipes = () => {
                     <p className={styles.popularInstruction} id={data._id}>
                       {data.instructions}
                     </p>
-                  </div>
+                  </div></Link>
+                  
                 </li>
               );
             })}

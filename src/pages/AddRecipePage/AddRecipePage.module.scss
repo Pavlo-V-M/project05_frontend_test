@@ -1,0 +1,43 @@
+.addRecipeRight {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.addRecipeTitle{
+    font-family: inherit;
+    color: var(--primary-text-color);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.19;
+    margin-bottom: 40px;
+    margin-top: 80px;
+  
+    @media (min-width: 768px) {
+      font-size: 56px;
+      line-height: 1.07;
+      margin-bottom: 60px;
+      margin-top: 140px;
+    }
+    @media (min-width: 1440px) {
+      font-size: 64px;
+      margin-bottom: 62px;
+      margin-top: 158px;
+    }
+}
+
+.AddRecipePageWrapper {
+
+
+    @media (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 32px;
+	}
+
+	@media (min-width: 1440px) {
+		display: flex;
+    gap: 94px;
+	}
+    
+}

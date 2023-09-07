@@ -1,3 +1,11 @@
+.popular {
+	margin-bottom: 80px;
+
+	@media (min-width: 768px) {
+		margin-bottom: 136.5px;
+	}
+}
+
 .popularTitle {
 	margin-bottom: 28px;
 
@@ -37,7 +45,12 @@
 
 .popularItem {
 	height: 90px;
+width: 336px;
+}
 
+.popularLink {
+	height: 90px;
+	text-decoration:none;
 	list-style: none;
 	display: flex;
 	flex-direction: row;

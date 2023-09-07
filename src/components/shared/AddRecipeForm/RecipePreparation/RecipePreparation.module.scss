@@ -1,5 +1,9 @@
 
 .recipePrepTitle {
+  @media (max-width: 767px) {
+		font-size: 39px;
+	}
+  
   margin-bottom: 40px;
   font-family: "Manrope-SemiBold", Helvetica;
   font-size: 40px;
@@ -12,7 +16,11 @@
   display: flex;
   flex-direction: column;
   width: 480px;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
+
+  @media (min-width: 1440px) {
+		padding-bottom: 140px;
+	}
 }
 
 label {
@@ -20,6 +28,11 @@ label {
 }
 
 .textArea {
+  @media (max-width: 767px) {
+		width: 335px;
+	}
+
+
   width: 480px;
   height: 184px;
   resize: none;
@@ -46,7 +59,7 @@ label {
 }
 
 .recipePrepBtn {
-  align-self: flex-end;
+  align-self: flex-start;
   border-radius: 42px;
   border: none;
   

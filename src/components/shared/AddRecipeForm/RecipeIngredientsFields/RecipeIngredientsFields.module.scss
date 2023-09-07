@@ -1,7 +1,11 @@
 .container {
-  margin-left: auto;
-  margin-right: auto;
   padding: 0 20px 0 0;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 80px;
+  }
+
+  
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
