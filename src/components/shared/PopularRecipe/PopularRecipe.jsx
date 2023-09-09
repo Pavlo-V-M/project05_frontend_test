@@ -31,8 +31,9 @@ const PopularRecipes = () => {
           <ul className={styles.popularList} onClick={linkClick}>
             {popularRecipes.map(data => {
               return (
-                <Link className={styles.link} to={`/recipe/${data._id}`}>
+               
                 <li key={data._id} className={styles.popularItem} id={data._id}>
+                   <Link className={styles.link} to={`/recipe/${data._id}`}>
                   <img
                     src={data.drinkThumb}
                     alt="Recipe`sPhoto"
@@ -48,8 +49,9 @@ const PopularRecipes = () => {
                       {data.instructions}
                     </p>
                   </div>
+                  </Link>
                 </li>
-                </Link>
+              
               );
             })}
           </ul>
